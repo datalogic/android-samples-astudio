@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/action_release_listeners"
+        android:orderInCategory="102"
+        android:title="Release all listeners"/>
+    <item
+        android:id="@+id/action_register_listeners"
+        android:orderInCategory="102"
+        android:title="Register all listeners"/>
+
+</menu>
