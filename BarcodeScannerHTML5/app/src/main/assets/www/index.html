@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="scanner">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="css/style.css" rel="stylesheet" type="text/css"> 
+    <link href="lib/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/ngTouch.min.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+    <div id="main-content">
+
+        <div class="barcode-container"
+            ng-class="{'scanning': isScanning}">
+            <!-- Drawable area of the barcode, laser and green spot -->
+            <div id="bars-container">
+
+                <div class="barcode-preview">
+                  <p ng-show="url"><a ng-href="{{ barcode }}">{{ barcode }}</a></p>
+                  <p ng-show="!url">{{ barcode }}</p>
+                </div>
+
+                <div class="laser"></div>
+                <div class="good-read" ng-show="goodRead"></div>
+            </div>
+
+            <!-- Bottom label with info -->
+            <div id="barcode-result">
+              <p id="barcode" ng-click="showModal()">
+                <i class="fa fa-{{ mimeIcon }}" ng-show="mimeIcon"></i>
+                {{ barcode }}
+              </p>
+              <p ng-click="showModal()"><small>
+                {{ barcodeInfo || '&nbsp;' }}
+                </small></p>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Scan button -->
+    <div id="scan-container">
+        <button id="scan"
+          ng-touchstart="startScan()"
+          ng-touchend="stopScan()"
+        >Scan</button>
+    </div>
+
+    <!-- Modal window to show settings menu -->
+    <div id="modal-overlay" ng-click="hideModal()"
+        ng-show="modalVisible">
+      <div id="modal-container">
+        <p class="barcode-info-modal">{{ barcodeInfo }}</p>
+        <p class="barcode-modal">{{ barcode }}</p>
+      </div>
+    </div>
+
+    <!-- Settings button -->
+    <button id="settings" style="display:none;"></button>
+    
+    <!-- Last scanned barcodes -->
+    <ul id="store">
+      <li class="slidein"
+        ng-repeat="code in store track by $index">{{ code }}</li>
+    </ul>
+    
+    <script src="js/uri.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
