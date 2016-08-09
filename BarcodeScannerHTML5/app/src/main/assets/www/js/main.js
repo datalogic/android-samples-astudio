@@ -77,7 +77,7 @@ MainCtrl = function($scope, $timeout, $sce) {
   /**
    * Init a fake barcode scanner if a decoder is not available
    */
-  if (!('BarcodeManager' in window) || settings.fakeScan) {
+  if (!('BarcodeManager' in window)) {
     console.warn("Using a fake scanner");
     BarcodeManager = {
       
