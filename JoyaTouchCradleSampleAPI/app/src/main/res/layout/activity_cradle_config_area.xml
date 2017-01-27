@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".CradleConfigAreaActivity" >
+
+	<GridView
+	    android:id="@+id/configValuesGrid"
+	    android:layout_alignParentTop="true"
+	    android:layout_above="@+id/layoutReadWriteConfigValues"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="5dp"
+	    android:drawSelectorOnTop="true"
+	    android:fastScrollEnabled="true"
+	    android:horizontalSpacing="10dp"
+	    android:numColumns="4"
+	    android:stretchMode="columnWidth"
+	    android:verticalSpacing="10dp">
+	</GridView>
+	
+	<LinearLayout
+	    android:id="@id/layoutReadWriteConfigValues"
+	    android:weightSum="2"
+	    android:layout_alignParentBottom="true"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    style="?android:buttonBarStyle"
+	    android:orientation="horizontal">
+	    
+	    <Button 
+	    	android:id="@+id/buttonReadConfig"
+	    	android:layout_width="0dp"
+	    	android:layout_height="wrap_content"
+	    	android:layout_weight="1"
+	    	style="?android:attr/buttonBarButtonStyle"
+	    	android:text="@string/read"
+	    	android:onClick="readConfig" />
+	    
+	    <Button
+	    	android:id="@+id/buttonWriteConfig"
+	    	android:layout_width="0dp"
+	    	android:layout_height="wrap_content"
+	    	android:layout_weight="1"
+	    	style="?android:attr/buttonBarButtonStyle"
+	    	android:text="@string/write"
+	    	android:onClick="writeConfig" />
+	    
+	</LinearLayout>
+
+</RelativeLayout>
