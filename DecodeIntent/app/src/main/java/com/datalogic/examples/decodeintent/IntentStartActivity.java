@@ -38,8 +38,8 @@ public class IntentStartActivity extends Activity {
 
 		// Which Barcode type?
 		String type = intent.getStringExtra(IntentWedgeSample.EXTRA_TYPE);
-		// What is the result?
-		String data = intent.getStringExtra(IntentWedgeSample.EXTRA_DATA);
+		// Get the Barcode value
+		String data = intent.getStringExtra(IntentWedgeSample.EXTRA_DATA_STRING);
 
 		textMsg = (TextView) findViewById(R.id.textResult);
 		textMsg.append("Action: " + action + "\n" 
