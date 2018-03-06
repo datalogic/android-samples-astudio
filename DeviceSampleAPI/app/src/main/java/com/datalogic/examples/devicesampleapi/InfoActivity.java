@@ -75,6 +75,7 @@ public class InfoActivity extends Activity {
 		);
 	}
 
+
 	public String getSDKVersion() {
 		return SYSTEM.SDK_VERSION;
 	}

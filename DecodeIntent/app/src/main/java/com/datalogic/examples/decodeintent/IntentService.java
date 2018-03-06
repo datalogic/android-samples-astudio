@@ -33,7 +33,7 @@ public class IntentService extends Service {
 
 		String type = intent.getStringExtra(IntentWedgeSample.EXTRA_TYPE);
 		// Retrieve result data.
-		String data = intent.getStringExtra(IntentWedgeSample.EXTRA_DATA);
+		String data = intent.getStringExtra(IntentWedgeSample.EXTRA_DATA_STRING);
 
 		NotificationManager notificationManager =
 				(NotificationManager) getSystemService(NOTIFICATION_SERVICE);

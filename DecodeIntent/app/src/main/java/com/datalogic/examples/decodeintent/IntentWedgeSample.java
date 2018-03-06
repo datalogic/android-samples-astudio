@@ -34,6 +34,7 @@ public class IntentWedgeSample extends Activity {
 	// Default Extra contents added to the intent containing results.
 	public static final String EXTRA_DATA = IntentWedge.EXTRA_BARCODE_DATA;
 	public static final String EXTRA_TYPE = IntentWedge.EXTRA_BARCODE_TYPE;
+	public static final String EXTRA_DATA_STRING = IntentWedge.EXTRA_BARCODE_STRING;
 
 	// Action and Category defined in AndroidManifest.xml, associated to a dedicated activity.
 	private static final String ACTION = "com.datalogic.examples.STARTINTENT" ;
@@ -124,7 +125,7 @@ public class IntentWedgeSample extends Activity {
 			if (action.equals(ACTION_BROADCAST_RECEIVER)) {
 
 				// Read content of result intent.
-				String barcode = wedgeIntent.getStringExtra(EXTRA_DATA);
+				String barcode = wedgeIntent.getStringExtra(EXTRA_DATA_STRING);
 
 				showMessage("Received intent broadcast:" + barcode);
 				Log.d(LOGTAG, "Decoding Broadcast Received");

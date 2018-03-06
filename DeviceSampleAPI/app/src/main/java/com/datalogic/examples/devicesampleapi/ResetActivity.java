@@ -42,8 +42,7 @@ public class ResetActivity extends Activity {
 		// Set listArray and bootTypes
 		setArray();
 
-		ArrayAdapter<Object> adapter = new ArrayAdapter<Object>(this,
-				android.R.layout.simple_list_item_1, listArray);
+		ArrayAdapter<Object> adapter = new ArrayAdapter<Object>(this, android.R.layout.simple_list_item_1, listArray);
 		listReset = (ListView) findViewById(R.id.listReset);
 		listReset.setAdapter(adapter);
 		listReset.setOnItemClickListener(new ResetAdapter());
