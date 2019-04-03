@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--color name="colorPrimary">#3F51B5</color-->
+    <color name="colorPrimary">@android:color/white</color>
+    <color name="colorSecondary">@android:color/black</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorBlue">#2a8aff</color>
+    <color name="updateSuccess">#1dd159</color>
+    <color name="updateInProgress">#f19114</color>
+    <color name="updateFailure">#e11b1b</color>
+
+    <color name="batteryLow">#FF0000</color>
+    <color name="batteryMedium">#FFFF00</color>
+    <color name="batteryHigh">#00CC00</color>
+
+    <color name="black_overlay">#66000000</color>
+</resources>
