@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DecodeIntent</string>
+    <string name="activity_result">Decoding by intents!\n\n</string>
+    <string name="title_activity_intent_start">IntentStartActivity</string>
+    <string name="radioActivity_string">Start Activity</string>
+    <string name="radioService_string">Start Service</string>
+    <string name="radioBroadcast_string">Broadcast intent</string>
+    <string name="startBTN">Start decode</string>
+    <string name="stopBTN">Stop decode</string>
+    <string name="initial_hint">Select one of the three different IntentWedge delivery modes.\n\n Now press Start or Stop button.\n
+        Only intents will be used.</string>
+
+</resources>

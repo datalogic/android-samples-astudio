@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+  <LinearLayout android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+	<Button android:layout_width="wrap_content"
+	   android:layout_height="wrap_content"
+	   android:id="@+id/butQR" 
+	   android:text="QR Code"
+	   android:textSize="18sp"/>
+	<Button android:layout_width="wrap_content"
+	   android:layout_height="wrap_content"
+	   android:id="@+id/butProd"
+	   android:text="Product"
+	   android:textSize="18sp"/>
+	<Button android:layout_width="wrap_content"
+	   android:layout_height="wrap_content"
+	   android:id="@+id/butOther"
+	   android:text="Other"
+	   android:textSize="18sp"/>
+  </LinearLayout>
+  <TextView android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:id="@+id/tvStatus" 
+    android:text="Press a button to start a scan."
+    android:textSize="18sp" />
+  <TextView android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:id="@+id/tvResult" 
+    android:text="Ready"
+    android:textSize="18sp"
+    android:background="@android:color/white"
+    android:textColor="@android:color/black"/>
+</LinearLayout>

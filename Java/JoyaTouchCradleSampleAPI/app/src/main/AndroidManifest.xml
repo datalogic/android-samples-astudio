@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.datalogic.examples.joyatouchcradlesampleapi"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="16" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light"
+        android:name="JoyaTouchCradleApplication">
+
+	    <uses-library
+	        android:name="com.datalogic.device"
+	        android:required="true" />
+	    
+	    <uses-library 
+	        android:name="com.datalogic.extension.selfshopping" 
+	        android:required="true" />
+
+        <activity
+            android:name="JoyaTouchCradleAPITest"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="GetCradleStateActivity"
+            android:label="@string/title_activity_get_cradle_state">
+        </activity>
+        
+        <activity 
+            android:name="ControlCradleLEDActivity" 
+            android:label="@string/title_activity_led">
+        </activity>
+        
+        <activity 
+            android:name="ControlCradleLockActivity" 
+            android:label="@string/title_activity_lock">
+        </activity>
+        
+        <activity 
+            android:name="CradleConfigAreaActivity" 
+            android:label="@string/title_activity_config_area">
+        </activity>
+        
+        <activity 
+            android:name="CradleCustomAreaActivity" 
+            android:label="@string/title_activity_custom_area">
+        </activity>
+        
+    </application>
+
+</manifest>

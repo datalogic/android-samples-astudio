@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DeviceSampleAPI</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_nfc">NfcActivity</string>
+    <string name="txt_hint_nfc">Enable or disable NFC, then check it under settings.</string>
+    <string name="title_activity_battery">Battery Activity</string>
+    <string name="txt_hint_battery">Battery informations can be retrieved through Datalogic APIs and Android APIs.</string>
+    <string name="title_activity_info">Info Activity</string>
+    <string name="txt_hint_info">Datalogic device info can be accessed through APIs.</string>
+    <string name="title_activity_location">LocationActivity</string>
+    <string name="txt_hint_location">Change location mode, then check it under settings.</string>
+    <string name="title_activity_notification">NotificationActivity</string>
+    <string name="txt_hint_notification">Turn on/off device LEDs.</string>
+    <string name="title_activity_touch">TouchActivity</string>
+    <string name="title_activity_reset">ResetActivity</string>
+    <string name="txt_hint_reset">Select one of the following items to permform a specific reset.</string>
+    <string name="btnTouch">Lock Touch for 2 Seconds</string>
+    <string name="title_activity_sleep">SleepActivity</string>
+    <string name="txt_hint_sleep">Power configurations and Wakeup sources can be configured.</string>
+    <string name="action_reset">Reload Activity</string>
+    <string name="txt_thresh_low">Click below to set battery threshold for low level.</string>
+    <string name="txt_thresh_crit">Click below to set battery threshold for critical level.</string>
+    <string name="txt_hint_start">Click below to open an activity.</string>
+
+</resources>

@@ -1,0 +1,218 @@
+<resources>
+
+    <string name="app_name">CradleApp</string>
+
+    <string name="unknown_cradle_type">Unknown Cradle Type</string>
+    <string name="unknown_trolley_type">Unknown Trolley Type</string>
+
+    <string name="current_status">Current Status</string>
+    <string name="in_cradle">In Cradle</string>
+    <string name="in_trolley">In Trolley</string>
+    <string name="extracted">Extracted</string>
+    <string name="wrong_insertion">Wrong Insertion</string>
+    <string name="qi_wireless_pad">Qi&#8482; Wireless Charging Pad</string>
+
+    <string name="cradle_info">Cradle Info</string>
+    <string name="cradle_type_param">Type = %1$s</string>
+    <string name="system_version_param">System Version = %1$s</string>
+    <string name="bootloader_version_param">Bootloader Version = %1$s</string>
+    <string name="insertion_count_param">Insertion Count = %1$s</string>
+    <string name="slot_index_param">Slot Index = %1$s</string>
+    <string name="fast_charge_available_param">Fast Charge Available = %1$s</string>
+    <string name="cradle_type">Type</string>
+    <string name="system_version">APPL Version</string>
+    <string name="bootloader_version">BTLDR Version</string>
+    <string name="insertion_count">Insertion Count</string>
+    <string name="slot_index">Slot Index</string>
+    <string name="fast_charge_available">Fast Charge Available</string>
+
+    <string name="multiple_cradle">3-Slot Cradle</string>
+    <string name="single_cradle">SSD Locking</string>
+    <string name="single_and_multiple_cradle">SSD Locking + 3-Slot Cradle</string>
+    <string name="simplified_single_cradle">SSD Charge Only</string>
+    <string name="unknown_cradle">Unknown</string>
+    <string name="none">None</string>
+    <string name="enabled">Enabled</string>
+    <string name="disabled">Disabled</string>
+
+    <string name="yes_upper_case">YES</string>
+    <string name="no_upper_case">NO</string>
+
+    <string name="lock">Lock</string>
+    <string name="unlock">Unlock</string>
+    <string name="led">Led</string>
+    <string name="unlock_done">Device unlocked successfully</string>
+    <string name="unlock_error">Error unlocking the device</string>
+    <string name="lock_done">Device locked successfully</string>
+    <string name="lock_error">Error locking the device</string>
+    <string name="calibrate">Calibrate</string>
+
+    <string name="fast_charge">Fast Charge</string>
+    <string name="fast_charge_changed">Fast charge changed</string>
+    <string name="config_area_write_error">Error writing config area</string>
+    <string name="config_area_read_error">Error reading config area</string>
+
+    <string name="unlock_notification">Unlock Notification</string>
+    <string name="dialog_unlock_notification_title">Unlock Notification</string>
+    <string name="dialog_unlock_notification_message">Select for which Cradle type you want to see the unlock notification\n</string>
+    <string name="read_unlock_notification_value_error">Error reading unlock notification setting</string>
+    <string name="write_unlock_notification_value_error">Error writing unlock notification setting</string>
+    <string name="write_unlock_notification_value_success">Unlock notification setting written successfully</string>
+
+    <string name="led_smoothness_notification">Notification Led</string>
+    <string name="led_smoothness_notification_message">Smoother on/off transition for the notification LED\n</string>
+
+    <string name="standby_led_notification">Standby Led</string>
+    <string name="standby_led_notification_message">Short LED pulse that is active when there is no device inserted\n</string>
+
+    <string name="wrong_insertion_timeout">Wrong Insertion Timeout</string>
+    <string name="dialog_wrong_insertion_timeout_title">Wrong Insertion Timeout</string>
+    <string name="dialog_wrong_insertion_timeout_message">Please provide the desired insertion timeout in milliseconds\n</string>
+    <string name="read_insertion_timeout_error">Error reading insertion timeout</string>
+    <string name="write_insertion_timeout_success">Insertion timeout written successfully</string>
+    <string name="write_insertion_timeout_error">Error writing insertion timeout</string>
+
+    <string name="unlock_timeout">Unlock Timeout</string>
+    <string name="dialog_unlock_timeout_title">Unlock Timeout</string>
+    <string name="dialog_unlock_timeout_message">Please provide the desired unlock timeout in seconds\n\nThe value needs to be multiple of 5 (from 5 to 420), otherwise it will be rounded and limited to the allowed range\n</string>
+    <string name="unlock_timeout_changed">Unlock timeout changed</string>
+    <string name="unlock_timeout_changed_rounded">Unlock timeout changed (rounded to %1$s)</string>
+    <string name="write_unlock_timeout_error">Error writing unlock timeout</string>
+
+    <string name="firmware_update">Firmware Update</string>
+    <string name="firmware_details">Firmware Details</string>
+    <string name="cradle_details">Cradle Details</string>
+    <string name="invalid_cradle_firmware">Invalid Cradle Firmware</string>
+    <string name="error_while_updating">Error While Updating</string>
+    <string name="updating">Updating&#8230;</string>
+
+    <string name="device_is_in_cradle">The device is in Cradle</string>
+    <string name="calibration_failure">Calibration failed</string>
+
+    <string name="custom_area_manage">Manage Custom Area</string>
+    <string name="custom_area_content">Custom Area Content</string>
+
+    <string name="read">Read</string>
+    <string name="write">Write</string>
+    <string name="clear">Clear</string>
+
+    <string name="success_reading_custom_area">Cradle custom area read successfully</string>
+    <string name="error_reading_custom_area">Error reading the Cradle custom area</string>
+    <string name="success_writing_custom_area">Cradle custom area written successfully</string>
+    <string name="error_writing_custom_area">Error writing the Cradle custom area</string>
+    <string name="success_clearing_custom_area">Cradle custom area cleared successfully</string>
+    <string name="error_clearing_custom_area">Error clearing the Cradle custom area</string>
+    <string name="invalid_custom_area_text">Invalid custom area text</string>
+
+    <string name="menu_import">Import</string>
+    <string name="menu_export">Export</string>
+
+    <string name="import_success">File imported successfully</string>
+    <string name="import_not_done">Import canceled</string>
+    <string name="import_error">Error importing file</string>
+    <string name="export_success_to">File exported successfully to %1$s</string>
+    <string name="export_not_done">Export canceled</string>
+    <string name="export_error">Error exporting file</string>
+
+    <string name="dialog_import_confirm_title">Import Confirmation</string>
+    <string name="dialog_import_confirm_message">Importing this file will cause the custom area to be overwritten, are you sure?</string>
+
+    <string name="dialog_export_file_name_title">Export File Name</string>
+    <string name="dialog_export_file_name_message">Select the file name to use</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="wrong_file_name">Wrong file name</string>
+
+    <string name="device_not_calibrated_warning">The device can be calibrated to improve charging performance</string>
+    <string name="calibration_note">Note: calibration is available only when battery level is less than 40%</string>
+
+    <string name="cradle_update_available">Cradle update available</string>
+    <string name="update">Firmware Update</string>
+    <string name="update_continuous">Update Continuous</string>
+
+    <string name="current_firmware">Current FW</string>
+    <string name="new_firmware">New FW</string>
+
+    <string name="update_progress">Update Progress</string>
+    <string name="abort_update">ABORT UPDATE</string>
+
+    <string name="calibration_successful">Calibration successful</string>
+    <string name="calibration_failed">Calibration failed</string>
+
+    <string name="auto_calibration_confirm">This prodecude will re-calibrate the cradle levers. Do you want to proceed?</string>
+
+    <string name="cradle_update_confirm">The update prodecure could take several minutes to complete. Do you want to proceed?</string>
+
+    <string name="update_in_progress">UPDATE IN PROGRESS\nDO NOT REMOVE THE DEVICE OR POWER DOWN THE CRADLE</string>
+    <string name="update_successful">UPDATE SUCCESSFUL</string>
+    <string name="update_error">UPDATE ERROR\nPLEASE RETRY</string>
+    <string name="update_timeout">UPDATE TIMEOUT\nPLEASE RETRY</string>
+    <string name="update_taking_too_long">UPDATE TAKING TOO LONG\nABORT IT IN CASE IT DOES NOT RECOVER IN SOME MINUTES\n(KEEP IN MIND THIS COULD RENDER THE CRADLE UNUSABLE</string>
+    <string name="update_abort">UPDATE ABORTED</string>
+
+    <string name="fw_info">APPL: %1$s\nBTLDR: %2$s</string>
+    <string name="not_available_short">N/A</string>
+
+    <string name="auto_calibration">Auto Calibration</string>
+    <string name="standby_led">Standby Led</string>
+    <string name="get_failure">Get Slot Failure</string>
+    <string name="settings">Settings</string>
+    <string name="notification_led">Led Smoothing</string>
+    <string name="favorite_firmware">Favorite Firmware</string>
+    <string name="favor_legacy_firmware">Legacy firmware</string>
+    <string name="favor_kehto_firmware">Kehto firmware (>= 2.0.0)</string>
+    <string name="favor_latest">Latest detected firmware</string>
+    <string name="dialog_favorite_firmware_title">Favorite Firmware</string>
+    <string name="dialog_favorite_firmware_message">Select the favorite Cradle firmware\n</string>
+
+    <string name="invalid_update_package">Update package is not valid</string>
+    <string name="invalid_update_path">Wrong update path</string>
+    <string name="device_not_in_cradle">Device is either not inserted into the cradle or in the wrong slot</string>
+
+    <string-array name="unlock_notifications_entries">
+        <item>None</item>
+        <item>SSD Locking</item>
+        <item>3-Slot Cradle</item>
+        <item>SSD Locking + 3-Slot Cradle</item>
+    </string-array>
+    <string-array name="unlock_notifications_entry_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="cradle_firmwares_entries">
+        <item>Legacy firmware</item>
+        <item>Kehto firmware (>= 2.0.0)</item>
+        <item>Latest detected firmware</item>
+        <item>Legacy mode</item>
+    </string-array>
+    <string-array name="cradle_firmwares_entry_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string name="title_activity_settings">Settings</string>
+
+    <string name="title_activity_cradle_app">CradleAppActivity</string>
+    <string name="dummy_button">TAP TO REMOVE</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="tap_to_remove">TAP TO REMOVE</string>
+    <string name="ready_to_remove">READY TO REMOVE</string>
+
+    <string name="serial_number_label">SERIAL</string>
+    <string name="serial_number_default">UNKNOWN</string>
+
+    <string name="inserted_on_label">INSERTED</string>
+    <string name="inserted_on_default">UNKNOWN</string>
+
+    <string name="charge_label">CHARGE</string>
+    <string name="charge_default">UNKNOWN</string>
+</resources>

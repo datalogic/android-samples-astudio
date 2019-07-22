@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="175dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/txtPower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:text="TextView" />
+    
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="175dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/txt_thresh_low"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#000"
+        android:textColor="#FFF" />
+
+    <ListView
+        android:id="@+id/listThreshLow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="175dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/txt_thresh_crit"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:background="#000"
+        android:textColor="#FFF" />
+
+    <ListView
+        android:id="@+id/listThreshCrit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+    
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    tools:context=".JoyaTouchCradleAPITest" >
+
+    <TextView
+        android:id="@+id/textMainActivities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/start"
+        android:textColor="#0000FF" />
+
+    <ListView
+        android:id="@+id/listMainActivities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textMainActivities"
+        android:layout_centerHorizontal="true" >
+    </ListView>
+
+</RelativeLayout>

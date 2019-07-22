@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+/**
+* Requirement: DXU and its own service must be active and installed.
+*
+* Basically the webpage takes advantage from HTTP GET requests to a specific URL (scan).
+*
+* Request [parameter-name]:<value>
+*
+* Request parameters are:
+*  - [action], that can be set to:
+*    + <start_trigger>, which starts a scan session.
+*      In combination, [timeout] parameter can contain an integer positive <value>
+*      (it follows SDK timeout parameter rules).
+*    + <stop_trigger>, which stops a scan session.
+*    + <stop_listener>, which blocks the caller waiting for a stop event.
+*    + <timeout_listener>, which blocks the caller waiting for a timeout event.
+*    + <read_listener>, which block the caller waiting for a read event.
+*      In combination, [output] parameter can be set to: <text>, <xml> or <json>.
+*/
+
+function init() {
+	scan_add_read_listener();
+	scan_add_start_listener();
+	scan_add_stop_listener();
+	scan_add_timeout_listener();
+}
+
+function scan_add_read_listener() {
+	try
+	{
+        var jqXHR = $.get("http://localhost/scan", {"action":"read_listener", "output":"json"}, function(data) {
+			// DXU returns barcode in json object
+            $("#result").val(data.dataAsText); // {codeID, dataAsText, rawData}
+        });
+		jqXHR.always(function() {
+			scan_add_read_listener();
+		});
+	}
+	catch (ex)
+	{
+		alert("error");
+	}
+}
+function scan_add_start_listener() {
+	try
+	{
+        var jqXHR = $.get("http://localhost/scan", {"action":"start_listener"}, function(data) {
+            $("#status").html("STARTED");
+        });
+		jqXHR.always(function() {
+			scan_add_start_listener();
+		});
+	}
+	catch (ex)
+	{
+		alert("error");
+	}
+}
+function scan_add_stop_listener() {
+	try
+	{
+        var jqXHR = $.get("http://localhost/scan", {"action":"stop_listener"}, function(data) {
+            $("#status").html("STOPPED");
+        });
+		jqXHR.always(function() {
+			scan_add_stop_listener();
+		});
+	}
+	catch (ex)
+	{
+		alert("error");
+	}
+}
+function scan_add_timeout_listener() {
+	try
+	{
+        var jqXHR = $.get("http://localhost/scan", {"action":"timeout_listener"}, function(data) {
+        	$("#status").html("TIMEOUT");
+        });
+		jqXHR.always(function() {
+			scan_add_timeout_listener();
+		});
+	}
+	catch (ex)
+	{
+		alert("error");
+	}
+}
+function scan_start_decode() {
+	try
+	{
+		var x = document.getElementById("timeout").value;
+        var jqXHR = $.get("http://localhost/scan", {"action":"start_trigger", "timeout":x }, function(data) {
+			// DXU starts barcode engine
+            // it returns immediately, we do no have response from DXU
+        });
+	}
+	catch (ex)
+	{
+		alert("error");
+	}
+}
+function scan_stop_decode() {
+	try
+	{
+        var jqXHR = $.get("http://localhost/scan", {"action":"stop_trigger"}, function(data) {
+			// DXU stops barcode engine
+            // it returns immediately, we do no have response from DXU
+        });
+	}
+	catch (ex)
+	{
+		alert("error");
+	}
+}
+</script>
+</head>
+
+<!--Page body-->
+<body onload="init()">
+
+<!--Displays final result-->
+Result:<input id="result" type="text" style="width:250px;" />
+<br/>
+
+<!--Two buttons start/stop-->
+<input id="scan" type="button" onclick="scan_start_decode()" value="START" />
+<input id="scan" type="button" onclick="scan_stop_decode()" value="STOP" />
+<!--Timeout slider-->
+Timeout:<input id="timeout" type="range" min="500" max="10000" value="5000">
+<br/><br/>
+
+<!--Current scanner status-->
+Scan status: <span id="status"></span>
+</body>
+</html>

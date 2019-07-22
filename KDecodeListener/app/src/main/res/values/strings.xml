@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DecodeListener</string>
+    <string name="hint">By pressing scan button and successfully reading a barcode, this text area will change\nLabel content will be displayed.</string>
+
+</resources>
