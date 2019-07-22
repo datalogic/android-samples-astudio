@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.decodelistenerko">
+          package="com.example.decodelistener">
 
     <application
             android:allowBackup="true"
@@ -14,7 +14,7 @@
                 android:required="true" />
         <activity
                 android:name=".DecodeListener"
-                android:label="DecodeListenerKotlin">
+                android:label="DecodeListener">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
