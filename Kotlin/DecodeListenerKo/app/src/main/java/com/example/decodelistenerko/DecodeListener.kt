@@ -26,6 +26,9 @@ class DecodeListener : Activity() {
 
         // Retrieve the TextView from the displayed layout.
         mBarcodeText = findViewById(R.id.editText1) as TextView
+
+        // Prevent soft keyboard from popping up.
+        mBarcodeText.setShowSoftInputOnFocus(false)
     }
 
     override fun onResume() {

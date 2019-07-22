@@ -14,8 +14,7 @@
                 android:required="true" />
         <activity
                 android:name=".DecodeListener"
-                android:label="DecodeListenerKotlin" >
-
+                android:label="DecodeListenerKotlin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
