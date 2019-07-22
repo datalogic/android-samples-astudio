@@ -11,7 +11,7 @@ Kotlin sample apps.
 | [DecodeConfigSampleAPI](DecodeConfigSampleAPI/) | - | -
 | [DecodeHTTPSampleAPI](DecodeHTTPSampleAPI/) | - | -
 | [DecodeIntent](DecodeIntent/) | - | -
-| [DecodeListener](DecodeListener/) | Uses BarcodeManager to display scanned barcode label. | ![DecodeListener](decode_listener.png)
+| [DecodeListener](DecodeListenerKo/) | Uses BarcodeManager to display scanned barcode label. | ![DecodeListener](decode_listener.png)
 | [DecodeSampleAPI](DecodeSampleAPI/) | - | -
 | [DeviceSampleAPI](DeviceSampleAPI/) | - | -
 | [JoyaTouchCradleSampleAPI](JoyaTouchCradleSampleAPI/) | - | -
