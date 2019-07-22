@@ -7,14 +7,14 @@ import android.widget.TextView
 
 import com.datalogic.decode.BarcodeManager
 import com.datalogic.decode.DecodeException
-//import com.datalogic.decode.DecodeResult
+import com.datalogic.decode.DecodeResult
 import com.datalogic.decode.ReadListener
 import com.datalogic.device.ErrorManager
 
 
 class DecodeListener : Activity() {
 
-    private val LOGTAG = javaClass.getName()
+    private val LOGTAG = javaClass.name
 
     internal var decoder: BarcodeManager? = null
     internal var listener: ReadListener? = null
@@ -25,10 +25,10 @@ class DecodeListener : Activity() {
         setContentView(R.layout.activity_main)
 
         // Retrieve the TextView from the displayed layout.
-        mBarcodeText = findViewById(R.id.editText1) as TextView
+        mBarcodeText = findViewById<TextView>(R.id.editText1)
 
-        // Prevent soft keyboard from popping up.
-        mBarcodeText.setShowSoftInputOnFocus(false)
+        // Prevent soft keyboard from popping up while selecting text.
+        mBarcodeText.showSoftInputOnFocus = false
     }
 
     override fun onResume() {
