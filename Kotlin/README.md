@@ -8,10 +8,10 @@ Kotlin sample apps.
 |------|-------------|-----------
 | [BarCodeScannerHTML5](BarCodeScannerHTML5/) | - | - 
 | [CradleApp](CradleApp/) | - | -
-| [DecodeConfigSampleAPI](DecodeConfigSampleAPI/) | - | -
+| [DecodeConfigSampleAPI](DecodeConfigSampleAPI/) | Configures device scanner settings using ScannerProperties. |![DecodeConfigSampleAPI](screenshots/decode_config.png)
 | [DecodeHTTPSampleAPI](DecodeHTTPSampleAPI/) | - | -
 | [DecodeIntent](DecodeIntent/) | - | -
-| [DecodeListener](DecodeListenerKo/) | Uses BarcodeManager to display scanned barcode label. | ![DecodeListener](decode_listener.png)
+| [DecodeListener](DecodeListener/) | Uses BarcodeManager to display scanned barcode label. | ![DecodeListener](screenshots/decode_listener.png)
 | [DecodeSampleAPI](DecodeSampleAPI/) | - | -
 | [DeviceSampleAPI](DeviceSampleAPI/) | - | -
 | [JoyaTouchCradleSampleAPI](JoyaTouchCradleSampleAPI/) | - | -
