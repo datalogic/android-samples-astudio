@@ -1,6 +1,6 @@
 package com.example.decodeconfigsampleapi
 
-// ©2016 Datalogic S.p.A. and/or its affiliates. All rights reserved.
+// ©2019 Datalogic S.p.A. and/or its affiliates. All rights reserved.
 
 import com.datalogic.decode.BarcodeManager
 import com.datalogic.decode.configuration.LengthControlMode
@@ -36,7 +36,7 @@ class DecodeConfiguration : Activity() {
         configuration = ScannerProperties.edit(manager)
 
         // Now we can change some Scanner/Device configuration parameters.
-        // These values are not applied, as long as store method is not called.
+        // These values are not applied, as long as the store method is not called.
         configuration!!.code39.enable.set(true)
         configuration!!.code39.enableChecksum.set(false)
         configuration!!.code39.fullAscii.set(true)
@@ -56,19 +56,19 @@ class DecodeConfiguration : Activity() {
             configuration!!.qrCode.enable.set(false)
         }
 
-        // Change IntentWedge action and category to specific ones.
+        // Change the IntentWedge action and category to specific ones.
         configuration!!.intentWedge.action.set("com.datalogic.examples.decode_action")
         configuration!!.intentWedge.category.set("com.datalogic.examples.decode_category")
 
         // From here on, we would like to get a return value instead of an exception in case of error.
         ErrorManager.enableExceptions(false)
 
-        // Now we are ready to store them.
+        // Now we are ready to store our settings changes.
         // Second parameter set to true saves configuration in a permanent way.
-        // After boot settings will be still valid.
+        // After boot, settings will be still valid.
         val errorCode = configuration!!.store(manager, true)
 
-        // Check return value.
+        // Check the return value.
         if (errorCode != ConfigException.SUCCESS) {
             Log.e(LOGTAG, "Error during store", ErrorManager.getLastError())
         }
@@ -82,19 +82,18 @@ class DecodeConfiguration : Activity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle menu item selection
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.action_settings -> {
                 startSettingsActivity()
-                return true
+                true
             }
-            else -> return super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
-    // Method called by displayed button
-    fun buttonClicked(v: View) {
-        startSettingsActivity()
-    }
+    // Method called by the displayed button
+    // Unused parameter 'v' is required by the OnClick attribute in main_activity.xml
+    fun buttonClicked(v: View) = startSettingsActivity()
 
     private fun startSettingsActivity() {
         // Create and start an intent to pop up Android Settings
