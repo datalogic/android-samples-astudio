@@ -4,6 +4,7 @@ package com.datalogic.examples.decodeintent;
 
 import java.util.Set;
 
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Intent;
@@ -43,8 +44,17 @@ public class IntentService extends Service {
 			data = data.substring(0,20);
 		}
 
+		// From Android API 26+, use NotificationChannel
+		final String channel_id = "0";
+		final String channel_name = "Intent Service";
+		final int importance = NotificationManager.IMPORTANCE_HIGH;
+
+		NotificationChannel a_channel = new NotificationChannel(channel_id, channel_name, importance);
+		NotificationManager notificationManagerA = getSystemService(NotificationManager.class);
+		notificationManagerA.createNotificationChannel(a_channel);
+
 		NotificationCompat.Builder mBuilder =
-				new NotificationCompat.Builder(this)
+				new NotificationCompat.Builder(this, channel_id)
 		.setSmallIcon(R.drawable.ic_launcher)
 		.setContentTitle(type)
 		.setContentText("Result: " + data);

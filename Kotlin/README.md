@@ -10,7 +10,7 @@ Kotlin sample apps.
 | [CradleApp](CradleApp/) | - | -
 | [DecodeConfigSampleAPI](DecodeConfigSampleAPI/) | Configures device scanner settings using ScannerProperties. |      ![DecodeConfigSampleAPI](screenshots/decode_config_sample.png)
 | [DecodeHTTPSampleAPI](DecodeHTTPSampleAPI/) | - | -
-| [DecodeIntent](DecodeIntent/) | - | -
+| [DecodeIntent](DecodeIntent/) | Passes scanned barcode data to different intents.| ![DecodeIntent](screenshots/decode_intent.png)
 | [DecodeListener](DecodeListener/) | Uses BarcodeManager to display scanned barcode label. | ![DecodeListener](screenshots/decode_listener.png)
 | [DecodeSampleAPI](DecodeSampleAPI/) | - | -
 | [DeviceSampleAPI](DeviceSampleAPI/) | - | -

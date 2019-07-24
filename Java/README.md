@@ -10,7 +10,7 @@ Java sample apps.
 | [CradleApp](CradleApp/) | Uses Self-shopping APIs to control the locking cradle. | -
 | [DecodeConfigSampleAPI](DecodeConfigSampleAPI/) | Uses BarcodeManager to configure the decoder properties. | ![DecodeConfigSampleAPI](screenshots/decode_config.png)
 | [DecodeHTTPSampleAPI](DecodeHTTPSampleAPI/) | - | -
-| [DecodeIntent](DecodeIntent/) | - | ![DecodeIntent](screenshots/decode_intent.png)
+| [DecodeIntent](DecodeIntent/) | Passes scanned barcode data to different intents. | ![DecodeIntent](screenshots/decode_intent.png)
 | [DecodeListener](DecodeListener/) | Uses BarcodeManager to display scanned barcode label. | ![DecodeListener](screenshots/decode_listener.png)
 | [DecodeSampleAPI](DecodeSampleAPI/) | - | -
 | [DeviceSampleAPI](DeviceSampleAPI/) | - | -

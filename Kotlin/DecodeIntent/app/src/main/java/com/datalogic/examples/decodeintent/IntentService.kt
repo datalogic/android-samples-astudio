@@ -38,11 +38,10 @@ class IntentService : Service() {
             data = data.substring(0, 20)
         }
 
-        // From Android API >= 26, use NotificationChannel
+        // From Android API 26+ , use NotificationChannel
         val channelId = "0"
         val channelName = "Intent Service"
         val importance = NotificationManager.IMPORTANCE_HIGH
-
 
         val aChannel : NotificationChannel = NotificationChannel(channelId, channelName, importance)
         notificationManager.createNotificationChannel(aChannel)
