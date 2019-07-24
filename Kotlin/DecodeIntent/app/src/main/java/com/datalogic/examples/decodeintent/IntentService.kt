@@ -1,14 +1,15 @@
 package com.datalogic.examples.decodeintent
 
 
-import android.app.Notification
-import android.app.NotificationManager
+import android.app.NotificationManager as NotificationManager
 import android.app.Service
 import android.content.Intent
 import android.content.Context
 import android.os.IBinder
 import android.util.Log
 import android.widget.Toast
+import android.app.NotificationChannel
+import androidx.core.app.NotificationCompat
 
 
 /**
@@ -20,9 +21,9 @@ class IntentService : Service() {
         showMessage("Started IntentService, check notifications")
         Log.d(javaClass.name, "Started service with Intent")
 
-        val category_all = intent.categories
+        val categoryAll = intent.categories
         val category = StringBuilder()
-        for (s in category_all) {
+        for (s in categoryAll) {
             category.append(s)
         }
 
@@ -37,7 +38,16 @@ class IntentService : Service() {
             data = data.substring(0, 20)
         }
 
-        val mBuilder = Notification.Builder(this)
+        // From Android API >= 26, use NotificationChannel
+        val channelId = "0"
+        val channelName = "Intent Service"
+        val importance = NotificationManager.IMPORTANCE_HIGH
+
+
+        val aChannel : NotificationChannel = NotificationChannel(channelId, channelName, importance)
+        notificationManager.createNotificationChannel(aChannel)
+
+        val mBuilder = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.drawable.ic_launcher)
             .setContentTitle(type)
             .setContentText("Result: $data")
@@ -46,7 +56,7 @@ class IntentService : Service() {
         notificationManager.notify(0, mBuilder.build())
 
         stopSelf()
-        return Service.START_NOT_STICKY
+        return START_NOT_STICKY
     }
 
     override fun onBind(intent: Intent): IBinder? {

@@ -2,14 +2,14 @@ package com.datalogic.examples.decodeintent
 
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 
 /**
- * Log and Toast the received action, categories, barcode data and symboloty type.
+ * Log and Toast the received action, categories, barcode data and symbology type.
  * MainActivity.isReading will be set to false.
  */
 class IntentStartActivity : Activity() {
@@ -26,9 +26,9 @@ class IntentStartActivity : Activity() {
         showMessage("Started IntentStartActivity")
         Log.d(javaClass.name, "Started activity with Intent")
 
-        val category_all = intent.categories
+        val categoryAll = intent.categories
         val category = StringBuilder()
-        for (s in category_all) {
+        for (s in categoryAll) {
             category.append(s)
         }
 
@@ -37,7 +37,7 @@ class IntentStartActivity : Activity() {
         // Get the Barcode value
         val data = intent.getStringExtra(IntentWedgeSample.EXTRA_DATA_STRING)
 
-        textMsg = findViewById(R.id.textResult) as TextView
+        textMsg = findViewById<TextView>(R.id.textResult)
         textMsg!!.append(
             "Action: " + action + "\n"
                     + "Category: " + category.toString() + "\n"
@@ -48,5 +48,9 @@ class IntentStartActivity : Activity() {
 
     private fun showMessage(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    fun goBack(v: View) {
+        super.onBackPressed()
     }
 }

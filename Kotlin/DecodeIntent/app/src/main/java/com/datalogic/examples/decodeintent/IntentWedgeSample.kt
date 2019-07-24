@@ -7,7 +7,6 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.RadioGroup
 import android.widget.RadioGroup.OnCheckedChangeListener
 import android.widget.Toast
@@ -71,30 +70,6 @@ class IntentWedgeSample : Activity() {
         unregisterReceiver(receiver)
         receiver = null
         filter = null
-    }
-
-    // Called when start button is pressed.
-    fun onStartBtnPressed(v: View) {
-        startDecode()
-    }
-
-    // Called when stop button is pressed.
-    fun onStopBtnPressed(v: View) {
-        stopDecode()
-    }
-
-    // Creates an intent and start decoding.
-    private fun startDecode() {
-        val myintent = Intent()
-        myintent.action = BarcodeManager.ACTION_START_DECODE
-        sendBroadcast(myintent)
-    }
-
-    // Creates an intent and stop decoding.
-    private fun stopDecode() {
-        val myintent = Intent()
-        myintent.action = BarcodeManager.ACTION_STOP_DECODE
-        sendBroadcast(myintent)
     }
 
     // Receives action ACTION_BROADCAST_RECEIVER

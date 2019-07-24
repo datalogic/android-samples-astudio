@@ -6,12 +6,29 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".IntentStartActivity" >
+    tools:context=".IntentStartActivity"
+    android:background="#f9f6f0"
+>
 
     <TextView
         android:id="@+id/textResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/activity_result" />
+        android:text="@string/activity_result"
+        android:typeface="monospace"
+    />
+
+    <Button
+            android:text="@string/goBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="400dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/buttonshape"
+            android:textSize="22sp"
+            android:onClick="goBack"
+    />
+
 
 </RelativeLayout>

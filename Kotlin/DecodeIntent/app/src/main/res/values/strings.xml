@@ -9,7 +9,8 @@
     <string name="radioBroadcast_string">Broadcast intent</string>
     <string name="startBTN">Start decode</string>
     <string name="stopBTN">Stop decode</string>
-    <string name="initial_hint">Select one of the three different IntentWedge delivery modes.\n\n Now press Start or Stop button.\n
+    <string name="goBackButton">Return</string>
+    <string name="initial_hint">Select one of the three different IntentWedge delivery modes.\n\n Then scan a barcode with the device.\n
         Only intents will be used.</string>
 
 </resources>

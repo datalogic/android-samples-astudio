@@ -7,7 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".IntentWedgeSample" >
+    tools:context=".IntentWedgeSample"
+    android:background="#f9f6f0"
+>
 
     <TextView
         android:layout_width="match_parent"
@@ -15,7 +17,9 @@
         android:layout_margin="5dp"
         android:gravity="center"
         android:hint="@string/initial_hint"
-        android:textColor="#FFF" />
+        android:textColor="#FFF"
+        android:typeface="monospace"
+    />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -28,7 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="@string/radioActivity_string" />
+            android:text="@string/radioActivity_string"
+        />
 
         <RadioButton
             android:id="@+id/radioStartService"
@@ -49,21 +54,21 @@
         android:orientation="horizontal"
         android:paddingTop="20dp" >
 
-        <Button
-            android:id="@+id/startBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/startBTN" 
-            android:layout_alignParentLeft="true"
-            android:onClick="onStartBtnPressed" />
+        <!--<Button-->
+            <!--android:id="@+id/startBtn"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/startBTN" -->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:onClick="onStartBtnPressed" />-->
 
-        <Button
-            android:id="@+id/stoptBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/stopBTN"
-            android:layout_alignParentRight="true"
-            android:onClick="onStopBtnPressed" />
+        <!--<Button-->
+            <!--android:id="@+id/stoptBtn"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/stopBTN"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:onClick="onStopBtnPressed" />-->
     </RelativeLayout>
 
 </LinearLayout>
