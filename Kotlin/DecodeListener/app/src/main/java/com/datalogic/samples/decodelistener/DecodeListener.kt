@@ -1,4 +1,4 @@
-package com.example.decodelistener
+package com.datalogic.samples.decodelistener
 
 import android.app.Activity
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.widget.TextView
 
 import com.datalogic.decode.BarcodeManager
 import com.datalogic.decode.DecodeException
-import com.datalogic.decode.DecodeResult
 import com.datalogic.decode.ReadListener
 import com.datalogic.device.ErrorManager
 

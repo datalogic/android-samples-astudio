@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#002596"
-    tools:context=".DecodeListener" >
+    tools:context=".decodelistener.DecodeListener" >
 
     <EditText
             android:id="@+id/editText1"

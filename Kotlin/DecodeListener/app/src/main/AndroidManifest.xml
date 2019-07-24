@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.decodelistener">
+          package="com.datalogic.samples.decodelistener">
 
     <application
             android:allowBackup="true"
@@ -13,7 +13,7 @@
                 android:name="com.datalogic.device"
                 android:required="true" />
         <activity
-                android:name=".DecodeListener"
+                android:name="com.datalogic.samples.decodelistener.DecodeListener"
                 android:label="DecodeListener">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
