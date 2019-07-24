@@ -1,4 +1,4 @@
-package com.example.decodeconfigsampleapi
+package com.datalogic.samples.decodeconfigsampleapi
 
 // ©2019 Datalogic S.p.A. and/or its affiliates. All rights reserved.
 
@@ -15,6 +15,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.datalogic.samples.R
 
 class DecodeConfiguration : Activity() {
 
