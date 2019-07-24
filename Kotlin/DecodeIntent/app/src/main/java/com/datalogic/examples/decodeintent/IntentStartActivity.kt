@@ -1,4 +1,4 @@
-package com.example.decodeintent
+package com.datalogic.examples.decodeintent
 
 
 import android.app.Activity

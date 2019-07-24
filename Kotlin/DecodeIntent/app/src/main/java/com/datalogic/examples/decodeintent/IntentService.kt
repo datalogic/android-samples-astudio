@@ -1,11 +1,12 @@
-package com.example.decodeintent
+package com.datalogic.examples.decodeintent
 
 
+import android.app.Notification
 import android.app.NotificationManager
 import android.app.Service
 import android.content.Intent
+import android.content.Context
 import android.os.IBinder
-import android.support.v4.app.NotificationCompat
 import android.util.Log
 import android.widget.Toast
 
@@ -36,7 +37,7 @@ class IntentService : Service() {
             data = data.substring(0, 20)
         }
 
-        val mBuilder = NotificationCompat.Builder(this)
+        val mBuilder = Notification.Builder(this)
             .setSmallIcon(R.drawable.ic_launcher)
             .setContentTitle(type)
             .setContentText("Result: $data")
