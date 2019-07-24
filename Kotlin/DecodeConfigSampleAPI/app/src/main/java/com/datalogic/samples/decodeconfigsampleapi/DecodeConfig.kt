@@ -93,7 +93,7 @@ class DecodeConfiguration : Activity() {
     }
 
     // Method called by the displayed button
-    // Unused parameter 'v' is required by the OnClick attribute in main_activity.xml
+    // Unused parameter 'v' is required by the OnClick attribute in activity_main.xml
     fun buttonClicked(v: View) = startSettingsActivity()
 
     private fun startSettingsActivity() {
