@@ -15,74 +15,74 @@ import com.datalogic.device.ErrorManager;
 
 public class DecodeListener extends Activity {
 
-	private final String LOGTAG = getClass().getName();
+    private final String LOGTAG = getClass().getName();
 
-	BarcodeManager decoder = null;
-	ReadListener listener = null;
-	TextView mBarcodeText;
+    BarcodeManager decoder = null;
+    ReadListener listener = null;
+    TextView mBarcodeText;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-		// Retrieve the TextView from the displayed layout.
-		mBarcodeText = (TextView) findViewById(R.id.editText1);
-	}
+        // Retrieve the TextView from the displayed layout.
+        mBarcodeText = (TextView) findViewById(R.id.editText1);
+    }
 
-	@Override
-	protected void onResume() {
-		super.onResume();
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-		Log.i(LOGTAG, "onResume");
+        Log.i(LOGTAG, "onResume");
 
-		// If the decoder instance is null, create it.
-		if (decoder == null) { // Remember an onPause call will set it to null.
-			decoder = new BarcodeManager();
-		}
+        // If the decoder instance is null, create it.
+        if (decoder == null) { // Remember an onPause call will set it to null.
+            decoder = new BarcodeManager();
+        }
 
-		// From here on, we want to be notified with exceptions in case of errors.
-		ErrorManager.enableExceptions(true);
+        // From here on, we want to be notified with exceptions in case of errors.
+        ErrorManager.enableExceptions(true);
 
-		try {
+        try {
 
-			// Create an anonymous class.
-			listener = new ReadListener() {
+            // Create an anonymous class.
+            listener = new ReadListener() {
 
-				// Implement the callback method.
-				@Override
-				public void onRead(DecodeResult decodeResult) {
-					// Change the displayed text to the current received result.
-					mBarcodeText.setText(decodeResult.getText());
-				}
+                // Implement the callback method.
+                @Override
+                public void onRead(DecodeResult decodeResult) {
+                    // Change the displayed text to the current received result.
+                    mBarcodeText.setText(decodeResult.getText());
+                }
 
-			};
+            };
 
-			// Remember to add it, as a listener.
-			decoder.addReadListener(listener);
+            // Remember to add it, as a listener.
+            decoder.addReadListener(listener);
 
-		} catch (DecodeException e) {
-			Log.e(LOGTAG, "Error while trying to bind a listener to BarcodeManager", e);
-		}
-	}
+        } catch (DecodeException e) {
+            Log.e(LOGTAG, "Error while trying to bind a listener to BarcodeManager", e);
+        }
+    }
 
-	@Override
-	protected void onPause() {
-		super.onPause();
+    @Override
+    protected void onPause() {
+        super.onPause();
 
-		Log.i(LOGTAG, "onPause");
+        Log.i(LOGTAG, "onPause");
 
-		// If we have an instance of BarcodeManager.
-		if (decoder != null) {
-			try {
-				// Unregister our listener from it and free resources.
-				decoder.removeReadListener(listener);
+        // If we have an instance of BarcodeManager.
+        if (decoder != null) {
+            try {
+                // Unregister our listener from it and free resources.
+                decoder.removeReadListener(listener);
 
-				// Let the garbage collector take care of our reference.
-				decoder = null;
-			} catch (Exception e) {
-				Log.e(LOGTAG, "Error while trying to remove a listener from BarcodeManager", e);
-			}
-		}
-	}
+                // Let the garbage collector take care of our reference.
+                decoder = null;
+            } catch (Exception e) {
+                Log.e(LOGTAG, "Error while trying to remove a listener from BarcodeManager", e);
+            }
+        }
+    }
 }
