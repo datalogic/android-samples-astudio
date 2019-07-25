@@ -7,7 +7,7 @@
     <string name="set_scanner_manager">Scanner Setting</string>
     <string name="scanner">Ready to Scan</string>
     <string name="start">Scan</string>
-    <string name="scanner_hint">Press the Scan button to acquire a barcode</string>
+    <string name="scanner_hint">Press the Scan button to acquire a barcode.</string>
     <string name="title_activity_settings">Symbologies</string>
 
 </resources>

@@ -61,10 +61,6 @@ class MainScanActivity : Activity(), ReadListener, StartListener, TimeoutListene
         // Prevent soft keyboard from popping up while selecting/viewing scan result text.
         mBarcodeText = findViewById<TextView>(R.id.scan_result)
         mBarcodeText.showSoftInputOnFocus = false
-
-//        // Prevent soft keyboard from popping up during initial scanner status display
-//        statusText = findViewById<TextView>(R.id.scanner_status)
-//        statusText.showSoftInputOnFocus = false
     }
 
     private fun setupView() {
