@@ -44,6 +44,9 @@ class MainScanActivity : Activity(), ReadListener, StartListener, TimeoutListene
     private var previousNotification: Boolean = false
     private var mToast: Toast? = null
 
+    internal lateinit var mBarcodeText : TextView
+    internal lateinit var statusText: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val window = window
@@ -54,6 +57,14 @@ class MainScanActivity : Activity(), ReadListener, StartListener, TimeoutListene
         ErrorManager.enableExceptions(true)
 
         setupView()
+
+        // Prevent soft keyboard from popping up while selecting/viewing scan result text.
+        mBarcodeText = findViewById<TextView>(R.id.scan_result)
+        mBarcodeText.showSoftInputOnFocus = false
+
+//        // Prevent soft keyboard from popping up during initial scanner status display
+//        statusText = findViewById<TextView>(R.id.scanner_status)
+//        statusText.showSoftInputOnFocus = false
     }
 
     private fun setupView() {

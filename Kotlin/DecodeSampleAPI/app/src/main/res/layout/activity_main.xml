@@ -22,7 +22,8 @@
         android:hint="@string/scanner_hint"
         android:inputType="none"
         android:scrollbars="vertical"
-        android:textIsSelectable="true" />
+        android:textIsSelectable="true"
+    />
 
     <View
         android:layout_width="match_parent"
