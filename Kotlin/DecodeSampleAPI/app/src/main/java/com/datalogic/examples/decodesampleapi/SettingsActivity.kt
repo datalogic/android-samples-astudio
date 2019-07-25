@@ -144,7 +144,7 @@ class SettingsActivity : PreferenceActivity() {
         /**
          * Event to handle a symbology checkbox.
          */
-        val HANDLE_SYMBOLOGY = 1
+        const val HANDLE_SYMBOLOGY = 1
 
         private var decoder: BarcodeManager? = null
 

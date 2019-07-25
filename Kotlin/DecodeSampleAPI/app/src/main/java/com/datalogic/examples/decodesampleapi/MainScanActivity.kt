@@ -45,7 +45,6 @@ class MainScanActivity : Activity(), ReadListener, StartListener, TimeoutListene
     private var mToast: Toast? = null
 
     internal lateinit var mBarcodeText : TextView
-    internal lateinit var statusText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -193,10 +192,10 @@ class MainScanActivity : Activity(), ReadListener, StartListener, TimeoutListene
         status!!.setTextColor(Color.rgb(51, 153, 51))
         status!!.text = "Result"
 
-        showScanResult!!.append("Barcode Type: " + result.getBarcodeID() + "\n")
-        val string = result.getText()
+        showScanResult!!.append("Barcode Type: " + result.barcodeID + "\n")
+        val string = result.text
         if (string != null) {
-            showScanResult!!.append("Result: " + string!!)
+            showScanResult!!.append("Result: $string")
         }
         ignoreStop = true
 
