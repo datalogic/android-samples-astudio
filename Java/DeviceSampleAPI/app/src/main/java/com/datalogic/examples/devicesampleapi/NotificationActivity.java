@@ -1,4 +1,4 @@
-// ©2016 Datalogic S.p.A. and/or its affiliates. All rights reserved.
+// ©2019 Datalogic S.p.A. and/or its affiliates. All rights reserved.
 
 package com.datalogic.examples.devicesampleapi;
 
@@ -55,7 +55,7 @@ public class NotificationActivity extends Activity {
 							Thread.sleep(500);
 						}
 						catch(InterruptedException e) {
-							Log.e(getClass().getName(), "Sleep for green spot blink was interrupted", e);
+							Log.e(getClass().getName(), "Sleep for Green spot blink was interrupted", e);
 							break;
 						}
 					}

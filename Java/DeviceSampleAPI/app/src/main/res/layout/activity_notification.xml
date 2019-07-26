@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Blink 10 times Green spot" />
+        android:text="Blink Green spot 10 times" />
 
     <Button
         android:id="@+id/btnLedEnable"
@@ -33,6 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnLed"
         android:layout_centerHorizontal="true"
-        android:text="Set Green spot Button" />
+        android:text="Toggle Green spot" />
 
 </RelativeLayout>

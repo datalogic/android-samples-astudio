@@ -15,7 +15,7 @@
     <string name="txt_hint_notification">Turn on/off device LEDs.</string>
     <string name="title_activity_touch">TouchActivity</string>
     <string name="title_activity_reset">ResetActivity</string>
-    <string name="txt_hint_reset">Select one of the following items to permform a specific reset.</string>
+    <string name="txt_hint_reset">Select one of the following items to perform a specific reset.</string>
     <string name="btnTouch">Lock Touch for 2 Seconds</string>
     <string name="title_activity_sleep">SleepActivity</string>
     <string name="txt_hint_sleep">Power configurations and Wakeup sources can be configured.</string>
