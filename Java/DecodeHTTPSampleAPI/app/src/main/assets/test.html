@@ -32,7 +32,7 @@ function init() {
 function scan_add_read_listener() {
 	try
 	{
-        var jqXHR = $.get("http://localhost/scan", {"action":"read_listener", "output":"json"}, function(data) {
+        var jqXHR = $.get("http://localhost:8080/scan", {"action":"read_listener", "output":"json"}, function(data) {
 			// DXU returns barcode in json object
             $("#result").val(data.dataAsText); // {codeID, dataAsText, rawData}
         });
@@ -48,7 +48,7 @@ function scan_add_read_listener() {
 function scan_add_start_listener() {
 	try
 	{
-        var jqXHR = $.get("http://localhost/scan", {"action":"start_listener"}, function(data) {
+        var jqXHR = $.get("http://localhost:8080/scan", {"action":"start_listener"}, function(data) {
             $("#status").html("STARTED");
         });
 		jqXHR.always(function() {
@@ -63,7 +63,7 @@ function scan_add_start_listener() {
 function scan_add_stop_listener() {
 	try
 	{
-        var jqXHR = $.get("http://localhost/scan", {"action":"stop_listener"}, function(data) {
+        var jqXHR = $.get("http://localhost:8080/scan", {"action":"stop_listener"}, function(data) {
             $("#status").html("STOPPED");
         });
 		jqXHR.always(function() {
@@ -78,7 +78,7 @@ function scan_add_stop_listener() {
 function scan_add_timeout_listener() {
 	try
 	{
-        var jqXHR = $.get("http://localhost/scan", {"action":"timeout_listener"}, function(data) {
+        var jqXHR = $.get("http://localhost:8080/scan", {"action":"timeout_listener"}, function(data) {
         	$("#status").html("TIMEOUT");
         });
 		jqXHR.always(function() {
@@ -94,7 +94,7 @@ function scan_start_decode() {
 	try
 	{
 		var x = document.getElementById("timeout").value;
-        var jqXHR = $.get("http://localhost/scan", {"action":"start_trigger", "timeout":x }, function(data) {
+        var jqXHR = $.get("http://localhost:8080/scan", {"action":"start_trigger", "timeout":x }, function(data) {
 			// DXU starts barcode engine
             // it returns immediately, we do no have response from DXU
         });
@@ -107,7 +107,7 @@ function scan_start_decode() {
 function scan_stop_decode() {
 	try
 	{
-        var jqXHR = $.get("http://localhost/scan", {"action":"stop_trigger"}, function(data) {
+        var jqXHR = $.get("http://localhost:8080/scan", {"action":"stop_trigger"}, function(data) {
 			// DXU stops barcode engine
             // it returns immediately, we do no have response from DXU
         });
