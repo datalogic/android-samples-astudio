@@ -48,7 +48,17 @@ public class NotificationActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				try {
-					led.blinkLed(Led.LED_GREEN_SPOT, 10, 500, 500);
+					for(int i = 0; i < 20; i++){
+						led.setLed(Led.LED_GREEN_SPOT, enable);
+						enable = !enable;
+						try {
+							Thread.sleep(500);
+						}
+						catch(InterruptedException e) {
+							Log.e(getClass().getName(), "Sleep for green spot blink was interrupted", e);
+							break;
+						}
+					}
 				} catch (DeviceException e) {
 					Log.e(getClass().getName(), "Cannot blink Green spot", e);
 				}
