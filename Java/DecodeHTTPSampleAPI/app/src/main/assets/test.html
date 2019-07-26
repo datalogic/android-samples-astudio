@@ -4,10 +4,11 @@
 <script src="jquery-1.11.3.min.js"></script>
 <script>
 /**
-* Requirement: DXU and its own service must be active and installed.
+* Requirement: DXU Agent and its associated service must be active and installed on the scanner device.
 *
-* Basically the webpage takes advantage from HTTP GET requests to a specific URL (scan).
-*
+* Basically, the webpage takes advantage of HTTP GET requests to a specific URL (scan).
+* Example request: http://{DEVICE IP ADDRESS FROM DXU AGENT}:8080/scan?action=stop_trigger
+* Scanner must be on the same network as the device sending GET requests
 * Request [parameter-name]:<value>
 *
 * Request parameters are:
