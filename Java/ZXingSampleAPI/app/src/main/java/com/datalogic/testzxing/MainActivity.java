@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
     }    
     private class HandleClick implements OnClickListener{
     	public void onClick(View arg0) {
-	    Intent intent = new Intent("com.google.zxing.client.android.SCAN");     
+	    Intent intent = new Intent("com.google.zxing.client.android.SCAN");
 	    switch(arg0.getId()){
             // Scan only QR Codes
 	    	case R.id.butQR:
