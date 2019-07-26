@@ -40,9 +40,7 @@ public class NfcActivity extends Activity {
 	public boolean isNfcEnabled() {
 		android.nfc.NfcManager manager = (android.nfc.NfcManager) getSystemService(Context.NFC_SERVICE);
 		NfcAdapter adapter = manager.getDefaultAdapter();
-		if (adapter != null && adapter.isEnabled())
-			return true;
-		return false;
+		return adapter.isEnabled();
 	}
 
 	/**
@@ -54,15 +52,14 @@ public class NfcActivity extends Activity {
 	}
 
 	public void btnSwitchNFC(View v) {
-		boolean newVal = !isNfcEnabled();
-		setEnableNfc(newVal);
+		boolean newNfcState = !isNfcEnabled();
+		setEnableNfc(newNfcState);
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		newVal = isNfcEnabled();
-		nfcStatus.setText("Nfc is " + (newVal ? "" : "not ") + "enabled");
+		nfcStatus.setText("Nfc is " + (newNfcState ? "" : "not ") + "enabled");
 	}
 
 	/**
