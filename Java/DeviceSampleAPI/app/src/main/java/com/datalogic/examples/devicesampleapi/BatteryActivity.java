@@ -11,8 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.datalogic.device.battery.DLBatteryManager;
 import com.datalogic.device.info.SYSTEM;
-
+import com.datalogic.device.battery.BatteryInfo;
 /**
  * Activity for battery information.
  */
@@ -44,7 +45,7 @@ public class BatteryActivity extends Activity {
 				+ "External AC Power: " + getExtPowerStatus() + "\n"
 				+ "External USB Power: " + getUsbPowerStatus() + "\n"
 				+ "Current level: " + getCurrentLevel() + "\n"
-				);
+		);
 	}
 
 	@Override
@@ -67,12 +68,12 @@ public class BatteryActivity extends Activity {
 	}
 
 	public String getBatteryInfo() {
-		String output = "  capacity:" + SYSTEM.BATTERY_INFO.capacity + "\n"
-				+ "  year:" + SYSTEM.BATTERY_INFO.year + "\n" 
-				+ "  week:" + SYSTEM.BATTERY_INFO.week + "\n" 
-				+ "  serial_number:" + SYSTEM.BATTERY_INFO.serialNumber + "\n" 
-				+ "  manufacturer:" + SYSTEM.BATTERY_INFO.manufacturer + "\n";
-		return output;
+				DLBatteryManager deviceBattery = DLBatteryManager.getInstance();
+		return    "  capacity: " + deviceBattery.getIntProperty(BatteryInfo.CAPACITY_REMAINING) + "\n"
+				+ "  year: " + deviceBattery.getIntProperty(BatteryInfo.PRODUCTION_YEAR) + "\n"
+				+ "  week: " + deviceBattery.getIntProperty(BatteryInfo.PRODUCTION_WEEK) + "\n"
+				+ "  serial_number: " + deviceBattery.getStringProperty(BatteryInfo.SERIAL_NUMBER) + "\n"
+				+ "  manufacturer: " + deviceBattery.getStringProperty(BatteryInfo.MANUFACTURER) + "\n";
 	}
 
 	public boolean getExtPowerStatus() {
