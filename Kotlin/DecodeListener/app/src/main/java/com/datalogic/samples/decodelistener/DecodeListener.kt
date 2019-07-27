@@ -50,6 +50,9 @@ class DecodeListener : Activity() {
                 // Implement the callback method.
                 // Change the displayed text to the current received result.
                 mBarcodeText.text = decodeResult.text
+
+                // Make user selection expand to select the entire barcode text
+                mBarcodeText.setSelectAllOnFocus(true)
             }
 
             // Remember to add it, as a listener.

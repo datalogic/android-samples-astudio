@@ -1,15 +1,10 @@
 package com.datalogic.examples.decodehttpsampleapi
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
 import android.app.Activity
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.webkit.WebSettings
 import android.webkit.WebView
-import com.datalogic.examples.decodehttpsampleapi.R
 import kotlinx.android.synthetic.main.activity_main.web_view as web_view
 class MainActivity : Activity() {
 
