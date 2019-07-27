@@ -9,14 +9,15 @@ import android.view.MenuItem
 import android.view.View
 import android.webkit.WebSettings
 import android.webkit.WebView
-
+import com.datalogic.examples.decodehttpsampleapi.R
+import kotlinx.android.synthetic.main.activity_main.web_view as web_view
 class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val myWebView = findViewById<View>(R.id.webview) as WebView
+        val myWebView = web_view as WebView
         val webSettings = myWebView.settings
         webSettings.javaScriptEnabled = true
         // Just load web page with all the control logic
