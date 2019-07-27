@@ -41,7 +41,7 @@ import android.view.MenuItem;
 
 /*
  * Example of webkit application able to start decoding and able to access to decoder
- * configuartion from a local or remote html page
+ * configuration from a local or remote html page
  * this example uses a local html page contained by the apk itself under the /assets directory 
  */
 public class MainActivity extends Activity implements ReadListener, StartListener,
