@@ -43,7 +43,7 @@ class IntentWedgeSample : Activity() {
         manager = BarcodeManager()
 
         // Get the Radio Group from the displayed layout.
-        radioGroup = findViewById(R.id.radioGroup) as RadioGroup
+        radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
         // Associate a specific listener.
         radioGroup!!.setOnCheckedChangeListener(MyClickedItemListener())
         // Clear check and force a default radio button checked.
@@ -133,12 +133,10 @@ class IntentWedgeSample : Activity() {
                     }
                 }
             } catch (e: Exception) { // Any error?
-                if (e is ConfigException) {
-                    Log.e(LOGTAG, "Error while retrieving/setting properties: " + e.error_number, e)
-                } else if (e is DecodeException) {
-                    Log.e(LOGTAG, "Error while retrieving/setting properties: " + e.error_number, e)
-                } else {
-                    Log.e(LOGTAG, "Error in onCheckedChanged", e)
+                when (e) {
+                    is ConfigException -> Log.e(LOGTAG, "Error while retrieving/setting properties: " + e.error_number, e)
+                    is DecodeException -> Log.e(LOGTAG, "Error while retrieving/setting properties: " + e.error_number, e)
+                    else -> Log.e(LOGTAG, "Error in onCheckedChanged", e)
                 }
             }
 
@@ -153,16 +151,16 @@ class IntentWedgeSample : Activity() {
 
     companion object {
         // Constants for Broadcast Receiver defined below.
-        val ACTION_BROADCAST_RECEIVER = "com.datalogic.examples.decode_action"
-        val CATEGORY_BROADCAST_RECEIVER = "com.datalogic.examples.decode_category"
+        const val ACTION_BROADCAST_RECEIVER = "com.datalogic.examples.decode_action"
+        const val CATEGORY_BROADCAST_RECEIVER = "com.datalogic.examples.decode_category"
 
         // Default Extra contents added to the intent containing results.
         val EXTRA_DATA = IntentWedge.EXTRA_BARCODE_DATA
-        val EXTRA_TYPE = IntentWedge.EXTRA_BARCODE_TYPE
-        val EXTRA_DATA_STRING = IntentWedge.EXTRA_BARCODE_STRING
+        const val EXTRA_TYPE = IntentWedge.EXTRA_BARCODE_TYPE
+        const val EXTRA_DATA_STRING = IntentWedge.EXTRA_BARCODE_STRING
 
         // Action and Category defined in AndroidManifest.xml, associated to a dedicated activity.
-        private val ACTION = "com.datalogic.examples.STARTINTENT"
-        private val CATEGORY = "android.intent.category.DEFAULT"
+        private const val ACTION = "com.datalogic.examples.STARTINTENT"
+        private const val CATEGORY = "android.intent.category.DEFAULT"
     }
 }

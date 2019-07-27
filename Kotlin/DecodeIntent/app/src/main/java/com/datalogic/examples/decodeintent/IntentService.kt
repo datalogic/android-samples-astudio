@@ -43,7 +43,7 @@ class IntentService : Service() {
         val channelName = "Intent Service"
         val importance = NotificationManager.IMPORTANCE_HIGH
 
-        val aChannel : NotificationChannel = NotificationChannel(channelId, channelName, importance)
+        val aChannel = NotificationChannel(channelId, channelName, importance)
         notificationManager.createNotificationChannel(aChannel)
 
         val mBuilder = NotificationCompat.Builder(this, channelId)

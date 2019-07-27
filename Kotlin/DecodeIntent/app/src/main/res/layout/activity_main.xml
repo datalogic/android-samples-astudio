@@ -48,27 +48,4 @@
             android:text="@string/radioBroadcast_string" />
     </RadioGroup>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="20dp" >
-
-        <!--<Button-->
-            <!--android:id="@+id/startBtn"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/startBTN" -->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:onClick="onStartBtnPressed" />-->
-
-        <!--<Button-->
-            <!--android:id="@+id/stoptBtn"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/stopBTN"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:onClick="onStopBtnPressed" />-->
-    </RelativeLayout>
-
 </LinearLayout>
