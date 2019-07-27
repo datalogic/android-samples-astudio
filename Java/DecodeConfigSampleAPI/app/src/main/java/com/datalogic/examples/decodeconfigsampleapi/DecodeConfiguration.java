@@ -62,7 +62,7 @@ public class DecodeConfiguration extends Activity {
         configuration.intentWedge.category.set("com.datalogic.examples.decode_category");
 
         // From here on, we would like to get a return value instead of an exception in case of error.
-        ErrorManager.enableExceptions(false);
+        Integer e = ErrorManager.enableExceptions(false);
 
         // Now we are ready to store them.
         // Second parameter set to true saves configuration in a permanent way.
@@ -85,13 +85,11 @@ public class DecodeConfiguration extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle menu item selection
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                startSettingsActivity();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.action_settings) {
+            startSettingsActivity();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     // Method called by displayed button

@@ -16,7 +16,6 @@ import android.widget.Toast;
  * MainActivity.isReading will be set to false.
  */
 public class IntentStartActivity extends Activity {
-	private TextView textMsg;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,7 @@ public class IntentStartActivity extends Activity {
 		// Get the Barcode value
 		String data = intent.getStringExtra(IntentWedgeSample.EXTRA_DATA_STRING);
 
-		textMsg = (TextView) findViewById(R.id.textResult);
+		TextView textMsg = findViewById(R.id.textResult);
 		textMsg.append("Action: " + action + "\n" 
 				+ "Category: " + category.toString() + "\n" 
 				+ "Type: " + type + "\n" 

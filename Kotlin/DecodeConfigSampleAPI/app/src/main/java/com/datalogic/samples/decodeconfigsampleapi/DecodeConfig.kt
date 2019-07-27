@@ -22,8 +22,8 @@ class DecodeConfiguration : Activity() {
     // Constant for log messages.
     private val LOGTAG = javaClass.name
 
-    internal var manager: BarcodeManager? = null
-    internal var configuration: ScannerProperties? = null
+    private var manager: BarcodeManager? = null
+    private var configuration: ScannerProperties? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

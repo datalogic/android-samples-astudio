@@ -21,7 +21,6 @@ public class NotificationActivity extends Activity {
 
 	private LedManager led;
 
-	private Button btnLed;
 	private Button btnLedEnable;
 
 	boolean enable = true;
@@ -42,7 +41,7 @@ public class NotificationActivity extends Activity {
 		}
 
 		// Associate blink functionality to blink button.
-		btnLed = (Button) findViewById(R.id.btnLed);
+		Button btnLed = (Button) findViewById(R.id.btnLed);
 		btnLed.setOnClickListener(new OnClickListener() {
 
 			@Override

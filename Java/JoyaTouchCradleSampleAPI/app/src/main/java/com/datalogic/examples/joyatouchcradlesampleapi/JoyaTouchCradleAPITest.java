@@ -2,7 +2,6 @@
 
 package com.datalogic.examples.joyatouchcradlesampleapi;
 
-import com.datalogic.examples.joyatouchcradlesampleapi.R;
 import com.datalogic.extension.selfshopping.cradle.Cradle;
 import com.datalogic.extension.selfshopping.cradle.CradleManager;
 import com.datalogic.extension.selfshopping.cradle.CradleType;

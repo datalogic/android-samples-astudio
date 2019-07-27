@@ -22,8 +22,6 @@ public class ResetActivity extends Activity {
 	private static String[] listArray = null;
 	private static BootType[] bootTypes = null;
 
-	private ListView listReset;
-
 	private PowerManager pm;
 
 	@Override
@@ -43,7 +41,7 @@ public class ResetActivity extends Activity {
 		setArray();
 
 		ArrayAdapter<Object> adapter = new ArrayAdapter<Object>(this, android.R.layout.simple_list_item_1, listArray);
-		listReset = (ListView) findViewById(R.id.listReset);
+		ListView listReset = (ListView) findViewById(R.id.listReset);
 		listReset.setAdapter(adapter);
 		listReset.setOnItemClickListener(new ResetAdapter());
 	}
@@ -74,9 +72,7 @@ public class ResetActivity extends Activity {
 				pm.reboot(bootTypes[pos]);
 			} catch (DeviceException e) {
 				android.util.Log.e(getClass().getName(), "While onItemClick", e);
-				return;
 			}
 		}
-
 	}
 }

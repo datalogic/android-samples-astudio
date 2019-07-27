@@ -11,9 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
-import android.view.Window
 import android.view.WindowManager
-import android.view.View.OnTouchListener
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -44,7 +42,7 @@ class MainScanActivity : Activity(), ReadListener, StartListener, TimeoutListene
     private var previousNotification: Boolean = false
     private var mToast: Toast? = null
 
-    internal lateinit var mBarcodeText : TextView
+    private lateinit var mBarcodeText : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -181,7 +179,8 @@ class MainScanActivity : Activity(), ReadListener, StartListener, TimeoutListene
 
     override fun onScanStarted() {
         status!!.setTextColor(Color.RED)
-        status!!.text = "Scanning"
+        val s = "Scanning"
+        status!!.text = s
 
         showScanResult!!.setText("")
         showMessage("Scanner Started")
@@ -223,7 +222,8 @@ class MainScanActivity : Activity(), ReadListener, StartListener, TimeoutListene
     override fun onScanStopped() {
         if (!ignoreStop) {
             status!!.setTextColor(statusTextColor)
-            status!!.text = "Ready"
+            val r = "Ready"
+            status!!.text = r
             showMessage("Scanner Stopped")
         } else {
             ignoreStop = false
@@ -232,7 +232,8 @@ class MainScanActivity : Activity(), ReadListener, StartListener, TimeoutListene
 
     override fun onScanTimeout() {
         status!!.setTextColor(Color.WHITE)
-        status!!.text = "Timeout"
+        val t = "Timeout"
+        status!!.text = t
         ignoreStop = true
 
         showMessage("Scanning timed out")
@@ -264,7 +265,7 @@ class MainScanActivity : Activity(), ReadListener, StartListener, TimeoutListene
     }
 
     // Changed typeof data from ByteArray
-    internal fun encodeHex(data: IntArray?): String {
+    private fun encodeHex(data: IntArray?): String {
         if (data == null)
             return ""
 
@@ -282,7 +283,7 @@ class MainScanActivity : Activity(), ReadListener, StartListener, TimeoutListene
         return hexString.toString()
     }
 
-    internal fun showMessage(s: String) {
+    private fun showMessage(s: String) {
         if (mToast == null || mToast!!.view.windowVisibility != View.VISIBLE) {
             mToast = Toast.makeText(this, s, Toast.LENGTH_SHORT)
             mToast!!.show()
@@ -293,7 +294,7 @@ class MainScanActivity : Activity(), ReadListener, StartListener, TimeoutListene
 
     companion object {
 
-        internal val TAG = "Test-Scanner"
+        internal const val TAG = "Test-Scanner"
     }
 }
 

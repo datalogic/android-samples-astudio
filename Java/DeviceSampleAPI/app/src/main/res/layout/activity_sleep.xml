@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textMainActivities"
         android:layout_centerHorizontal="true"
-        android:text="TextView" />
+        android:text="@string/textview" />
 
     <TextView
         android:id="@+id/txtSleepSelection"
@@ -31,11 +31,12 @@
         android:layout_below="@+id/txtSleep"
         android:background="#000"
         android:ems="10"
-        android:text="Click below to set suspend timeout, or wakeup sources activated"
+        android:text="@string/timeout"
         android:textColor="#FFF" >
     </TextView>
 
     <LinearLayout
+        android:baselineAligned="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

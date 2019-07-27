@@ -57,11 +57,9 @@ public class BatteryActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.action_reset:
+		if (item.getItemId() == R.id.action_reset) {
 			setText();
-			break;
-		default:
+		} else {
 			return super.onOptionsItemSelected(item);
 		}
 		return super.onOptionsItemSelected(item);

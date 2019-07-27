@@ -10,9 +10,9 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 
 public class Settings {
-	Context context;
-	boolean open = false;
-	MediaPlayer mediaPlayer;
+	private Context context;
+	private boolean open = false;
+	private MediaPlayer mediaPlayer;
 	
 	public Settings(Context context) {
 		this.context = context;

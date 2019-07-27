@@ -107,9 +107,9 @@ public class InfoActivity extends Activity {
 		for(String st : bundleStrings) {
 			builder.append(st + ": ");
 			tmp = b.get(st);
-			if (tmp != null && tmp instanceof Integer) {
+			if (tmp instanceof Integer) {
 				builder.append((Integer) tmp);
-			} else if(tmp != null && tmp instanceof String) {
+			} else if(tmp instanceof String) {
 				builder.append((String) tmp);
 			} else {
 				continue;

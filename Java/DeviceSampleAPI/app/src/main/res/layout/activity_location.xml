@@ -12,8 +12,8 @@
         android:id="@+id/textMainActivities"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:gravity="center"
         android:hint="@string/txt_hint_location"
@@ -23,19 +23,19 @@
         android:id="@+id/btnGps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/textMainActivities"
         android:onClick="btnGpsOnClick"
-        android:text="Switch GPS mode" />
+        android:text="@string/gps_mode" />
 
     <Button
         android:id="@+id/btnLocationSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnGps"
+        android:layout_alignStart="@+id/btnGps"
         android:layout_below="@+id/btnGps"
         android:onClick="btnSettingsOnClick"
-        android:text="Go to Settings" />
+        android:text="@string/go_to_settings" />
 
     <TextView
         android:id="@+id/gpsStatus"

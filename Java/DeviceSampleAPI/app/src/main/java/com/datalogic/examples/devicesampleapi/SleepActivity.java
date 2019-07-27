@@ -32,8 +32,6 @@ public class SleepActivity extends Activity {
 	private static ArrayList<WakeupSource> sourceVals = new ArrayList<WakeupSource>();
 
 	private TextView txtSleep;
-	private ListView listSuspendTimeout;
-	private ListView listWakeupSource;
 
 	private PowerManager pm;
 	private ArrayList<WakeupSource> sourceList = new ArrayList<WakeupSource>();
@@ -65,9 +63,9 @@ public class SleepActivity extends Activity {
 		ArrayAdapter<String> sourceAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, sources);
 
-		listSuspendTimeout = (ListView) findViewById(R.id.listSuspendTimeout);
+		ListView listSuspendTimeout = (ListView) findViewById(R.id.listSuspendTimeout);
 		listSuspendTimeout.setAdapter(timeoutAdapter);
-		listWakeupSource = (ListView) findViewById(R.id.listWakeupSource);
+		ListView listWakeupSource = (ListView) findViewById(R.id.listWakeupSource);
 		listWakeupSource.setAdapter(sourceAdapter);
 
 		listSuspendTimeout.setOnItemClickListener(new TimeoutListListener());
@@ -89,9 +87,9 @@ public class SleepActivity extends Activity {
 	private void setSources() {
 		if (sources == null) {
 			WakeupSource[] definedSources = WakeupSource.values();
-			for(int i = 0; i < definedSources.length; i++) {
-				if(pm.isWakeupSupported(definedSources[i])) {
-					sourceVals.add(definedSources[i]);
+			for (WakeupSource definedSource : definedSources) {
+				if (pm.isWakeupSupported(definedSource)) {
+					sourceVals.add(definedSource);
 				}
 			}
 			sources = new String[sourceVals.size()];
@@ -157,14 +155,11 @@ public class SleepActivity extends Activity {
 	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.action_reset:
+		if (item.getItemId() == R.id.action_reset) {
 			setText();
 
 			clearWakeup();
-
-			break;
-		default:
+		} else {
 			return super.onOptionsItemSelected(item);
 		}
 		return super.onOptionsItemSelected(item);

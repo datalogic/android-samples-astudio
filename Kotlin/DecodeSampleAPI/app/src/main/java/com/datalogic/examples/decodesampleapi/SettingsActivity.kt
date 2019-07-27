@@ -129,7 +129,7 @@ class SettingsActivity : PreferenceActivity() {
 
         override fun onPreferenceClick(preference: Preference): Boolean {
             val msg = handler.obtainMessage()
-            msg.what = SettingsActivity.HANDLE_SYMBOLOGY
+            msg.what = HANDLE_SYMBOLOGY
             msg.obj = preference
 
             handler.sendMessage(msg)
@@ -140,7 +140,7 @@ class SettingsActivity : PreferenceActivity() {
 
     companion object {
 
-        private val TAG = "SettingsActivity"
+        private const val TAG = "SettingsActivity"
         /**
          * Event to handle a symbology checkbox.
          */

@@ -66,7 +66,7 @@ public class CradleCustomAreaActivity extends Activity
 		
 		if (numBytes != 0)
 		{
-			byte customValuesValid[] = new byte[numBytes];
+			byte[] customValuesValid = new byte[numBytes];
 			System.arraycopy(customValues, 0, customValuesValid, 0, numBytes);
 			try
 			{
@@ -129,7 +129,7 @@ public class CradleCustomAreaActivity extends Activity
 			return;
 		}
 		
-		if (customValues == null || customValues.length == 0 || customValues.length > CustomArea.SIZE)
+		if (customValues.length == 0 || customValues.length > CustomArea.SIZE)
 		{
 			Toast.makeText(this, "Invalid custom area bytes size.", Toast.LENGTH_LONG).show();
 			return;

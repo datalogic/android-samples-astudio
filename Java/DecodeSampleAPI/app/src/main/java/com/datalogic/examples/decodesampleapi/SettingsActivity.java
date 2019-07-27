@@ -41,11 +41,6 @@ public class SettingsActivity extends PreferenceActivity {
     static HashMap<String, Symbology> symbologyMap = null;
     static HashMap<Symbology, CheckBoxPreference> preferenceMap = null;
 
-    /**
-     * @see OnChangeHandler
-     */
-    private Handler handler = null;
-
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -60,7 +55,10 @@ public class SettingsActivity extends PreferenceActivity {
             }
         }
 
-        handler = new Handler(new OnChangeHandler());
+        /*
+         * @see OnChangeHandler
+         */
+        Handler handler = new Handler(new OnChangeHandler());
 
         if (listener == null) {
             listener = new SymbologyPreferenceListener(handler);
@@ -128,7 +126,7 @@ public class SettingsActivity extends PreferenceActivity {
      *                with values from their prospective Symbologies.
      */
     private void load() {
-        Boolean value;
+        boolean value;
 
         try {
             for (Symbology s : preferenceMap.keySet()) {
@@ -151,13 +149,9 @@ public class SettingsActivity extends PreferenceActivity {
 
         @Override
         public boolean handleMessage(Message msg) {
-            switch (msg.what) {
-                case HANDLE_SYMBOLOGY:
-                    onSymbologyChanged((CheckBoxPreference) msg.obj);
-                    load();
-                    break;
-                default:
-                    break;
+            if (msg.what == HANDLE_SYMBOLOGY) {
+                onSymbologyChanged((CheckBoxPreference) msg.obj);
+                load();
             }
             return false;
         }
@@ -173,7 +167,7 @@ public class SettingsActivity extends PreferenceActivity {
         Symbology s = symbologyMap.get(checky.getTitle());
         try {
             if (decoder.isSymbologySupported(s)) {
-                Boolean val = checky.isChecked();
+                boolean val = checky.isChecked();
                 decoder.enableSymbology(s, val);
             }
         } catch (DecodeException e) {

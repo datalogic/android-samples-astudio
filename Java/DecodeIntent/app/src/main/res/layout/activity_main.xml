@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/startBTN" 
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:onClick="onStartBtnPressed" />
 
         <Button
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/stopBTN"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:onClick="onStopBtnPressed" />
     </RelativeLayout>
 

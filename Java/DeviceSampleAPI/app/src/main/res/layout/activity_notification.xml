@@ -12,8 +12,8 @@
         android:id="@+id/textMainActivities"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:gravity="center"
         android:hint="@string/txt_hint_notification"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Blink Green spot 10 times" />
+        android:text="@string/spot_blink" />
 
     <Button
         android:id="@+id/btnLedEnable"
@@ -33,6 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnLed"
         android:layout_centerHorizontal="true"
-        android:text="Toggle Green spot" />
+        android:text="@string/toggle_spot" />
 
 </RelativeLayout>

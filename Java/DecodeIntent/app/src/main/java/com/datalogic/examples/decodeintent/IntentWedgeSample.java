@@ -45,10 +45,7 @@ public class IntentWedgeSample extends Activity {
 	private BroadcastReceiver receiver = null;
 	private IntentFilter filter = null;
 
-	private RadioGroup radioGroup;
-
 	private BarcodeManager manager;
-	private ScannerProperties configuration;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +56,7 @@ public class IntentWedgeSample extends Activity {
 		manager = new BarcodeManager();
 
 		// Get the Radio Group from the displayed layout.
-		radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+		RadioGroup radioGroup = findViewById(R.id.radioGroup);
 		// Associate a specific listener.
 		radioGroup.setOnCheckedChangeListener(new MyClickedItemListener());
 		// Clear check and force a default radio button checked.
@@ -138,11 +135,11 @@ public class IntentWedgeSample extends Activity {
 		@Override
 		public void onCheckedChanged(RadioGroup group, int checkedId) {
 			// Handle errors through java Exceptions
-			ErrorManager.enableExceptions(true);
+			Integer res = ErrorManager.enableExceptions(true);
 
 			try {
 				// get the current settings from the BarcodeManager
-				configuration = ScannerProperties.edit(manager);
+				ScannerProperties configuration = ScannerProperties.edit(manager);
 				// disables KeyboardWedge
 				configuration.keyboardWedge.enable.set(false);
 				// enable wedge intent

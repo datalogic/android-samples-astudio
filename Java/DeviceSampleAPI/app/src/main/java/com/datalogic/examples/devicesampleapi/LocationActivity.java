@@ -78,7 +78,7 @@ public class LocationActivity extends Activity {
 		boolean previous = ErrorManager.areExceptionsEnabled();
 
 		// We want to be notified through an exception if something goes wrong.
-		ErrorManager.enableExceptions(true);
+		Integer e = ErrorManager.enableExceptions(true);
 		try {
 			gps = new LocationManager();
 			gps.setLocationMode(enable ? LocationMode.SENSORS_AND_NETWORK : LocationMode.OFF);
@@ -87,7 +87,7 @@ public class LocationActivity extends Activity {
 			Log.e(getClass().getName(), "Exception while switching location mode ", e1);
 		}
 		// Set previous value.
-		ErrorManager.enableExceptions(previous);
+		Integer b = ErrorManager.enableExceptions(previous);
 	}
 
 }

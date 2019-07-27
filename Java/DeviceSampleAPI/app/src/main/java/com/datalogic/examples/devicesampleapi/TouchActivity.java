@@ -17,8 +17,6 @@ import com.datalogic.device.input.TouchManager;
  */
 public class TouchActivity extends Activity {
 
-	private Button btn1, btn2, btn3, btn4;
-
 	private TouchManager tm;
 
 	@Override
@@ -27,7 +25,7 @@ public class TouchActivity extends Activity {
 
 		setContentView(R.layout.activity_touch);
 
-		btn1 = (Button) findViewById(R.id.button1);
+		Button btn1 = (Button) findViewById(R.id.button1);
 		btn1.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -36,7 +34,7 @@ public class TouchActivity extends Activity {
 						Toast.LENGTH_SHORT).show();
 			}
 		});
-		btn2 = (Button) findViewById(R.id.button2);
+		Button btn2 = (Button) findViewById(R.id.button2);
 		btn2.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -45,7 +43,7 @@ public class TouchActivity extends Activity {
 						Toast.LENGTH_SHORT).show();
 			}
 		});
-		btn3 = (Button) findViewById(R.id.button3);
+		Button btn3 = (Button) findViewById(R.id.button3);
 		btn3.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -54,7 +52,7 @@ public class TouchActivity extends Activity {
 						Toast.LENGTH_SHORT).show();
 			}
 		});
-		btn4 = (Button) findViewById(R.id.button4);
+		Button btn4 = (Button) findViewById(R.id.button4);
 		btn4.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -68,7 +66,6 @@ public class TouchActivity extends Activity {
 			tm = new TouchManager();
 		} catch (DeviceException e) {
 			android.util.Log.e(getClass().getName(), "While creating activity", e);
-			return;
 		}
 	}
 

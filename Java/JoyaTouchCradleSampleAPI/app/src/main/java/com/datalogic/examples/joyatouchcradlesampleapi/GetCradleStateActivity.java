@@ -92,12 +92,10 @@ public class GetCradleStateActivity extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle item selection
-	    switch (item.getItemId()) {
-	        case R.id.item_refresh:
-	            updateContent();
-	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
+		if (item.getItemId() == R.id.item_refresh) {
+			updateContent();
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 }

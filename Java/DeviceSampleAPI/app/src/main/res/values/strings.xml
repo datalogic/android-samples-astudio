@@ -23,5 +23,17 @@
     <string name="txt_thresh_low">Click below to set battery threshold for low level.</string>
     <string name="txt_thresh_crit">Click below to set battery threshold for critical level.</string>
     <string name="txt_hint_start">Click below to open an activity.</string>
+    <string name="device_image">Device Image</string>
+    <string name="gps_mode">Switch GPS mode</string>
+    <string name="go_to_settings">Go to Settings</string>
+    <string name="switch_nfc">Switch NFC</string>
+    <string name="toggle_spot">Toggle Green spot</string>
+    <string name="spot_blink">Blink Green spot 10 times</string>
+    <string name="textview">TextView</string>
+    <string name="timeout">Click below to set suspend timeout, or wakeup sources activated</string>
+    <string name="button_1">Button 1</string>
+    <string name="button_2">Button 2</string>
+    <string name="button_3">Button 3</string>
+    <string name="button_4">Button 4</string>
 
 </resources>
