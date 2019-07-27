@@ -36,7 +36,7 @@ class SleepActivity : Activity() {
      * @return String representation of PowerManager information regarding
      * suspending the device.
      */
-    protected val description: String
+    private val description: String
         get() {
             val outVal = StringBuilder()
 
@@ -51,12 +51,12 @@ class SleepActivity : Activity() {
                 )
                 for (s in sourceVals) {
                     outVal.append("isWakeupActive")
-                    outVal.append("(" + s.name() + "): ")
+                    outVal.append("(" + s.name + "): ")
                     outVal.append("" + pm!!.isWakeupActive(s) + "\n")
                 }
 
                 try {
-                    outVal.append("getWakeupReason: " + pm!!.getWakeupReason())
+                    outVal.append("getWakeupReason: " + pm!!.wakeupReason)
                 } catch (e: Exception) {
                     android.util.Log.e(javaClass.name, "Did the device go to sleep?", e)
                 }
@@ -82,7 +82,7 @@ class SleepActivity : Activity() {
             return
         }
 
-        txtSleep = findViewById(R.id.txtSleep) as TextView
+        txtSleep = findViewById<TextView>(R.id.txtSleep)
 
         // load available timeouts
         setTimeouts()
@@ -98,9 +98,9 @@ class SleepActivity : Activity() {
             android.R.layout.simple_list_item_1, sources!!
         )
 
-        listSuspendTimeout = findViewById(R.id.listSuspendTimeout) as ListView
+        listSuspendTimeout = findViewById<ListView>(R.id.listSuspendTimeout)
         listSuspendTimeout!!.adapter = timeoutAdapter
-        listWakeupSource = findViewById(R.id.listWakeupSource) as ListView
+        listWakeupSource = findViewById<ListView>(R.id.listWakeupSource)
         listWakeupSource!!.adapter = sourceAdapter
 
         listSuspendTimeout!!.onItemClickListener = TimeoutListListener()

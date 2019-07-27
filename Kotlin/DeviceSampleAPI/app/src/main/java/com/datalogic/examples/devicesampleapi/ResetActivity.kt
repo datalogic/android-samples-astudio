@@ -50,13 +50,13 @@ class ResetActivity : Activity() {
      * each.
      */
     private fun setArray() {
-        if (listArray == null || bootTypes == null) {
+        if (listArray[0]  == "-1"|| bootTypes == null) {
             bootTypes = BootType.values()
             val inter = bootTypes!!.size
 
             listArray = arrayOfNulls(inter)
             for (i in bootTypes!!.indices) {
-                listArray[i] = bootTypes!![i].name()
+                listArray[i] = bootTypes!![i].name
             }
         }
     }
@@ -82,7 +82,7 @@ class ResetActivity : Activity() {
     }
 
     companion object {
-        private var listArray: Array<String>? = null
+        private var listArray: Array<String?> = arrayOf("-1")
         private var bootTypes: Array<BootType>? = null
     }
 }
