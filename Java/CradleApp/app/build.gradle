@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "com.datalogic.cradleapp"
         minSdkVersion 24
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 17
         versionName "1.2.15"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
