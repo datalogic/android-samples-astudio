@@ -137,10 +137,6 @@ public class MainActivity extends Activity implements ReadListener, StartListene
 		mWebViewSettings.setDomStorageEnabled(true);
 		mWebViewSettings.setDatabaseEnabled(true);
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT)
-            mWebViewSettings.setDatabasePath(getFilesDir().getPath() +
-                    mWebView.getContext().getPackageName() + "/databases/");
-
 		// Setup HTML5 GeoLocation
 		mWebViewSettings.setGeolocationDatabasePath(getFilesDir().getPath() +
 				mWebView.getContext().getPackageName() + "/geo/");
@@ -176,14 +172,7 @@ public class MainActivity extends Activity implements ReadListener, StartListene
                         .show();
                 return true;
             }
-            
-            @Override
-            public void onExceededDatabaseQuota(String url, String 
-            		databaseIdentifier, long currentQuota, long estimatedSize, long 
-            		totalUsedQuota, WebStorage.QuotaUpdater quotaUpdater) { 
-            		                quotaUpdater.updateQuota(262140); // 256K
-            }
-            
+
             /*
              * Always grant geo-location permission 
              */
@@ -247,13 +236,9 @@ public class MainActivity extends Activity implements ReadListener, StartListene
 
     @Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-    	switch (item.getItemId()) {
-		case R.id.item_about:
-			Utils.callJsFunction(mWebView, "showSettings");
-			break;
 
-		default:
-			break;
+		if(item.getItemId() == R.id.item_about){
+			Utils.callJsFunction(mWebView, "showSettings");
 		}
 		return false;
 	}
@@ -356,8 +341,13 @@ public class MainActivity extends Activity implements ReadListener, StartListene
 	    		}
 	    		
 	    		WebBackForwardList stack = mWebView.copyBackForwardList();
-	    		if (stack.getCurrentItem().getUrl().equals(home))
-                    return false;
+	    		try {
+					if (stack.getCurrentItem().getUrl().equals(home))
+						return false;
+				}
+	    		catch(NullPointerException n){
+					Log.d(TAG, "Getting URL for backForwardList, URL not found");
+				}
 
 	    		mWebView.loadUrl(home);
 	    		mWebView.clearHistory();

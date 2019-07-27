@@ -26,7 +26,7 @@ public class Utils {
 	public static void callJsFunction(WebView w, String name, String... args) {
 		StringBuilder js = new StringBuilder();
 		
-		/**
+		/*
 		 * Build JS code to call a function, something like:
 		 * 	myFunction("arg1", null, "arg3")
 		 */
