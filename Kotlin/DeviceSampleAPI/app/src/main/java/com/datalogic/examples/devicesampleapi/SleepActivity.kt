@@ -91,11 +91,11 @@ class SleepActivity : Activity() {
 
         val timeoutAdapter = ArrayAdapter(
             this,
-            android.R.layout.simple_list_item_1, timeouts!!
+            android.R.layout.simple_list_item_1, timeouts
         )
         val sourceAdapter = ArrayAdapter(
             this,
-            android.R.layout.simple_list_item_1, sources!!
+            android.R.layout.simple_list_item_1, sources
         )
 
         listSuspendTimeout = findViewById<ListView>(R.id.listSuspendTimeout)
@@ -120,7 +120,7 @@ class SleepActivity : Activity() {
      * Initialize sources and sourceVals.
      */
     private fun setSources() {
-        if (sources == null) {
+        if (sources[0] == "-1") {
             val definedSources = WakeupSource.values()
             for (i in definedSources.indices) {
                 if (pm!!.isWakeupSupported(definedSources[i])) {
@@ -128,8 +128,8 @@ class SleepActivity : Activity() {
                 }
             }
             sources = arrayOfNulls(sourceVals.size)
-            for (i in sources!!.indices) {
-                sources[i] = sourceVals.get(i).name()
+            for (i in sources.indices) {
+                sources[i] = sourceVals[i].name
             }
 
         }
@@ -139,11 +139,11 @@ class SleepActivity : Activity() {
      * Initialize timeouts and timeoutVals.
      */
     private fun setTimeouts() {
-        if (timeouts == null) {
+        if (timeouts[0] == "-1") {
             timeoutVals = SuspendTimeout.values()
             timeouts = arrayOfNulls(timeoutVals!!.size)
-            for (i in timeouts!!.indices) {
-                timeouts[i] = "" + timeoutVals!![i].name()
+            for (i in timeouts.indices) {
+                timeouts[i] = "" + timeoutVals!![i].name
             }
         }
     }
@@ -248,9 +248,9 @@ class SleepActivity : Activity() {
 
     companion object {
 
-        private var timeouts: Array<String>? = null
+        private var timeouts: Array<String?> = arrayOf("-1")
         private var timeoutVals: Array<SuspendTimeout>? = null
-        private var sources: Array<String>? = null
+        private var sources: Array<String?> = arrayOf("-1")
         private val sourceVals = ArrayList<WakeupSource>()
     }
 

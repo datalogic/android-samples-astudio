@@ -72,7 +72,7 @@ class LocationActivity : Activity() {
      * (false).
      */
     fun setGPSState(enable: Boolean) {
-        var gps: LocationManager? = null
+        val gps: LocationManager?
 
         // Store previous exception preference.
         val previous = ErrorManager.areExceptionsEnabled()
@@ -81,7 +81,7 @@ class LocationActivity : Activity() {
         ErrorManager.enableExceptions(true)
         try {
             gps = LocationManager()
-            gps!!.setLocationMode(if (enable) LocationMode.SENSORS_AND_NETWORK else LocationMode.OFF)
+            gps.setLocationMode(if (enable) LocationMode.SENSORS_AND_NETWORK else LocationMode.OFF)
         } catch (e1: DeviceException) {
             // Just in case we get an error.
             Log.e(javaClass.name, "Exception while switching location mode ", e1)

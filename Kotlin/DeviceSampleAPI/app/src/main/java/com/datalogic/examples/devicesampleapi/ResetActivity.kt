@@ -39,7 +39,7 @@ class ResetActivity : Activity() {
         // Set listArray and bootTypes
         setArray()
 
-        val adapter = ArrayAdapter<Any>(this, android.R.layout.simple_list_item_1, listArray!!)
+        val adapter = ArrayAdapter<Any>(this, android.R.layout.simple_list_item_1, listArray)
         listReset = findViewById<ListView>(R.id.listReset)
         listReset!!.adapter = adapter
         listReset!!.onItemClickListener = ResetAdapter()
