@@ -1,4 +1,4 @@
-// ©2016 Datalogic S.p.A. and/or its affiliates. All rights reserved.
+// ©2019 Datalogic S.p.A. and/or its affiliates. All rights reserved.
 
 package com.datalogic.examples.devicesampleapi
 
@@ -26,7 +26,7 @@ class LocationActivity : Activity() {
     /**
      * Use android.location.LocationManager to determine if GPS is enabled.
      */
-    val isGPSEnabled: Boolean
+    private val isGPSEnabled: Boolean
         get() {
             val loc = getSystemService(Context.LOCATION_SERVICE) as android.location.LocationManager
             return loc.isProviderEnabled(android.location.LocationManager.GPS_PROVIDER)
@@ -40,6 +40,7 @@ class LocationActivity : Activity() {
 
         val newVal: Boolean = isGPSEnabled
         gpsStatus!!.text = "GPS is " + (if (newVal) "" else "not ") + "enabled"
+
     }
 
     /**

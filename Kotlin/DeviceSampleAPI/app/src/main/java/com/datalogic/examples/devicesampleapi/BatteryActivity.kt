@@ -33,8 +33,8 @@ class BatteryActivity : Activity() {
 
     private val extPowerStatus: Boolean
         get() {
-            val external_power_source = batteryStatus!!.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0)
-            return external_power_source == BatteryManager.BATTERY_PLUGGED_AC
+            val externalPowerSource = batteryStatus!!.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0)
+            return externalPowerSource == BatteryManager.BATTERY_PLUGGED_AC
         }
 
    private val usbPowerStatus: Boolean
@@ -48,12 +48,12 @@ class BatteryActivity : Activity() {
             val resultStatus: String
             val status = batteryStatus!!.getIntExtra(BatteryManager.EXTRA_STATUS, -1)
 
-            when (status) {
-                BatteryManager.BATTERY_STATUS_CHARGING -> resultStatus = "Charging"
-                BatteryManager.BATTERY_STATUS_DISCHARGING -> resultStatus = "Discharging"
-                BatteryManager.BATTERY_STATUS_FULL -> resultStatus = "Full"
-                BatteryManager.BATTERY_STATUS_NOT_CHARGING -> resultStatus = "Not charging"
-                else -> resultStatus = "Unknown"
+            resultStatus = when (status) {
+                BatteryManager.BATTERY_STATUS_CHARGING -> "Charging"
+                BatteryManager.BATTERY_STATUS_DISCHARGING -> "Discharging"
+                BatteryManager.BATTERY_STATUS_FULL -> "Full"
+                BatteryManager.BATTERY_STATUS_NOT_CHARGING -> "Not charging"
+                else -> "Unknown"
             }
 
             return resultStatus
@@ -82,7 +82,7 @@ class BatteryActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_battery)
 
-        txtPower = findViewById(R.id.txtPower) as TextView
+        txtPower = findViewById<TextView>(R.id.txtPower)
 
         // Get Android's status.
         batteryStatus = registerReceiver(

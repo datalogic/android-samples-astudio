@@ -13,8 +13,8 @@
         android:id="@+id/textMainActivities"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:gravity="center"
         android:hint="@string/txt_hint_info"
@@ -34,7 +34,7 @@
         android:layout_below="@+id/txtInfo"
         android:layout_centerHorizontal="true"
         android:onClick="btnBgOnClick"
-        android:contentDescription="Device Image"
+        android:contentDescription="@string/device_image"
         android:src="@drawable/ic_launcher" />
 
 </RelativeLayout>

@@ -1,4 +1,4 @@
-// ©2016 Datalogic S.p.A. and/or its affiliates. All rights reserved.
+// ©2019 Datalogic S.p.A. and/or its affiliates. All rights reserved.
 
 package com.datalogic.examples.devicesampleapi
 
@@ -227,11 +227,11 @@ class SleepActivity : Activity() {
             arg3: Long
         ) {
             try {
-                if (!pm!!.isWakeupActive(sourceVals.get(pos)))
-                    pm!!.activateWakeup(sourceVals.get(pos))
+                if (!pm!!.isWakeupActive(sourceVals[pos]))
+                    pm!!.activateWakeup(sourceVals[pos])
                 else
-                    pm!!.clearWakeup(sourceVals.get(pos))
-                sourceList.add(sourceVals.get(pos))
+                    pm!!.clearWakeup(sourceVals[pos])
+                sourceList.add(sourceVals[pos])
             } catch (e: DeviceException) {
                 android.util.Log.e(javaClass.name, "onItemClick", e)
             }

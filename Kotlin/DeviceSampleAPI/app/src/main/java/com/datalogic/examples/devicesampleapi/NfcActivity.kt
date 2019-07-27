@@ -23,7 +23,7 @@ class NfcActivity : Activity() {
     /**
      * @return True if Nfc is enabled, false otherwise.
      */
-    val isNfcEnabled: Boolean
+    private val isNfcEnabled: Boolean
         get() {
             val manager = getSystemService(Context.NFC_SERVICE) as android.nfc.NfcManager
             val adapter = manager.defaultAdapter
@@ -37,6 +37,7 @@ class NfcActivity : Activity() {
         nfcStatus = findViewById<TextView>(R.id.nfcStatus)
 
         val newVal: Boolean = isNfcEnabled
+
         nfcStatus!!.text = "Nfc is " + (if (newVal) "" else "not ") + "enabled"
     }
 
@@ -63,7 +64,7 @@ class NfcActivity : Activity() {
     /**
      * Enable or disable Nfc, using com.datalogic.device.nfc.NfcManager.
      */
-    fun setEnableNfc(enable: Boolean) {
+    private fun setEnableNfc(enable: Boolean) {
         val previous = ErrorManager.areExceptionsEnabled()
         ErrorManager.enableExceptions(false)
         ErrorManager.clearErrors()

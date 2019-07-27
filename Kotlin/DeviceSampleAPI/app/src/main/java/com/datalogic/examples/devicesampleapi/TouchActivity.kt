@@ -1,4 +1,4 @@
-// ©2016 Datalogic S.p.A. and/or its affiliates. All rights reserved.
+// ©2019 Datalogic S.p.A. and/or its affiliates. All rights reserved.
 
 package com.datalogic.examples.devicesampleapi
 
@@ -27,28 +27,28 @@ class TouchActivity : Activity() {
 
         setContentView(R.layout.activity_touch)
 
-        btn1 = findViewById(R.id.button1) as Button
+        btn1 = findViewById<Button>(R.id.button1)
         btn1!!.setOnClickListener {
             Toast.makeText(
                 baseContext, "Button 1 clicked",
                 Toast.LENGTH_SHORT
             ).show()
         }
-        btn2 = findViewById(R.id.button2) as Button
+        btn2 = findViewById<Button>(R.id.button2)
         btn2!!.setOnClickListener {
             Toast.makeText(
                 baseContext, "Button 2 clicked",
                 Toast.LENGTH_SHORT
             ).show()
         }
-        btn3 = findViewById(R.id.button3) as Button
+        btn3 = findViewById<Button>(R.id.button3)
         btn3!!.setOnClickListener {
             Toast.makeText(
                 baseContext, "Button 3 clicked",
                 Toast.LENGTH_SHORT
             ).show()
         }
-        btn4 = findViewById(R.id.button4) as Button
+        btn4 = findViewById<Button>(R.id.button4)
         btn4!!.setOnClickListener {
             Toast.makeText(
                 baseContext, "Button 4 clicked",

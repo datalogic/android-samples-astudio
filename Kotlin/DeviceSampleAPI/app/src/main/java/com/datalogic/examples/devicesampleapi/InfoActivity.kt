@@ -1,4 +1,4 @@
-// ©2016 Datalogic S.p.A. and/or its affiliates. All rights reserved.
+// ©2019 Datalogic S.p.A. and/or its affiliates. All rights reserved.
 
 package com.datalogic.examples.devicesampleapi
 
@@ -31,21 +31,21 @@ class InfoActivity : Activity() {
     val serviceVersion: String
         get() = SYSTEM.SERVICES_VERSION
 
-    val scannerType: String
+    private val scannerType: String
         get() = SYSTEM.BARCODE_SCANNER_TYPE.toString()
 
     // Retrieve other info via Intent
-    val description: String
+   private val description: String
         get() {
             val builder = StringBuilder(
                 "Scanner Type: " + scannerType + "\n"
                         + "Boot Type: " + SYSTEM.BOOT_TYPE.toString() + "\n"
                         + "Device Model: " + android.os.Build.MODEL + "\n"
                         + "WiFi type: " + SYSTEM.WIFI_TYPE.toString() + "\n"
-                        + "Firmware Version: " + SYSTEM.getVersions().get("FIRMWARE") + "\n"
-                        + "Kernel Version: " + SYSTEM.getVersions().get("KERNEL") + "\n"
+                        + "Firmware Version: " + SYSTEM.getVersions()["FIRMWARE"] + "\n"
+                        + "Kernel Version: " + SYSTEM.getVersions()["KERNEL"] + "\n"
             )
-            val ifilter = IntentFilter(com.datalogic.device.info.SYSTEM.Version.ACTION_DEVICE_INFO)
+            val ifilter = IntentFilter(SYSTEM.Version.ACTION_DEVICE_INFO)
             val info = this.registerReceiver(null, ifilter)
             val b = info!!.extras
             val bundleStrings = b!!.keySet()
@@ -94,7 +94,7 @@ class InfoActivity : Activity() {
     /**
      * Shows device information.
      */
-    fun getInfo() {
+    private fun getInfo() {
         txtInfo!!.text = description
     }
 
