@@ -11,7 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.datalogic.examples.joyatouchcradlesampleapi.R;
 import com.datalogic.extension.selfshopping.cradle.joyatouch.CradleJoyaTouch;
 import com.datalogic.extension.selfshopping.cradle.joyatouch.LedAction;
 

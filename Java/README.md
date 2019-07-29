@@ -14,5 +14,5 @@ Java sample apps.
 | [DecodeListener](DecodeListener/) | Uses BarcodeManager to display scanned barcode label. | ![DecodeListener](screenshots/decode_listener2.png)
 | [DecodeSampleAPI](DecodeSampleAPI/) | Display barcodes, enable/disable symbologies and register/release listeners. | ![DecodeSampleAPI](screenshots/decode_sample.png)
 | [DeviceSampleAPI](DeviceSampleAPI/) |  View and manage system settings.| ![DeviceSampleAPI](screenshots/device_api.png)
-| [JoyaTouchCradleSampleAPI](JoyaTouchCradleSampleAPI/) | - | -
-| [ZXingSampleAPI](ZXingSampleAPI/) | - | -
+| [JoyaTouchCradleSampleAPI](JoyaTouchCradleSampleAPI/) | Configure/Control scanner cradle including locking. | ![JoyaTouchCradleSampleAPI](screenshots/joyatouch_cradle_sample.jpg)
+| [ZXingSampleAPI](ZXingSampleAPI/) |  | -
