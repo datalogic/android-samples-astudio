@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 'Datalogic:Datalogic SDK v1:23'
+    compileSdkVersion 27
 
     defaultConfig {
         applicationId "com.datalogic.examples.decodelistener"
