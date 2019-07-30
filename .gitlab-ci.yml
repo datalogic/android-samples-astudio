@@ -30,7 +30,7 @@ stages:
 lintRelease:
   stage: build
   script:
-    - ./Java/DecodeListener/gradlew -Pci --console=plain :app:lintRelease
+    - cd Java; cd DecodeListener; ./gradlew -Pci --console=plain :app:lintRelease
   artifacts:
     paths:
     - app/build/reports/
@@ -38,7 +38,7 @@ lintRelease:
 assembleRelease:
   stage: build
   script:
-    - ./Java/DecodeListener/gradlew assembleRelease -PversionCode=${CI_JOB_ID}
+    - cd Java; cd DecodeListener; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
   artifacts:
     paths:
     - app/build/outputs/
