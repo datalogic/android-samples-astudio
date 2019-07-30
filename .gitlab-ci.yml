@@ -26,6 +26,7 @@ cache:
 stages:
   - build
   - test
+  - deploy
 
 lintRelease:
   stage: build
@@ -51,3 +52,9 @@ releaseTests:
     paths:
     - app/build/reports/tests/
 
+deploy:
+  stage: deploy
+  - echo "Deploy to server"
+  environment:
+    name: staging
+    url: https://github.com/lyonsja/Test_Deploy
