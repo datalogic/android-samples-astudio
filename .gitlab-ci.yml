@@ -51,6 +51,7 @@ releaseTests:
     - app/build/reports/tests/
 
 deploy_staging:
+ script: echo "Deploying to staging"
  stage: deploy
  environment:
   name: staging
