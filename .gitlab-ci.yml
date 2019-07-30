@@ -15,8 +15,6 @@ before_script:
   - export GRADLE_USER_HOME=`pwd`/Java/DecodeListener/.gradle
   - chmod +x ./Java/DecodeListener/gradlew
 
-variables:
-
 
 cache:
   key: "$CI_COMMIT_REF_NAME"
