@@ -46,7 +46,7 @@ assembleRelease:
 releaseTests:
   stage: test
   script:
-    - ./gradlew -Pci --console=plain :app:testRelease
+    - cd Java; cd DecodeListener; ./gradlew -Pci --console=plain :app:testRelease
   artifacts:
     paths:
     - app/build/reports/tests/
