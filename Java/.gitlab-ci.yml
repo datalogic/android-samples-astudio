@@ -12,8 +12,8 @@ before_script:
   - set -o pipefail
 
   # setup gradle
-  - export GRADLE_USER_HOME=`pwd`/Java/DecodeListener/.gradle
-  - chmod +x ./Java/DecodeListener/gradlew
+  - export GRADLE_USER_HOME=`pwd`/DecodeListener/.gradle
+  - chmod +x ./DecodeListener/gradlew
 
 cache:
   key: "$CI_COMMIT_REF_NAME"
@@ -27,7 +27,7 @@ stages:
 lintRelease:
   stage: build
   script:
-    - ./Java/DecodeListener/gradlew -Pci --console=plain :app:lintRelease
+    - ./DecodeListener/gradlew -Pci --console=plain :app:lintRelease
   artifacts:
     paths:
     - app/build/reports/
@@ -35,7 +35,7 @@ lintRelease:
 assembleRelease:
   stage: build
   script:
-    - ./Java/DecodeListener/gradlew assembleRelease -PversionCode=${CI_JOB_ID}
+    - ./DecodeListener/gradlew assembleRelease -PversionCode=${CI_JOB_ID}
   artifacts:
     paths:
     - app/build/outputs/
