@@ -1,0 +1,50 @@
+image: javiersantos/android-ci:28.0.3
+
+variables:
+  # workaround self-signed certificate 
+  GIT_SSL_NO_VERIFY: "1"
+
+before_script:
+  # temporarily disable checking for EPIPE error
+  # use yes to accept all Android SDK licenses    
+  - set +o pipefail
+  - yes | /sdk/tools/bin/sdkmanager --licenses
+  - set -o pipefail
+
+  # setup gradle
+  - export GRADLE_USER_HOME=`pwd`/.gradle
+  - chmod +x ./gradlew
+
+cache:
+  key: "$CI_COMMIT_REF_NAME"
+  paths:
+     - .gradle/
+
+stages:
+  - build
+  - test
+
+lintRelease:
+  stage: build
+  script:
+    - ./gradlew -Pci --console=plain :app:lintRelease
+  artifacts:
+    paths:
+    - app/build/reports/
+
+assembleRelease:
+  stage: build
+  script:
+    - ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
+  artifacts:
+    paths:
+    - app/build/outputs/
+
+releaseTests:
+  stage: test
+  script:
+    - ./gradlew -Pci --console=plain :app:testRelease
+  artifacts:
+    paths:
+    - app/build/reports/tests/
+
