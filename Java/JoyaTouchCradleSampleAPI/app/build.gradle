@@ -18,5 +18,4 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.datalogic:datalogic-android-sdk-selfshopping:v1.8b'
 }
