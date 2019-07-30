@@ -52,7 +52,7 @@ releaseTests:
     paths:
     - app/build/reports/tests/
 
-deploy:
+deploy_staging:
   stage: deploy
   - echo "Deploy to server"
   environment:
