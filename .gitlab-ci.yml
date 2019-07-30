@@ -12,8 +12,8 @@ before_script:
   - set -o pipefail
 
   # setup gradle
-  - export GRADLE_USER_HOME=`pwd`/.gradle
-  - chmod +x ./gradlew
+  - export GRADLE_USER_HOME=`pwd`/Java/DecodeListener/.gradle
+  - chmod +x ./Java/DecodeListener/gradlew
 
 cache:
   key: "$CI_COMMIT_REF_NAME"
