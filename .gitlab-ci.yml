@@ -1,9 +1,5 @@
 image: javiersantos/android-ci:28.0.3
 
-variables:
-  # workaround self-signed certificate 
-  GIT_SSL_NO_VERIFY: "1"
-
 before_script:
   # temporarily disable checking for EPIPE error
   # use yes to accept all Android SDK licenses    
@@ -11,20 +7,25 @@ before_script:
   - yes | /sdk/tools/bin/sdkmanager --licenses
   - set -o pipefail
 
-  # setup gradle
-  - export GRADLE_USER_HOME=`pwd`/Java/DecodeListener/.gradle
-  - chmod +x ./Java/DecodeListener/gradlew
-
 cache:
   key: "$CI_COMMIT_REF_NAME"
   paths:
      - .gradle/
 
 stages:
+  - setA
   - buildA
   - setB
   - buildB
   - test
+
+initialA:
+ stage: setA
+ script:
+  # setup gradle
+  - export GRADLE_USER_HOME=`pwd`/Java/DecodeListener/.gradle
+  - chmod +x ./Java/DecodeListener/gradlew
+
 
 lintRelease:
   stage: buildA
@@ -42,7 +43,7 @@ assembleRelease:
     paths:
     - Java/DecodeListener/app/build/outputs/
 
-pre_script2:
+initialB:
  stage: setB
  script:
   # setup gradle
