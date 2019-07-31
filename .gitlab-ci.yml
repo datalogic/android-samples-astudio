@@ -19,23 +19,19 @@ stages:
   # - build_G
   # - test
 
-
-
-
 # Hidden Job
 .build: &build_definition
   script:
-    export GRADLE_USER_HOME=`pwd`/Java/*PROJECTFOLDER/.gradle
-    chmod +x ./Java/*PROJECTFOLDER/gradlew
-    cd Java; cd *PROJECTFOLDER; ./gradlew -Pci --console=plain :app:lintRelease
+    export GRADLE_USER_HOME=`pwd`/Java/*project_folder/.gradle
+    chmod +x ./Java/*project_folder/gradlew
+    cd Java; cd *project_folder; ./gradlew -Pci --console=plain :app:lintRelease
   stage: build
   artifacts:
     paths:
-    - Java/*PROJECTFOLDER/app/build/reports
+    - Java/*project_folder/app/build/reports
   
-DecodeListener:
-  .PROJECTFOLDER: &PROJECTFOLDER
-    DecodeListener
+DecodeListenerRelease:
+  &project_folder: "DecodeListener"
   <<: *build_definition
   
 
