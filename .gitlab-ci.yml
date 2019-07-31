@@ -24,7 +24,6 @@ cache:
 stages:
   - build
   - test
-  - deploy
 
 lintRelease:
   stage: build
@@ -32,7 +31,7 @@ lintRelease:
     - cd Java; cd DecodeListener; ./gradlew -Pci --console=plain :app:lintRelease
   artifacts:
     paths:
-    - app/build/reports/
+    - Java/DecodeListener/app/build/reports/
 
 assembleRelease:
   stage: build
@@ -40,7 +39,7 @@ assembleRelease:
     - cd Java; cd DecodeListener; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
   artifacts:
     paths:
-    - app/build/outputs/
+    - Java/DecodeListener/app/build/outputs/
 
 releaseTests:
   stage: test
@@ -48,11 +47,4 @@ releaseTests:
     - cd Java; cd DecodeListener; ./gradlew -Pci --console=plain :app:testRelease
   artifacts:
     paths:
-    - app/build/reports/tests/
-
-deploy_staging:
- script: echo "Deploying to staging"
- stage: deploy
- environment:
-  name: staging
-  url: https://github.com/lyonsja/Test_Deploy
+    - Java/DecodeListener/app/build/reports/tests/
