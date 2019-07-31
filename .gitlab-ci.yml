@@ -21,6 +21,7 @@ stages:
 
 # Hidden Job
 .build: &build_definition
+  &project_folder: "DecodeListener"
   script:
     export GRADLE_USER_HOME=`pwd`/Java/*project_folder/.gradle
     chmod +x ./Java/*project_folder/gradlew
