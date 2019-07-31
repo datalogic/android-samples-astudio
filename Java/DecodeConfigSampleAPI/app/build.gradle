@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 'Datalogic:Datalogic SDK v1:23'
+    compileSdkVersion 26
 
     defaultConfig {
         applicationId "com.datalogic.examples.decodeconfigsampleapi"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }

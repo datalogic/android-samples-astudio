@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 23
 
     defaultConfig {
         applicationId "com.datalogic.examples.joyatouchcradlesampleapi"
         minSdkVersion 14
-        targetSdkVersion 26
+        targetSdkVersion 23
     }
 
     buildTypes {
