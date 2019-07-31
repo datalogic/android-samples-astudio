@@ -22,13 +22,31 @@ stages:
   # - build_G
   # - test
 
+
+
+
+# Hidden Job
+.build: &build_definition
+  script:
+    export GRADLE_USER_HOME=`pwd`/Java/*PROJECTFOLDER/.gradle
+    chmod +x ./Java/*PROJECTFOLDER/gradlew
+    cd Java; cd *PROJECTFOLDER; ./gradlew -Pci --console=plain :app:lintRelease
+  stage: build
+  artifacts:
+    paths:
+    - Java/*PROJECTFOLDER/app/build/reports
+  
+DecodeListener:
+  .PROJECTFOLDER: &PROJECTFOLDER
+    DecodeListener
+  <<: *build_definition
+  
+
 # DecodeListener
 DecodeListener:
   stage: build_A
   script:
-    - export GRADLE_USER_HOME=`pwd`/Java/DecodeListener/.gradle
-    - chmod +x ./Java/DecodeListener/gradlew
-    - cd Java; cd DecodeListener; ./gradlew -Pci --console=plain :app:lintRelease
+   
   artifacts:
     paths:
     - Java/DecodeListener/app/build/reports/
@@ -38,69 +56,26 @@ DecodeListener:
     paths:
     - Java/DecodeListener/app/build/outputs/
 
-# DecodeIntent
-lintDecodeIntent:
-  stage: build_B
-  script:
-    - export GRADLE_USER_HOME=`pwd`/Java/DecodeIntent/.gradle
-    - chmod +x ./Java/DecodeIntent/gradlew
-    - cd Java; cd DecodeIntent; ./gradlew -Pci --console=plain :app:lintRelease
-  artifacts:
-    paths:
-    - Java/DecodeIntent/app/build/reports/
+# # DecodeIntent
+# lintDecodeIntent:
+#   stage: build_B
+#   script:
+#     - export GRADLE_USER_HOME=`pwd`/Java/DecodeIntent/.gradle
+#     - chmod +x ./Java/DecodeIntent/gradlew
+#     - cd Java; cd DecodeIntent; ./gradlew -Pci --console=plain :app:lintRelease
+#   artifacts:
+#     paths:
+#     - Java/DecodeIntent/app/build/reports/
 
-assembleDecodeIntent:
-  stage: build_B
-  script:
-    - export GRADLE_USER_HOME=`pwd`/Java/DecodeIntent/.gradle
-    - chmod +x ./Java/DecodeIntent/gradlew
-    - cd Java; cd DecodeIntent; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
-  artifacts:
-    paths:
-    - Java/DecodeIntent/app/build/outputs/
-
-# BarcodeScannerHTML5
-lintBarcodeHTML5:
-  stage: build_C
-  script:
-    - export GRADLE_USER_HOME=`pwd`/Java/BarcodeScannerHTML5/.gradle
-    - chmod +x ./Java/BarcodeScannerHTML5/gradlew
-    - cd Java; cd BarcodeScannerHTML5; ./gradlew -Pci --console=plain :app:lintRelease
-  artifacts:
-    paths:
-    - Java/BarcodeScannerHTML5/app/build/reports/
-
-assembleBarcodeHTML5:
-  stage: build_C
-  script:
-    - export GRADLE_USER_HOME=`pwd`/Java/BarcodeScannerHTML5/.gradle
-    - chmod +x ./Java/BarcodeScannerHTML5/gradlew
-    - cd Java; cd BarcodeScannerHTML5; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
-  artifacts:
-    paths:
-    - Java/BarcodeScannerHTML5/app/build/outputs/
-
-
-# CradleApp
-lintCradleApp:
-  stage: build_D
-  script:
-    - export GRADLE_USER_HOME=`pwd`/Java/CradleApp/.gradle
-    - chmod +x ./Java/CradleApp/gradlew
-    - cd Java; cd CradleApp; ./gradlew -Pci --console=plain :app:lintRelease
-  artifacts:
-    paths:
-    - Java/CradleApp/app/build/reports/
-
-assembleCradleApp:
-  stage: build_D
-  script:
-    - export GRADLE_USER_HOME=`pwd`/Java/CradleApp/.gradle
-    - chmod +x ./Java/CradleApp/gradlew
-    - cd Java; cd CradleApp; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
-  artifacts:
-    paths:
-    - Java/CradleApp/app/build/outputs/
+# assembleDecodeIntent:
+#   stage: build_B
+#   script:
+#     - export GRADLE_USER_HOME=`pwd`/Java/DecodeIntent/.gradle
+#     - chmod +x ./Java/DecodeIntent/gradlew
+#     - cd Java; cd DecodeIntent; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
+#   artifacts:
+#     paths:
+#     - Java/DecodeIntent/app/build/outputs/
 
 # releaseTests:
 #   stage: test
