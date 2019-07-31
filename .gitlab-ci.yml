@@ -23,7 +23,7 @@ stages:
   # - test
 
 # DecodeListener
-lintDecodeListener:
+DecodeListener:
   stage: build_A
   script:
     - export GRADLE_USER_HOME=`pwd`/Java/DecodeListener/.gradle
@@ -32,13 +32,7 @@ lintDecodeListener:
   artifacts:
     paths:
     - Java/DecodeListener/app/build/reports/
-
-
-assembleDecodeListener:
-  stage: build_A
   script:
-    - export GRADLE_USER_HOME=`pwd`/Java/DecodeListener/.gradle
-    - chmod +x ./Java/DecodeListener/gradlew
     - cd Java; cd DecodeListener; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
   artifacts:
     paths:
