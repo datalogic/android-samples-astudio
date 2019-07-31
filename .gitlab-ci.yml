@@ -12,6 +12,9 @@ cache:
   paths:
      - .gradle/
 
+variables:
+  PROJECT_FOLDER: "DecodeListener"
+
 stages:
   - build
 
