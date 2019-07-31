@@ -24,7 +24,7 @@ stages:
   - export GRADLE_USER_HOME=`pwd`/Java/$PROJECT_FOLDER/.gradle
   - chmod +x ./Java/$PROJECT_FOLDER/gradlew
   - cd Java; cd $PROJECT_FOLDER; ./gradlew -Pci --console=plain :app:lintRelease
-  - cd Java; cd $PROJECT_FOLDER; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
+  - ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
   stage: build
   artifacts:
     paths:
