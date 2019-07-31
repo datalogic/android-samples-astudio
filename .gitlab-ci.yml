@@ -13,7 +13,7 @@ cache:
      - .gradle/
 
 variables:
-  PROJECT_FOLDER: "DecodeListener"
+  PROJECT_FOLDER: "Placeholder"
 
 stages:
   - build
@@ -33,44 +33,27 @@ stages:
   
 DecodeListenerRelease:
   variables:
-    PROJECT_FOLDER: "DecodeIntent"
+    PROJECT_FOLDER: "DecodeListener"
   <<: *build_definition
   
   
-# # DecodeListener
-# DecodeListener:
-#   stage: build_A
-#   script:
-   
-#   artifacts:
-#     paths:
-#     - Java/DecodeListener/app/build/reports/
-#   script:
-#     - cd Java; cd DecodeListener; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
-#   artifacts:
-#     paths:
-#     - Java/DecodeListener/app/build/outputs/
+DecodeIntentRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeIntent"
+    <<: *build_definition
 
-# # DecodeIntent
-# lintDecodeIntent:
-#   stage: build_B
-#   script:
-#     - export GRADLE_USER_HOME=`pwd`/Java/DecodeIntent/.gradle
-#     - chmod +x ./Java/DecodeIntent/gradlew
-#     - cd Java; cd DecodeIntent; ./gradlew -Pci --console=plain :app:lintRelease
-#   artifacts:
-#     paths:
-#     - Java/DecodeIntent/app/build/reports/
 
-# assembleDecodeIntent:
-#   stage: build_B
-#   script:
-#     - export GRADLE_USER_HOME=`pwd`/Java/DecodeIntent/.gradle
-#     - chmod +x ./Java/DecodeIntent/gradlew
-#     - cd Java; cd DecodeIntent; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
-#   artifacts:
-#     paths:
-#     - Java/DecodeIntent/app/build/outputs/
+BarcodeScannerHTML5Release:
+  variables:
+    PROJECT_FOLDER: "BarcodeScannerHTML5"
+    <<: *build_definition
+
+CradleAppRelease:
+  variables:
+    PROJECT_FOLDER: "CradleApp"
+    <<: *build_definition
+
+
 
 # releaseTests:
 #   stage: test
