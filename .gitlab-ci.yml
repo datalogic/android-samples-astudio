@@ -22,6 +22,7 @@ cache:
 
 stages:
   - buildA
+  - setB
   - buildB
   - test
 
@@ -42,7 +43,7 @@ assembleRelease:
     - Java/DecodeListener/app/build/outputs/
 
 pre_script2:
- stage: buildB
+ stage: setB
  script:
   # temporarily disable checking for EPIPE error
   # use yes to accept all Android SDK licenses    
