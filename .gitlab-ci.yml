@@ -16,7 +16,6 @@ variables:
   PROJECT_FOLDER: "Placeholder"
   LANGUAGE_FOLDER: "Another Placeholder"
 
-
 stages:
   - build
 
