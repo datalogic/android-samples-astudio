@@ -13,23 +13,15 @@ cache:
      - .gradle/
 
 stages:
-  - setA
   - buildA
-  - setB
   - buildB
   - test
-
-initialA:
- stage: setA
- script:
-  # setup gradle
-  - export GRADLE_USER_HOME=`pwd`/Java/DecodeListener/.gradle
-  - chmod +x ./Java/DecodeListener/gradlew
-
 
 lintRelease:
   stage: buildA
   script:
+    - export GRADLE_USER_HOME=`pwd`/Java/DecodeListener/.gradle
+    - chmod +x ./Java/DecodeListener/gradlew
     - cd Java; cd DecodeListener; ./gradlew -Pci --console=plain :app:lintRelease
   artifacts:
     paths:
@@ -38,21 +30,19 @@ lintRelease:
 assembleRelease:
   stage: buildA
   script:
+    - export GRADLE_USER_HOME=`pwd`/Java/DecodeListener/.gradle
+    - chmod +x ./Java/DecodeListener/gradlew
     - cd Java; cd DecodeListener; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
   artifacts:
     paths:
     - Java/DecodeListener/app/build/outputs/
 
-initialB:
- stage: setB
- script:
-  # setup gradle
-  - export GRADLE_USER_HOME=`pwd`/Java/DecodeIntent/.gradle
-  - chmod +x ./Java/DecodeIntent/gradlew
 
 lintReleaseB:
   stage: buildB
   script:
+    - export GRADLE_USER_HOME=`pwd`/Java/DecodeIntent/.gradle
+    - chmod +x ./Java/DecodeIntent/gradlew
     - cd Java; cd DecodeIntent; ./gradlew -Pci --console=plain :app:lintRelease
   artifacts:
     paths:
@@ -61,15 +51,17 @@ lintReleaseB:
 assembleReleaseB:
   stage: buildB
   script:
+    - export GRADLE_USER_HOME=`pwd`/Java/DecodeIntent/.gradle
+    - chmod +x ./Java/DecodeIntent/gradlew
     - cd Java; cd DecodeIntent; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
   artifacts:
     paths:
     - Java/DecodeIntent/app/build/outputs/
 
-releaseTests:
-  stage: test
-  script:
-    - cd Java; cd DecodeListener; ./gradlew -Pci --console=plain :app:testRelease
-  artifacts:
-    paths:
-    - Java/DecodeListener/app/build/reports/tests/
+# releaseTests:
+#   stage: test
+#   script:
+#     - cd Java; cd DecodeListener; ./gradlew -Pci --console=plain :app:testRelease
+#   artifacts:
+#     paths:
+#     - Java/DecodeListener/app/build/reports/tests/
