@@ -14,25 +14,21 @@ cache:
 
 stages:
   - build
-  # - build_E
-  # - build_F
-  # - build_G
-  # - test
 
 # Hidden Job
 .build: &build_definition
   script:
-    export GRADLE_USER_HOME=`pwd`/Java/${project_folder}/.gradle
-    chmod +x ./Java/${project_folder} /gradlew
-    cd Java; cd $project_folder; ./gradlew -Pci --console=plain :app:lintRelease
+    - export GRADLE_USER_HOME=`pwd`/Java/${PROJECT_FOLDER}/.gradle
+    - chmod +x ./Java/${PROJECT_FOLDER} /gradlew
+    - cd Java; cd $PROJECT_FOLDER; ./gradlew -Pci --console=plain :app:lintRelease
   stage: build
   artifacts:
     paths:
-    - Java/${project_folder}/app/build/reports
+    - Java/${PROJECT_FOLDER}/app/build/reports
   
 DecodeListenerRelease:
   variables:
-    project_folder: "DecodeListener"
+    PROJECT_FOLDER: "DecodeListener"
   <<: *build_definition
   
 
