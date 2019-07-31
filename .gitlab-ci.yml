@@ -100,37 +100,37 @@ ZXingSampleAPIRelease:
 # Kotlin apps
 
 
-DecodeConfigSampleAPIRelease:
+DecodeConfigSampleAPIKotlinRelease:
   variables:
     PROJECT_FOLDER: "DecodeConfigSampleAPI"
     LANGUAGE_FOLDER: "Kotlin"
   <<: *build_definition
 
-DecodeHTTPSampleAPIRelease:
+DecodeHTTPSampleAPIKotlinRelease:
   variables:
-    PROJECT_FOLDER: "DecodeHTTPSampleAPI"
+    PROJECT_FOLDER: "DecodeHTTPSample"
     LANGUAGE_FOLDER: "Kotlin"
   <<: *build_definition
 
-DecodeIntentRelease:
+DecodeIntentKotlinRelease:
   variables:
     PROJECT_FOLDER: "DecodeIntent"
     LANGUAGE_FOLDER: "Kotlin"
   <<: *build_definition
 
-DecodeListenerRelease:
+DecodeListenerKotlinRelease:
   variables:
     PROJECT_FOLDER: "DecodeListener"
     LANGUAGE_FOLDER: "Kotlin"
   <<: *build_definition
   
-DecodeSampleAPIRelease:
+DecodeSampleAPIKotlinRelease:
   variables:
     PROJECT_FOLDER: "DecodeSampleAPI"
     LANGUAGE_FOLDER: "Kotlin"
   <<: *build_definition
 
-DeviceSampleAPIRelease:
+DeviceSampleAPIKotlinRelease:
   variables:
     PROJECT_FOLDER: "DeviceSampleAPI"
     LANGUAGE_FOLDER: "Kotlin"
