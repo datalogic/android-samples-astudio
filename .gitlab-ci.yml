@@ -84,14 +84,54 @@ DeviceSampleAPIRelease:
     LANGUAGE_FOLDER: "Java"
   <<: *build_definition
 
-JoyaTouchCradleSampleAPIRelease:
-  variables:
-    PROJECT_FOLDER: "JoyaTouchCradleSampleAPI"
-    LANGUAGE_FOLDER: "Java"
-  <<: *build_definition
+# JoyaTouchCradleSampleAPIRelease:
+#   variables:
+#     PROJECT_FOLDER: "JoyaTouchCradleSampleAPI"
+#     LANGUAGE_FOLDER: "Java"
+#   <<: *build_definition
 
 ZXingSampleAPIRelease:
   variables:
     PROJECT_FOLDER: "ZXingSampleAPI"
     LANGUAGE_FOLDER: "Java"
+  <<: *build_definition
+
+
+# Kotlin apps
+
+
+DecodeConfigSampleAPIRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeConfigSampleAPI"
+    LANGUAGE_FOLDER: "Kotlin"
+  <<: *build_definition
+
+DecodeHTTPSampleAPIRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeHTTPSampleAPI"
+    LANGUAGE_FOLDER: "Kotlin"
+  <<: *build_definition
+
+DecodeIntentRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeIntent"
+    LANGUAGE_FOLDER: "Kotlin"
+  <<: *build_definition
+
+DecodeListenerRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeListener"
+    LANGUAGE_FOLDER: "Kotlin"
+  <<: *build_definition
+  
+DecodeSampleAPIRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeSampleAPI"
+    LANGUAGE_FOLDER: "Kotlin"
+  <<: *build_definition
+
+DeviceSampleAPIRelease:
+  variables:
+    PROJECT_FOLDER: "DeviceSampleAPI"
+    LANGUAGE_FOLDER: "Kotlin"
   <<: *build_definition
