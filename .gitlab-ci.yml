@@ -15,18 +15,18 @@ before_script:
   - export GRADLE_USER_HOME=`pwd`/Java/DecodeListener/.gradle
   - chmod +x ./Java/DecodeListener/gradlew
 
-
 cache:
   key: "$CI_COMMIT_REF_NAME"
   paths:
      - .gradle/
 
 stages:
-  - build
+  - buildA
+  - buildB
   - test
 
 lintRelease:
-  stage: build
+  stage: buildA
   script:
     - cd Java; cd DecodeListener; ./gradlew -Pci --console=plain :app:lintRelease
   artifacts:
@@ -34,12 +34,41 @@ lintRelease:
     - Java/DecodeListener/app/build/reports/
 
 assembleRelease:
-  stage: build
+  stage: buildA
   script:
     - cd Java; cd DecodeListener; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
   artifacts:
     paths:
     - Java/DecodeListener/app/build/outputs/
+
+pre_script2:
+ stage: buildB
+ script:
+  # temporarily disable checking for EPIPE error
+  # use yes to accept all Android SDK licenses    
+  - set +o pipefail
+  - yes | /sdk/tools/bin/sdkmanager --licenses
+  - set -o pipefail
+
+  # setup gradle
+  - export GRADLE_USER_HOME=`pwd`/Java/DecodeIntent/.gradle
+  - chmod +x ./Java/DecodeIntent/gradlew
+
+lintReleaseB:
+  stage: buildB
+  script:
+    - cd Java; cd DecodeIntent; ./gradlew -Pci --console=plain :app:lintRelease
+  artifacts:
+    paths:
+    - Java/DecodeIntent/app/build/reports/
+
+assembleReleaseB:
+  stage: buildB
+  script:
+    - cd Java; cd DecodeIntent; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
+  artifacts:
+    paths:
+    - Java/DecodeIntent/app/build/outputs/
 
 releaseTests:
   stage: test
