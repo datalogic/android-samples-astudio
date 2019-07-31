@@ -45,12 +45,6 @@ assembleRelease:
 pre_script2:
  stage: setB
  script:
-  # temporarily disable checking for EPIPE error
-  # use yes to accept all Android SDK licenses    
-  - set +o pipefail
-  - yes | /sdk/tools/bin/sdkmanager --licenses
-  - set -o pipefail
-
   # setup gradle
   - export GRADLE_USER_HOME=`pwd`/Java/DecodeIntent/.gradle
   - chmod +x ./Java/DecodeIntent/gradlew
