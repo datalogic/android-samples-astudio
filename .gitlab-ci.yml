@@ -13,10 +13,7 @@ cache:
      - .gradle/
 
 stages:
-  - build_A
-  - build_B
-  - build_C
-  - build_D
+  - build
   # - build_E
   # - build_F
   # - build_G
@@ -42,19 +39,19 @@ DecodeListener:
   <<: *build_definition
   
 
-# DecodeListener
-DecodeListener:
-  stage: build_A
-  script:
+# # DecodeListener
+# DecodeListener:
+#   stage: build_A
+#   script:
    
-  artifacts:
-    paths:
-    - Java/DecodeListener/app/build/reports/
-  script:
-    - cd Java; cd DecodeListener; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
-  artifacts:
-    paths:
-    - Java/DecodeListener/app/build/outputs/
+#   artifacts:
+#     paths:
+#     - Java/DecodeListener/app/build/reports/
+#   script:
+#     - cd Java; cd DecodeListener; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
+#   artifacts:
+#     paths:
+#     - Java/DecodeListener/app/build/outputs/
 
 # # DecodeIntent
 # lintDecodeIntent:
