@@ -40,18 +40,18 @@ DecodeListenerRelease:
 DecodeIntentRelease:
   variables:
     PROJECT_FOLDER: "DecodeIntent"
-    <<: *build_definition
+  <<: *build_definition
 
 
 BarcodeScannerHTML5Release:
   variables:
     PROJECT_FOLDER: "BarcodeScannerHTML5"
-    <<: *build_definition
+  <<: *build_definition
 
 CradleAppRelease:
   variables:
     PROJECT_FOLDER: "CradleApp"
-    <<: *build_definition
+  <<: *build_definition
 
 
 
