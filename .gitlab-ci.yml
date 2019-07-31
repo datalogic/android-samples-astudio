@@ -24,14 +24,16 @@ stages:
   - export GRADLE_USER_HOME=`pwd`/Java/$PROJECT_FOLDER/.gradle
   - chmod +x ./Java/$PROJECT_FOLDER/gradlew
   - cd Java; cd $PROJECT_FOLDER; ./gradlew -Pci --console=plain :app:lintRelease
+  - cd Java; cd $PROJECT_FOLDER; ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
   stage: build
   artifacts:
     paths:
     - Java/$PROJECT_FOLDER/app/build/reports
+    - Java/$PROJECT_FOLDER/app/build/outputs/
   
 DecodeListenerRelease:
-  script:
-    export PROJECT_FOLDER="DecodeListener"
+  variables:
+    PROJECT_FOLDER: "DecodeIntent"
   <<: *build_definition
   
   
