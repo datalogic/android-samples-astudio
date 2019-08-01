@@ -7,7 +7,7 @@ Java sample apps.
 | Name | Description | Screenshot
 |------|-------------|-----------
 | [BarCodeScannerHTML5](BarCodeScannerHTML5/) | Uses local html page to start/control decoder. | ![BarCodeScannerHTML5](screenshots/barcode_html5.png)
-| [CradleApp](CradleApp/) | Uses Self-shopping APIs to control the locking cradle. | -
+| [CradleApp](CradleApp/) | Uses Self-shopping APIs to control the locking cradle. | <img src="CradleApp/screenshots/screen_green.png" alt="Cradle App screenshot" width="225">
 | [DecodeConfigSampleAPI](DecodeConfigSampleAPI/) | Uses BarcodeManager to configure the decoder properties. | ![DecodeConfigSampleAPI](screenshots/decode_config.png)
 | [DecodeHTTPSampleAPI](DecodeHTTPSampleAPI/) | Control and communicate with the scanner device using HTTP GET requests. | ![DecodeHTTPSampleAPI](screenshots/decode_http.png)
 | [DecodeIntent](DecodeIntent/) | Passes scanned barcode data to different intents. | ![DecodeIntent](screenshots/decode_intent.png)
