@@ -84,11 +84,11 @@ DeviceSampleAPIRelease:
     LANGUAGE_FOLDER: "Java"
   <<: *build_definition
 
-# JoyaTouchCradleSampleAPIRelease:
-#   variables:
-#     PROJECT_FOLDER: "JoyaTouchCradleSampleAPI"
-#     LANGUAGE_FOLDER: "Java"
-#   <<: *build_definition
+JoyaTouchCradleSampleAPIRelease:
+  variables:
+    PROJECT_FOLDER: "JoyaTouchCradleSampleAPI"
+    LANGUAGE_FOLDER: "Java"
+  <<: *build_definition
 
 ZXingSampleAPIRelease:
   variables:
