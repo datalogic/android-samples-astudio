@@ -1,0 +1,137 @@
+image: javiersantos/android-ci:28.0.3
+
+before_script:
+  # temporarily disable checking for EPIPE error
+  # use yes to accept all Android SDK licenses    
+  - set +o pipefail
+  - yes | /sdk/tools/bin/sdkmanager --licenses
+  - set -o pipefail
+
+cache:
+  key: "$CI_COMMIT_REF_NAME"
+  paths:
+     - .gradle/
+
+variables:
+  PROJECT_FOLDER: "Placeholder"
+  LANGUAGE_FOLDER: "Another Placeholder"
+
+stages:
+  - build
+
+# Hidden Job
+.build: &build_definition
+  script:
+  - export GRADLE_USER_HOME=`pwd`/$LANGUAGE_FOLDER/$PROJECT_FOLDER/.gradle
+  - chmod +x ./$LANGUAGE_FOLDER/$PROJECT_FOLDER/gradlew
+  - cd $LANGUAGE_FOLDER; cd $PROJECT_FOLDER; ./gradlew -Pci --console=plain :app:lintRelease
+  - ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
+  - ./gradlew -Pci --console=plain :app:testRelease
+  stage: build
+  artifacts:
+    paths:
+    - $LANGUAGE_FOLDER/$PROJECT_FOLDER/app/build/reports
+    - $LANGUAGE_FOLDER/$PROJECT_FOLDER/app/build/outputs/
+    - $LANGUAGE_FOLDER/DecodeListener/app/build/reports/tests/
+
+# Java Apps
+
+BarcodeScannerHTML5Release:
+  variables:
+    PROJECT_FOLDER: "BarcodeScannerHTML5"
+    LANGUAGE_FOLDER: "Java"
+  <<: *build_definition
+
+CradleAppRelease:
+  variables:
+    PROJECT_FOLDER: "CradleApp"
+    LANGUAGE_FOLDER: "Java"
+  <<: *build_definition
+
+DecodeConfigSampleAPIRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeConfigSampleAPI"
+    LANGUAGE_FOLDER: "Java"
+  <<: *build_definition
+
+DecodeHTTPSampleAPIRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeHTTPSampleAPI"
+    LANGUAGE_FOLDER: "Java"
+  <<: *build_definition
+
+DecodeIntentRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeIntent"
+    LANGUAGE_FOLDER: "Java"
+  <<: *build_definition
+
+DecodeListenerRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeListener"
+    LANGUAGE_FOLDER: "Java"
+  <<: *build_definition
+  
+DecodeSampleAPIRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeSampleAPI"
+    LANGUAGE_FOLDER: "Java"
+  <<: *build_definition
+
+DeviceSampleAPIRelease:
+  variables:
+    PROJECT_FOLDER: "DeviceSampleAPI"
+    LANGUAGE_FOLDER: "Java"
+  <<: *build_definition
+
+JoyaTouchCradleSampleAPIRelease:
+  variables:
+    PROJECT_FOLDER: "JoyaTouchCradleSampleAPI"
+    LANGUAGE_FOLDER: "Java"
+  <<: *build_definition
+
+ZXingSampleAPIRelease:
+  variables:
+    PROJECT_FOLDER: "ZXingSampleAPI"
+    LANGUAGE_FOLDER: "Java"
+  <<: *build_definition
+
+
+# Kotlin apps
+
+
+DecodeConfigSampleAPIKotlinRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeConfigSampleAPI"
+    LANGUAGE_FOLDER: "Kotlin"
+  <<: *build_definition
+
+DecodeHTTPSampleAPIKotlinRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeHTTPSample"
+    LANGUAGE_FOLDER: "Kotlin"
+  <<: *build_definition
+
+DecodeIntentKotlinRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeIntent"
+    LANGUAGE_FOLDER: "Kotlin"
+  <<: *build_definition
+
+DecodeListenerKotlinRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeListener"
+    LANGUAGE_FOLDER: "Kotlin"
+  <<: *build_definition
+  
+DecodeSampleAPIKotlinRelease:
+  variables:
+    PROJECT_FOLDER: "DecodeSampleAPI"
+    LANGUAGE_FOLDER: "Kotlin"
+  <<: *build_definition
+
+DeviceSampleAPIKotlinRelease:
+  variables:
+    PROJECT_FOLDER: "DeviceSampleAPI"
+    LANGUAGE_FOLDER: "Kotlin"
+  <<: *build_definition

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#f9f6f0"
+>
+
+    <TextView
+        android:id="@+id/scanner_status"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/scanner"
+        android:textSize="24sp"
+        android:textColor="#000000"
+    />
+
+    <EditText
+        android:id="@+id/scan_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:hint="@string/scanner_hint"
+        android:inputType="textMultiLine|textNoSuggestions|none"
+        android:scrollbars="vertical"
+        android:textIsSelectable="true"
+        android:textColor="#000000"
+    />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/scan"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/buttonshape"
+        android:state_pressed="true"
+        android:text="@string/start"
+        android:textSize="26sp"
+    />
+
+</LinearLayout>
