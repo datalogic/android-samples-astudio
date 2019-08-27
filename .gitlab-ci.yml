@@ -25,14 +25,14 @@ stages:
   - export GRADLE_USER_HOME=`pwd`/$LANGUAGE_FOLDER/$PROJECT_FOLDER/.gradle
   - chmod +x ./$LANGUAGE_FOLDER/$PROJECT_FOLDER/gradlew
   - cd $LANGUAGE_FOLDER; cd $PROJECT_FOLDER; ./gradlew -Pci --console=plain :app:lintRelease
-  - ./gradlew assembleRelease -PversionCode=${CI_JOB_ID}
+  - ./gradlew assembleDebug -PversionCode=${CI_JOB_ID}
   - ./gradlew -Pci --console=plain :app:testRelease
   stage: build
   artifacts:
     paths:
     - $LANGUAGE_FOLDER/$PROJECT_FOLDER/app/build/reports
     - $LANGUAGE_FOLDER/$PROJECT_FOLDER/app/build/outputs/
-    - $LANGUAGE_FOLDER/DecodeListener/app/build/reports/tests/
+    - $LANGUAGE_FOLDER/$PROJECT_FOLDER/app/build/reports/tests/
 
 # Java Apps
 
