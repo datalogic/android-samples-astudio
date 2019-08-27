@@ -32,6 +32,9 @@ stages:
   - ./gradlew -Pci --console=plain :app:testRelease
   - cp app/build/outputs/apk/debug/app-debug.apk ../../$APK_FOLDER/$PROJECT_FOLDER-$LANGUAGE_FOLDER.apk
   stage: build
+  artifacts:
+    paths:
+    - $APK_FOLDER/
 
 saveApks:
   script:
