@@ -6,12 +6,11 @@ before_script:
   - set +o pipefail
   - yes | /sdk/tools/bin/sdkmanager --licenses
   - set -o pipefail
-  - mkdir $APK_FOLDER
+  - mkdir -p $APK_FOLDER
 
 cache:
   key: "$CI_COMMIT_REF_NAME"
   paths:
-    - .gradle/
     - $APK_FOLDER/
 
 variables:
@@ -33,13 +32,8 @@ stages:
   - ./gradlew -Pci --console=plain :app:testRelease
   - cp app/build/outputs/apk/debug/app-debug.apk ../../$APK_FOLDER/$PROJECT_FOLDER-$LANGUAGE_FOLDER.apk
   stage: build
-  artifacts:
-    paths:
-    - $LANGUAGE_FOLDER/$PROJECT_FOLDER/app/build/reports
-    - $LANGUAGE_FOLDER/$PROJECT_FOLDER/app/build/outputs/
-    - $LANGUAGE_FOLDER/$PROJECT_FOLDER/app/build/reports/tests/
 
-deployStage:
+saveApks:
   script:
   - echo "saving apks"
   stage: deploy
