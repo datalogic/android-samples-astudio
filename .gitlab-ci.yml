@@ -6,18 +6,22 @@ before_script:
   - set +o pipefail
   - yes | /sdk/tools/bin/sdkmanager --licenses
   - set -o pipefail
+  - mkdir $APK_FOLDER
 
 cache:
   key: "$CI_COMMIT_REF_NAME"
   paths:
-     - .gradle/
+    - .gradle/
+    - $APK_FOLDER/
 
 variables:
   PROJECT_FOLDER: "Placeholder"
   LANGUAGE_FOLDER: "Another Placeholder"
+  APK_FOLDER: "apk"
 
 stages:
   - build
+  - deploy
 
 # Hidden Job
 .build: &build_definition
@@ -27,12 +31,21 @@ stages:
   - cd $LANGUAGE_FOLDER; cd $PROJECT_FOLDER; ./gradlew -Pci --console=plain :app:lintRelease
   - ./gradlew assembleDebug -PversionCode=${CI_JOB_ID}
   - ./gradlew -Pci --console=plain :app:testRelease
+  - cp app/build/outputs/apk/debug/app-debug.apk ../../$APK_FOLDER/$PROJECT_FOLDER-$LANGUAGE_FOLDER.apk
   stage: build
   artifacts:
     paths:
     - $LANGUAGE_FOLDER/$PROJECT_FOLDER/app/build/reports
     - $LANGUAGE_FOLDER/$PROJECT_FOLDER/app/build/outputs/
     - $LANGUAGE_FOLDER/$PROJECT_FOLDER/app/build/reports/tests/
+
+deployStage:
+  script:
+  - echo "saving apks"
+  stage: deploy
+  artifacts:
+    paths:
+    - $APK_FOLDER/
 
 # Java Apps
 
