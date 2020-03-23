@@ -15,4 +15,5 @@ Java sample apps.
 | [DecodeSampleAPI](DecodeSampleAPI/) | Display barcodes, enable/disable symbologies and register/release listeners. | ![DecodeSampleAPI](screenshots/decode_sample.png)
 | [DeviceSampleAPI](DeviceSampleAPI/) |  View and manage system settings.| ![DeviceSampleAPI](screenshots/device_api.png)
 | [JoyaTouchCradleSampleAPI](JoyaTouchCradleSampleAPI/) | Configure/Control scanner cradle including locking. | ![JoyaTouchCradleSampleAPI](screenshots/joyatouch_cradle_sample.jpg)
+| [SecondDisplaySampleAPI](SecondDisplaySampleAPI/) | Configure 2nd Display to show notifications only coming from your App. | ![SecondDisplaySampleAPI](screenshots/second_display_sample.jpg)
 | [ZXingSampleAPI](ZXingSampleAPI/) |  | -
