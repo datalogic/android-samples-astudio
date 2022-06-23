@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/navigation_drawer">
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_fragment0"
+            android:title="@string/fragment_0_title">
+        </item>
+    </group>
+
+<item android:title="Examples">
+    <menu>
+        <group
+            android:checkableBehavior="single">
+            <item
+                android:id="@+id/menu_fragment1"
+                android:title="@string/fragment_1_title"/>
+            <item
+                android:id="@+id/menu_fragment2"
+                android:title="@string/fragment_2_title"/>
+            <item
+                android:id="@+id/menu_fragment3"
+                android:title="@string/fragment_3_title"/>
+            <item
+                android:id="@+id/menu_fragment4"
+                android:title="@string/fragment_4_title"/>
+            <item
+                android:id="@+id/menu_fragment5"
+                android:title="@string/fragment_5_title"/>
+            <item
+                android:id="@+id/menu_fragment6"
+                android:title="@string/fragment_6_title"/>
+        </group>
+    </menu>
+</item>
+
+
+
+</menu>

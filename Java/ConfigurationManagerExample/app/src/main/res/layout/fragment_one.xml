@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FragmentOne">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/f1_fragment_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_1_title"
+                android:textColor="@color/dl_primary"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/f1_property_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@id/f1_fragment_title"
+                android:layout_marginTop="10sp"
+                android:text=""
+                android:textAlignment="center"
+                android:textSize="15sp"/>
+
+            <HorizontalScrollView
+                android:id="@+id/f1_display_property_scrollview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/f1_property_title">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/f1_display_property"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingBottom="10dp"
+                        android:text="Property"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <Spinner
+                android:id="@+id/f1_enum_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/f1_display_property_scrollview"
+               />
+
+            <Button
+                android:id="@+id/f1_commit"
+                android:layout_width="115dp"
+                android:layout_height="45dp"
+                android:layout_below="@id/f1_enum_list"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:text="Commit"
+                android:backgroundTint="@color/dl_primary"
+                />
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>
