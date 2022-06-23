@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/row_col_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="0"
+        android:padding="5dp"
+        android:text="column_0"/>
+
+    <TextView
+        android:id="@+id/row_col_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="0"
+        android:padding="5dp"
+        android:text="column_1"/>
+
+    <TextView
+        android:id="@+id/row_col_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="0 "
+        android:padding="5dp"
+        android:text="column_2"/>
+
+    <TextView
+        android:id="@+id/row_col_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="0"
+        android:padding="5dp"
+        android:text="column_3"/>
+
+    <TextView
+        android:id="@+id/row_col_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="0"
+        android:padding="5dp"
+        android:text="column_4"/>
+</TableRow>

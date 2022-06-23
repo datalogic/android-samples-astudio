@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FragmentThree">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp">
+
+            <TextView
+                android:id="@+id/f3_fragment_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/dl_primary"
+                android:textStyle="bold"
+                android:text="@string/fragment_3_title"/>
+
+            <TextView
+                android:id="@+id/f3_read_only_property_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/f3_fragment_title"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="30dp"
+                android:gravity="left"
+                android:text="Read Only Property:"/>
+
+            <Spinner
+                android:id="@+id/f3_read_only_property_values"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/f3_read_only_property_name"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="-2dp" />
+
+            <Button
+                android:id="@+id/f3_read_only_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/f3_read_only_property_values"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:text="Set property" />
+
+            <LinearLayout
+                android:id="@+id/f3_separator"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/f3_read_only_set"
+                android:layout_marginTop="20dp"
+                android:background="@color/dl_table_row_even"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/f3_unsupported_property_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/f3_separator"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:gravity="left"
+                android:text="Unsupported Property:" />
+
+            <Spinner
+                android:id="@+id/f3_unsupported_property_values"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/f3_unsupported_property_name"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-2dp" />
+            <Button
+                android:id="@+id/f3_unsupported_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/f3_unsupported_property_values"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="0dp"
+                android:text="Set Property" />
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DL Configuration Manager</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="fragment_0_title">Help</string>
+    <string name="fragment_1_title">How To Manage an Enum Property</string>
+    <string name="fragment_2_title">Show Group Status</string>
+    <string name="fragment_3_title">Set On Not Supported Properties</string>
+    <string name="fragment_4_title">Register to Listener</string>
+    <string name="fragment_5_title">Intent Interface</string>
+    <string name="fragment_6_title">Hidden Registration</string>
+</resources>
