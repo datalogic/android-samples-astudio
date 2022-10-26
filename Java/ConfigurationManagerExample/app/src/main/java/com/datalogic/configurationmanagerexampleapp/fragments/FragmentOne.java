@@ -15,7 +15,9 @@ import com.datalogic.device.configuration.*;
 
 import java.util.Arrays;
 
-/** "How To Manage an Enum" Fragment **/
+/** "How To Manage an Enum" Fragment
+ * Ref. https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/device/configuration/package-summary.html
+ * **/
 public class FragmentOne extends Fragment {
     private static final String TAG = "FragmentOne";
 

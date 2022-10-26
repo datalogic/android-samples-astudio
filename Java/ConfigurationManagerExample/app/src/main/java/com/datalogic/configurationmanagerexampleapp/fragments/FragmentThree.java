@@ -18,7 +18,10 @@ import com.datalogic.device.configuration.Property;
 import com.datalogic.device.configuration.PropertyGroup;
 import com.datalogic.device.configuration.PropertyID;
 
-/** "Set On Not Supported Properties" Fragment **/
+/** "Set On Not Supported Properties" Fragment
+ * See what happens when trying to set an unsupported or read-only property
+ * Ref. {https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/device/configuration/ConfigException.html}
+ * **/
 public class FragmentThree extends Fragment {
     private final String TAG = "FragmentThree";
     private FragmentThreeBinding fragmentThreeBinding;
@@ -28,7 +31,7 @@ public class FragmentThree extends Fragment {
 
 
     private ConfigurationManager    configurationManager;
-    private PropertyGroup propertyGroupTreeRoot;
+    private PropertyGroup           propertyGroupTreeRoot;
 
     public FragmentThree() {}
 

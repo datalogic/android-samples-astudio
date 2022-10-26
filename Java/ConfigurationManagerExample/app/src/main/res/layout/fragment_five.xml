@@ -39,6 +39,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="start"
                 android:text="Property" />
+
             <Spinner
                 android:id="@+id/f_5_property_values_list"
                 android:layout_width="match_parent"
@@ -46,7 +47,7 @@
                 android:layout_below="@id/f5_property_name"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="0dp"/>
+                android:layout_marginTop="0dp" />
             <Button
                 android:id="@+id/f5_commit_button"
                 android:layout_width="wrap_content"

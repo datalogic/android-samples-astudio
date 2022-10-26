@@ -17,7 +17,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/** "Register to Listener" Fragment **/
+/** "Register to Listener" Fragment
+ * Use listener interface to manage events.
+ * Ref. {https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/device/configuration/ConfigurationChangeListener.html}
+ * **/
 public class FragmentFour extends Fragment {
     private static final String         TAG = "FragmentFour";
     private FragmentFourBinding         fragmentFourBinding;
@@ -25,7 +28,7 @@ public class FragmentFour extends Fragment {
     private ConfigurationChangeListener configurationChangeListener;
 
     private List<String> eventList;
-    private ArrayAdapter eventListAdapter;
+    private ArrayAdapter<String> eventListAdapter;
 
     public FragmentFour() {}
 
