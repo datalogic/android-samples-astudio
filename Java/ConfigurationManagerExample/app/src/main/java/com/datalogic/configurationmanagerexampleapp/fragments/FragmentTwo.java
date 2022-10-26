@@ -21,7 +21,12 @@ import com.datalogic.device.configuration.PropertyGroupID;
 import java.util.ArrayList;
 import java.util.List;
 
-/** "Show Group Status" Fragment **/
+/** "Show Group Status" Fragment
+ * Learn how to get a group status and its related properties.
+ * Ref. {https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/device/configuration/ConfigurationManager.html}
+ *      {https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/device/configuration/PropertyGroup.html}
+ *      {https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/device/configuration/PropertyGroupID.html}
+ * **/
 public class FragmentTwo extends Fragment {
 
     private static final String TAG = "FragmentTwo";

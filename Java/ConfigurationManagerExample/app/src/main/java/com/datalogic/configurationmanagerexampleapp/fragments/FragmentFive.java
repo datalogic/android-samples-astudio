@@ -22,7 +22,10 @@ import com.datalogic.device.configuration.PropertyID;
 
 import java.util.HashMap;
 
-/** "Intent Interface" Fragment **/
+/** "Intent Interface" Fragment
+ * Use intent interface to change configuration manager properties
+ * Ref. {https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/device/Intents.html}
+ * **/
 public class FragmentFive extends Fragment {
     private static final String TAG = "FragmentFive";
 
