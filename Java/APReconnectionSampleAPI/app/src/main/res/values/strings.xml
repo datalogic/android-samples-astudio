@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">APReconnectionSampleAPI</string>
+    <!--    Button string value    -->
+    <string name="button_create_wifi_profile">Create Profile</string>
+    <string name="button_disconnect_wifi">Disconnect</string>
+    <string name="button_connect_wifi">Connect</string>
+    <string name="button_wifi_info">Wifi Info</string>
+
+    <string name="ssid_name_hint">Enter your SSID name</string>
+
+    <!--    Wifi status value    -->
+    <string name="wifi_waiting">Waiting for creating profile…</string>
+    <string name="wifi_connected">Connected</string>
+    <string name="wifi_disconnected">Disconnected</string>
+
+    <!--    Color value    -->
+    <string name="red_background">#FF0000</string>
+    <string name="yellow_background">#FFF000</string>
+    <string name="green_background">#00FF00</string>
+
+    <!--    Wifi info string value    -->
+    <string name="wifi_name">Wifi Name: </string>
+    <string name="pass_word">Password: </string>
+
+</resources>
