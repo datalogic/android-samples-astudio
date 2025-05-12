@@ -27,6 +27,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * StandardFormatterFragment is an example of how to use the Datalogic SDK to configure Scanner's format.
+ * <p>
+ * Standard Formatter let user can modify scanner's format
+ * Links to the Datalogic SDK documentation for the relevant properties:
+ * <ul>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/ECIPolicy.html">ECIPolicy</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/Gs1Conversion2d.html">Gs1Conversion2d</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/Gs1LabelSetTransmitMode.html">Gs1LabelSetTransmitMode</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/GtinFormat.html">GtinFormat</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/SendCodeID.html">SendCodeID</a></li>
+ * </ul>
+ * </p>
+ */
 public class StandardFormatterFragment extends Fragment {
     private static final String TAG = StandardFormatterFragment.class.getSimpleName();
 
@@ -70,7 +84,26 @@ public class StandardFormatterFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // ======================================================================
+        // STEP 1: INITIALIZING THE BARCODE MANAGER
+        // ======================================================================
+        // The BarcodeManager allows interaction with the scanner's symbology.
+        // It provides methods for enabling or disabling specific symbology.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/BarcodeManager.html
+        //
         mBarcodeManager = new BarcodeManager();
+
+        // ======================================================================
+        // STEP 2: INITIALIZING THE FORMATTING
+        // ======================================================================
+        // The Formatting allows user config format.
+        // It provides methods for scanner's settings modification.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/Formatting.html
+        //
         mFormatting = new Formatting(mBarcodeManager);
     }
 
@@ -164,50 +197,109 @@ public class StandardFormatterFragment extends Fragment {
 
         // Button for handling business logic
         mStoreButton.setOnClickListener(v->{
-            // Change Eci policy
+            // ======================================================================
+            // STEP 3: CHANGE ECI POLICY
+            // ======================================================================
+            // Retrieve the eci policy attribute from formatting
             ECIPolicy eciPolicy = (ECIPolicy) mSpinnerECIPolicy.getSelectedItem();
             mFormatting.eciPolicy.set(eciPolicy);
-            // Change External formatting
+
+            // ======================================================================
+            // STEP 4: ENABLE/DISABLE EXTERNAL FORMATTING
+            // ======================================================================
+            // Retrieve the external formatting attribute from formatting
             String externalFormatting = mSpinnerExternalFormatting.getSelectedItem().toString();
             mFormatting.externalFormatting.set(kBooleanOptionsMap.get(externalFormatting));
-            // Change Gs1 check
+
+            // ======================================================================
+            // STEP 5: ENABLE/DISABLE GS1 CHECK
+            // ======================================================================
+            // Retrieve the gs1 check attribute from formatting
             String gs1Check =  mSpinnerGs1Check.getSelectedItem().toString();
             mFormatting.gs1Check.set(kBooleanOptionsMap.get(gs1Check));
-            // Change Gs1 conversion2d
+
+            // ======================================================================
+            // STEP 6: CHANGE GS1 CONVERSION 2D
+            // ======================================================================
+            // Retrieve the gs1 conversion 2d attribute from formatting
             Gs1Conversion2d gs1Conversion2d = (Gs1Conversion2d) mSpinnerGs1Conversion2d.getSelectedItem();
             mFormatting.gs1Conversion2d.set(gs1Conversion2d);
-            // Change gs1 label set prefix
+
+            // ======================================================================
+            // STEP 7: CHANGE GS1 LABEL PREFIX
+            // ======================================================================
+            // Retrieve the gs1 label prefix attribute from formatting
             String gs1LabelSetPrefix = mEditTextGs1LabelSetPrefix.getText().toString();
             mFormatting.gs1LabelSetPrefix.set(gs1LabelSetPrefix);
-            // Change gs1 label set transmit mode
+
+            // ======================================================================
+            // STEP 8: CHANGE GS1 LABEL TRANSMIT
+            // ======================================================================
+            // Retrieve the gs1 label transmit attribute from formatting
             Gs1LabelSetTransmitMode gs1LabelSetTransmitMode = (Gs1LabelSetTransmitMode) mSpinnerGs1LabelSetTransmitMode.getSelectedItem();
             mFormatting.gs1LabelSetTransmitMode.set(gs1LabelSetTransmitMode);
-            // Change gs1 string format
+
+            // ======================================================================
+            // STEP 9: CHANGE GS1 STRING FORMAT
+            // ======================================================================
+            // Retrieve the gs1 string format attribute from formatting
             String gs1StringFormat = mSpinnerGs1StringFormat.getSelectedItem().toString();
             mFormatting.gs1StringFormat.set(kBooleanOptionsMap.get(gs1StringFormat));
-            // Change gtin format
+
+            // ======================================================================
+            // STEP 10: CHANGE GTIN FORMAT
+            // ======================================================================
+            // Retrieve the gtin format attribute from formatting
             GtinFormat gtinFormat = (GtinFormat) mSpinnerGtinFormat.getSelectedItem();
             mFormatting.gtinFormat.set(gtinFormat);
-            // Change hex format
+
+            // ======================================================================
+            // STEP 11: CHANGE HEX FORMAT
+            // ======================================================================
+            // Retrieve the hex format attribute from formatting
             String hexFormat = mSpinnerHexFormat.getSelectedItem().toString();
             mFormatting.hexFormat.set(kBooleanOptionsMap.get(hexFormat));
-            // Change remove non printable chars
+
+            // ======================================================================
+            // STEP 12: ENABLE/DISABLE REMOVE NON PRINTABLE CHARS
+            // ======================================================================
+            // Retrieve the remove non printable chars attribute from formatting
             String removeNonPrintableChars = mSpinnerRemoveNonPrintableChars.getSelectedItem().toString();
             mFormatting.removeNonPrintableChars.set(kBooleanOptionsMap.get(removeNonPrintableChars));
-            // Change send code id
+
+            // ======================================================================
+            // STEP 13: CHANGE SEND CODE ID
+            // ======================================================================
+            // Retrieve the send code id attribute from formatting
             SendCodeID sendCodeID = (SendCodeID) mSpinnerSendCodeId.getSelectedItem();
             mFormatting.sendCodeId.set(sendCodeID);
-            // Change gs substitution
+
+            // ======================================================================
+            // STEP 14: CHANGE GS SUBSTITUTION
+            // ======================================================================
+            // Retrieve the gs substitution attribute from formatting
             String gsSubstitution = mEditTextGsSubstitution.getText().toString();
             mFormatting.gsSubstitution.set(gsSubstitution);
-            // Change label prefix
+
+            // ======================================================================
+            // STEP 15: CHANGE LABEL PREFIX
+            // ======================================================================
+            // Retrieve the label prefix attribute from formatting
             String labelPrefix = mEditTextLabelPrefix.getText().toString();
             mFormatting.labelPrefix.set(labelPrefix);
-            // Change label suffix
+
+            // ======================================================================
+            // STEP 15: CHANGE LABEL SUFFIX
+            // ======================================================================
+            // Retrieve the label suffix attribute from formatting
             String labelSuffix = mEditTextLabelSuffix.getText().toString();
             mFormatting.labelSuffix.set(labelSuffix);
 
-            // Apply change
+            // ======================================================================
+            // STEP 16: STORING THE CHANGES TO APPLY THE SCANNER'S FORMATTING
+            // ======================================================================
+            // Store the changes to persist the updated settings to the device's storage.
+            // This saves and applies the changes to the scanner's formatting, making them persistent across reboots.
             mFormatting.store(mBarcodeManager, true);
         });
 

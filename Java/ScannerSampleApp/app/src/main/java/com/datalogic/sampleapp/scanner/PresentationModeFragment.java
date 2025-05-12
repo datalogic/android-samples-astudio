@@ -20,6 +20,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * PresentationModeFragment is an example of how to use the Datalogic SDK to configure Scanner's format.
+ * <p>
+ * Standard Formatter let user can modify scanner's format
+ * Links to the Datalogic SDK documentation for the relevant properties:
+ * <ul>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/ECIPolicy.html">ECIPolicy</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/Gs1Conversion2d.html">Gs1Conversion2d</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/Gs1LabelSetTransmitMode.html">Gs1LabelSetTransmitMode</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/GtinFormat.html">GtinFormat</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/SendCodeID.html">SendCodeID</a></li>
+ * </ul>
+ * </p>
+ */
 public class PresentationModeFragment extends Fragment {
 
     BarcodeManager mBarcodeManager;
@@ -45,7 +59,26 @@ public class PresentationModeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // ======================================================================
+        // STEP 1: INITIALIZING THE BARCODE MANAGER
+        // ======================================================================
+        // The BarcodeManager allows interaction with the scanner's symbology.
+        // It provides methods for enabling or disabling specific symbology.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/BarcodeManager.html
+        //
         mBarcodeManager =  new BarcodeManager();
+
+        // ======================================================================
+        // STEP 2: INITIALIZING THE PRESENTATION MODE
+        // ======================================================================
+        // The Formatting allows user config format.
+        // It provides methods for scanner's presentation modification.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/PresentationMode.html
+        //
         mPresentationMode = new PresentationMode(mBarcodeManager);
     }
 
@@ -74,19 +107,32 @@ public class PresentationModeFragment extends Fragment {
 
 
         mStoreButton.setOnClickListener(v->{
-            // Change presentation aimer
+            // ======================================================================
+            // STEP 3: ENABLE/DISABLE PRESENTATION MODE AIMER
+            // ======================================================================
+            // Retrieve the presentation mode aimer attribute from presentation
             String presentationModeAimer =  mSpinnerPresentationModeAimer.getSelectedItem().toString();
             mPresentationMode.presentationModeAimerEnable.set(kBooleanOptionsMap.get(presentationModeAimer));
 
-            // Change presentation mode
+            // ======================================================================
+            // STEP 4: ENABLE/DISABLE PRESENTATION MODE
+            // ======================================================================
+            // Retrieve the presentation mode attribute from presentation
             String  presentationMode = mSpinnerPresentationMode.getSelectedItem().toString();
             mPresentationMode.presentationModeEnable.set(kBooleanOptionsMap.get(presentationMode));
 
-            // Change presentation mode sensitivity
+            // ======================================================================
+            // STEP 5: ENABLE/DISABLE PRESENTATION MODE SENSITIVITY
+            // ======================================================================
+            // Retrieve the presentation mode sensitivity attribute from presentation
             int presentationModeSensitivity =  Integer.parseInt(mEditTextPresentationModeSensitivity.getText().toString());
             mPresentationMode.presentationModeSensitivity.set(presentationModeSensitivity);
 
-            // Apply change
+            // ======================================================================
+            // STEP 6: STORING THE CHANGES TO APPLY THE SCANNER'S PRESENTATION
+            // ======================================================================
+            // Store the changes to persist the updated settings to the device's storage.
+            // This saves and applies the changes to the scanner's presentation, making them persistent across reboots.
             mPresentationMode.store(mBarcodeManager, true);
         });
 

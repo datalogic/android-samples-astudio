@@ -21,7 +21,16 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * KeyboardWedgeFragment is an example of how to use the Datalogic SDK to configure the Scanner's keyboard wedge.
+ * <p>
+ * The Keyboard Wedge allows users to modify the scanner's keyboard wedge settings.
+ * Links to the Datalogic SDK documentation for the relevant properties:
+ * <ul>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/KeyWedgeMode.html">KeyWedgeMode</a></li>
+ * </ul>
+ * </p>
+ */
 public class KeyboardWedgeFragment extends Fragment {
 
     KeyboardWedge mKeyboardWedge;
@@ -48,7 +57,26 @@ public class KeyboardWedgeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // ======================================================================
+        // STEP 1: INITIALIZING THE BARCODE MANAGER
+        // ======================================================================
+        // The BarcodeManager allows interaction with the scanner's symbology.
+        // It provides methods for enabling or disabling specific symbology.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/BarcodeManager.html
+        //
         mBarcodeManager = new BarcodeManager();
+
+        // ======================================================================
+        // STEP 2: INITIALIZING THE KEYBOARD WEDGE
+        // ======================================================================
+        // The Keyboard Wedge allows users to configure the scanner's keyboard wedge.
+        // It provides methods for enabling/disabling the keyboard wedge and setting its mode.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/KeyboardWedge.html
+        //
         mKeyboardWedge = new KeyboardWedge(mBarcodeManager);
     }
 
@@ -85,24 +113,36 @@ public class KeyboardWedgeFragment extends Fragment {
 
         // Handle logic for button
         mButtonStore.setOnClickListener(v->{
-            // Change keyboard wedge
+            // ======================================================================
+            // STEP 3: ENABLE/DISABLE KEYBOARD WEDGE
+            // ======================================================================
+            // Retrieve the keyboard wedge enable attribute from the spinner
             String keyboardWedgeValue = mSpinnerKeyboardWedge.getSelectedItem().toString();
+            // Set the enable/disable state for the Keyboard Wedge
             mKeyboardWedge.enable.set(kBooleanOptionsMap.get(keyboardWedgeValue));
 
-            // Change only focus
+            // ======================================================================
+            // STEP 4: CHANGE ONLY ON FOCUS
+            // ======================================================================
+            // Retrieve the only on focus attribute from the spinner
             String onlyFocusValue = mSpinnerOnlyFocus.getSelectedItem().toString();
+            // Set the only on focus state for the Keyboard Wedge
             mKeyboardWedge.onlyOnFocus.set(kBooleanOptionsMap.get(onlyFocusValue));
 
-            // Change wedge mode
+            // ======================================================================
+            // STEP 5: CHANGE WEDGE MODE
+            // ======================================================================
+            // Retrieve the wedge mode attribute from the spinner
             KeyWedgeMode keyWedgeMode = (KeyWedgeMode) mSpinnerWedgeMode.getSelectedItem();
+            // Set the wedge mode for the Keyboard Wedge
             mKeyboardWedge.wedgeMode.set(keyWedgeMode);
 
-            // Apply Change
+            // ======================================================================
+            // STEP 6: STORING THE CHANGES TO APPLY THE SCANNER'S KEYBOARD WEDGE
+            // ======================================================================
+            // Store the changes to persist the updated Keyboard Wedge configuration
             mKeyboardWedge.store(mBarcodeManager, true);
-
         });
-
-
         return view;
     }
 }

@@ -21,7 +21,21 @@ import com.datalogic.decode.configuration.ToneNotificationMode;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * DecodingNotificationFragment is an example of how to use the Datalogic SDK to configure the Scanner's decoding notification.
+ * <p>
+ * The Decoding Notification allows users to modify the scanner's notification settings for successful decodes.
+ * Links to the Datalogic SDK documentation for the relevant properties:
+ * <ul>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/ToneNotificationChannel.html">ToneNotificationChannel</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/ToneNotificationMode.html">ToneNotificationMode</a></li>
+ * </ul>
+ * </p>
+ */
 public class DecodingNotificationFragment extends Fragment {
+    // ======================================================================
+    // STEP 1: DECLARING VARIABLES
+    // ======================================================================
     BarcodeManager mBarcodeManager;
     DecodingNotification mDecodingNotification;
     Spinner mSpinnerGoodReadAudioChannel ;
@@ -49,7 +63,26 @@ public class DecodingNotificationFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // ======================================================================
+        // STEP 2: INITIALIZING THE BARCODE MANAGER
+        // ======================================================================
+        // The BarcodeManager allows interaction with the scanner's symbology.
+        // It provides methods for enabling or disabling specific symbology.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/BarcodeManager.html
+        //
         mBarcodeManager = new BarcodeManager();
+
+        // ======================================================================
+        // STEP 3: INITIALIZING THE DECODING NOTIFICATION
+        // ======================================================================
+        // The Decoding Notification allows users to configure the scanner's notification settings.
+        // It provides methods for setting audio channels, modes, and other notification properties.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/DecodingNotification.html
+        //
         mDecodingNotification = new DecodingNotification(mBarcodeManager);
     }
 
@@ -100,39 +133,74 @@ public class DecodingNotificationFragment extends Fragment {
         // Handle logic button
         mButtonStore.setOnClickListener(v->{
 
-            // Change audio channel
+            // ======================================================================
+            // STEP 4: CHANGE AUDIO CHANNEL
+            // ======================================================================
+            // Retrieve the audio channel attribute from the spinner
             ToneNotificationChannel toneNotificationChannel = (ToneNotificationChannel) mSpinnerGoodReadAudioChannel.getSelectedItem();
+            // Set the audio channel for the Decoding Notification
             mDecodingNotification.goodReadAudioChannel.set(toneNotificationChannel);
 
-            // Change audio mode
+            // ======================================================================
+            // STEP 5: CHANGE AUDIO MODE
+            // ======================================================================
+            // Retrieve the audio mode attribute from the spinner
             ToneNotificationMode toneNotificationMode = (ToneNotificationMode) mSpinnerGoodReadAudioMode.getSelectedItem();
+            // Set the audio mode for the Decoding Notification
             mDecodingNotification.goodReadAudioMode.set(toneNotificationMode);
 
-            // Change audio file
+            // ======================================================================
+            // STEP 6: CHANGE AUDIO FILE
+            // ======================================================================
+            // Retrieve the audio file path from the EditText
             String audioFile = mEditTextGoodReadAudioFile.getText().toString();
+            // Set the audio file for the Decoding Notification
             mDecodingNotification.goodReadAudioFile.set(audioFile);
 
-            // Change audio volume
+            // ======================================================================
+            // STEP 7: CHANGE AUDIO VOLUME
+            // ======================================================================
+            // Retrieve the audio volume value from the EditText
             int audioVolume = Integer.parseInt(mEditTextGoodReadAudioVolume.getText().toString());
+            // Set the audio volume for the Decoding Notification
             mDecodingNotification.goodReadAudioVolume.set(audioVolume);
 
-            // Change count
+            // ======================================================================
+            // STEP 8: CHANGE GOOD READ COUNT
+            // ======================================================================
+            // Retrieve the good read count value from the EditText
             int count = Integer.parseInt(mEditTextGoodReadCount.getText().toString());
+            // Set the good read count for the Decoding Notification
             mDecodingNotification.goodReadCount.set(count);
 
-            // Change duration
+            // ======================================================================
+            // STEP 9: CHANGE GOOD READ DURATION
+            // ======================================================================
+            // Retrieve the good read duration value from the EditText
             int duration = Integer.parseInt(mEditTextGoodReadDuration.getText().toString());
+            // Set the good read duration for the Decoding Notification
             mDecodingNotification.goodReadDuration.set(duration);
 
-            // Change interval
+            // ======================================================================
+            // STEP 10: CHANGE GOOD READ INTERVAL
+            // ======================================================================
+            // Retrieve the good read interval value from the EditText
             int interval = Integer.parseInt(mEditTextGoodReadInterval.getText().toString());
+            // Set the good read interval for the Decoding Notification
             mDecodingNotification.goodReadInterval.set(interval);
 
-            // Change timeout
+            // ======================================================================
+            // STEP 11: CHANGE GOOD READ TIMEOUT
+            // ======================================================================
+            // Retrieve the good read timeout value from the EditText
             int timeout = Integer.parseInt(mEditTextGoodReadTimeout.getText().toString());
+            // Set the good read timeout for the Decoding Notification
             mDecodingNotification.goodReadTimeout.set(timeout);
 
-            // Apply Change
+            // ======================================================================
+            // STEP 12: STORING THE CHANGES TO APPLY THE SCANNER'S DECODING NOTIFICATIONS
+            // ======================================================================
+            // Store the changes to persist the updated Decoding notification configuration
             mDecodingNotification.store(mBarcodeManager, true);
         });
         return view;

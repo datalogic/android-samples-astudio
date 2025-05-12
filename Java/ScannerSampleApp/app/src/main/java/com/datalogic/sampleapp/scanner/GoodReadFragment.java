@@ -18,10 +18,18 @@ import com.datalogic.decode.configuration.GoodRead;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * GoodReadFragment is an example of how to use the Datalogic SDK to configure the Scanner's Good Read settings.
+ * <p>
+ * The Good Read settings allow users to enable or disable various feedback mechanisms, such as LED, vibration,
+ * and green spot, for successful barcode scans.
+ * </p>
+ */
 public class GoodReadFragment extends Fragment {
+    // ======================================================================
+    // STEP 1: DECLARING VARIABLES
+    // ======================================================================
     BarcodeManager mBarcodeManager;
-
     GoodRead mGoodRead;
 
     Spinner mSpinnerGoodReadEnable;
@@ -42,7 +50,26 @@ public class GoodReadFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // ======================================================================
+        // STEP 2: INITIALIZING THE BARCODE MANAGER
+        // ======================================================================
+        // The BarcodeManager allows interaction with the scanner's symbology.
+        // It provides methods for enabling or disabling specific symbology.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/BarcodeManager.html
+        //
         mBarcodeManager = new BarcodeManager();
+
+        // ======================================================================
+        // STEP 3: INITIALIZING THE GOOD READ CONFIGURATION
+        // ======================================================================
+        // The Good Read configuration allows users to enable or disable various feedback mechanisms,
+        // such as LED, vibration, and green spot, for successful barcode scans.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/GoodRead.html
+        //
         mGoodRead = new GoodRead(mBarcodeManager);
     }
 
@@ -77,20 +104,42 @@ public class GoodReadFragment extends Fragment {
 
         // Handle logic for button
         mStoreButton.setOnClickListener( v-> {
-            // Change good read enable
+            // ======================================================================
+            // STEP 4: CHANGE GOOD READ ENABLE
+            // ======================================================================
+            // Retrieve the good read enable attribute from the spinner
             String goodReadEnable = mSpinnerGoodReadEnable.getSelectedItem().toString();
+            // Set the good read enable state for the Good Read
             mGoodRead.goodReadEnable.set(kBooleanOptionsMap.get(goodReadEnable));
-            // Change good read led enable
+
+            // ======================================================================
+            // STEP 5: CHANGE GOOD READ LED ENABLE
+            // ======================================================================
+            // Retrieve the good read LED enable attribute from the spinner
             String goodReadLedEnable = mSpinnerGoodReadLedEnable.getSelectedItem().toString();
+            // Set the good read LED enable state for the Good Read
             mGoodRead.goodReadLedEnable.set(kBooleanOptionsMap.get(goodReadLedEnable));
-            // Change good read vibrate enable
+
+            // ======================================================================
+            // STEP 6: CHANGE GOOD READ VIBRATE ENABLE
+            // ======================================================================
+            // Retrieve the good read vibrate enable attribute from the spinner
             String goodReadVibrateEnable = mSpinnerGoodReadVibrateEnable.getSelectedItem().toString();
+            // Set the good read vibrate enable state for the Good Read
             mGoodRead.goodReadVibrateEnable.set(kBooleanOptionsMap.get(goodReadVibrateEnable));
-            // Change green spot enable
+
+            // ======================================================================
+            // STEP 7: CHANGE GREEN SPOT ENABLE
+            // ======================================================================
+            // Retrieve the green spot enable attribute from the spinner
             String greenSpot = mSpinnerGreenSpot.getSelectedItem().toString();
+            // Set the green spot enable state for the Good Read
             mGoodRead.greenSpotEnable.set(kBooleanOptionsMap.get(greenSpot));
 
-            // Apply Change
+            // ======================================================================
+            // STEP 8: STORING THE CHANGES TO APPLY THE SCANNER'S GOOD READ SETTINGS
+            // ======================================================================
+            // Store the changes to persist the updated Good Read configuration
             mGoodRead.store(mBarcodeManager, true);
         });
         return view;

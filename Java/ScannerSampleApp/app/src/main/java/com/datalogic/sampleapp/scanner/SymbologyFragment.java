@@ -21,6 +21,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * SymbologyFragment is an example of how to use the Datalogic SDK to enable/disable specific symbology.
+ * <p>
+ * In particular, Symbology allows devices choose specific symbology can be enabled or disabled,
+ * ensuring a seamless and controlled pairing process.
+ * Links to the Datalogic SDK documentation for the relevant properties:
+ * <ul>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/Symbology.html">Symbology</a></li>
+ * </ul>
+ * </p>
+ */
 public class SymbologyFragment extends Fragment {
 
     private BarcodeManager mBarcodeManager;
@@ -43,6 +54,15 @@ public class SymbologyFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // ======================================================================
+        // STEP 1: INITIALIZING THE BARCODE MANAGER
+        // ======================================================================
+        // The BarcodeManager allows interaction with the scanner's symbology.
+        // It provides methods for enabling or disabling specific symbology.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/BarcodeManager.html
+        //
         mBarcodeManager = new BarcodeManager();
     }
 
@@ -71,6 +91,9 @@ public class SymbologyFragment extends Fragment {
         mButtonApplyAll = view.findViewById(R.id.apply_all_button);
         mButtonApplyAll.setOnClickListener(v->{
             String value = mSpinnerValueAll.getSelectedItem().toString();
+            // ======================================================================
+            // STEP 2: Enable/Disable all symbology
+            // ======================================================================
             if (value.equals("Enable")) {
                 if (mBarcodeManager.enableAllSymbologies(true) == DecodeException.SUCCESS) {
                     Toast.makeText(getContext(),"apply successfully", Toast.LENGTH_SHORT).show();
@@ -86,10 +109,14 @@ public class SymbologyFragment extends Fragment {
             }
         });
 
+
         mButtonApplySpecific = view.findViewById(R.id.apply_specific_button);
         mButtonApplySpecific.setOnClickListener(v->{
             Symbology valueSymbology = (Symbology) mSpinnerOption.getSelectedItem();
             String value = mSpinnerValueSpecific.getSelectedItem().toString();
+            // ======================================================================
+            // STEP 3: Enable/Disable specific symbology
+            // ======================================================================
             if (value.equals("Enable")) {
                 if (mBarcodeManager.enableSymbology(valueSymbology,true) == DecodeException.SUCCESS) {
                     Toast.makeText(getContext(),"apply successfully", Toast.LENGTH_SHORT).show();

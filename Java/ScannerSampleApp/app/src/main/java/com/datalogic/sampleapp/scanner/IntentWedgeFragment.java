@@ -23,6 +23,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * IntentWedgeFragment is an example of how to use the Datalogic SDK to configure Scanner's intent wedge.
+ * <p>
+ * Intent Wedge let user can modify scanner's intent wedge
+ * Links to the Datalogic SDK documentation for the relevant properties:
+ * <ul>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/IntentDeliveryMode.html">IntentDeliveryMode</a></li>
+ * </ul>
+ * </p>
+ */
 public class IntentWedgeFragment extends Fragment {
     BarcodeManager mBarcodeManager;
     IntentWedge mIntentWedge;
@@ -49,7 +59,26 @@ public class IntentWedgeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // ======================================================================
+        // STEP 1: INITIALIZING THE BARCODE MANAGER
+        // ======================================================================
+        // The BarcodeManager allows interaction with the scanner's symbology.
+        // It provides methods for enabling or disabling specific symbology.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/BarcodeManager.html
+        //
         mBarcodeManager = new BarcodeManager();
+
+        // ======================================================================
+        // STEP 2: INITIALIZING THE INTENT WEDGE
+        // ======================================================================
+        // The Intent Wedge allows user config scanner's intent wedge.
+        // It provides methods for scanner's intent wedge.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/IntentWedge.html
+        //
         mIntentWedge = new IntentWedge(mBarcodeManager);
     }
 
@@ -97,35 +126,67 @@ public class IntentWedgeFragment extends Fragment {
 
         // Handle business logic
         mButtonStore.setOnClickListener( v-> {
-            // Change intent mode
+            // ======================================================================
+            // STEP 3: ENABLE/DISABLE INTENT WEDGE
+            // ======================================================================
+            // Retrieve the intent wedge enable attribute from the spinner
             String intentValue = mSpinnerIntentEnable.getSelectedItem().toString();
+            // Set the enable/disable state for the Intent Wedge
             mIntentWedge.enable.set(kBooleanOptionsMap.get(intentValue));
 
-            // Change delivery mode
+            // ======================================================================
+            // STEP 4: CHANGE DELIVERY MODE
+            // ======================================================================
+            // Retrieve the delivery mode attribute from the spinner
             IntentDeliveryMode intentDeliveryMode = (IntentDeliveryMode) mSpinnerDeliveryMode.getSelectedItem();
+            // Set the delivery mode for the Intent Wedge
             mIntentWedge.deliveryMode.set(intentDeliveryMode);
 
-            // Change action
+            // ======================================================================
+            // STEP 5: SET ACTION STRING
+            // ======================================================================
+            // Retrieve the action string attribute from the input field
             String action = mEditTextAction.getText().toString();
+            // Set the action string for the Intent Wedge
             mIntentWedge.action.set(action);
 
-            // Change category
+            // ======================================================================
+            // STEP 6: SET CATEGORY STRING
+            // ======================================================================
+            // Retrieve the category string attribute from the input field
             String category = mEditTextCategory.getText().toString();
+            // Set the category string for the Intent Wedge
             mIntentWedge.category.set(category);
 
-            // Change extra barcode data
+            // ======================================================================
+            // STEP 7: SET EXTRA BARCODE DATA
+            // ======================================================================
+            // Retrieve the extra barcode data attribute from the input field
             String barcodeData = mEditTextBarcodeData.getText().toString();
+            // Set the extra barcode data for the Intent Wedge
             mIntentWedge.extraBarcodeData.set(barcodeData);
 
-            // Change extra barcode string
+            // ======================================================================
+            // STEP 8: SET EXTRA BARCODE STRING
+            // ======================================================================
+            // Retrieve the extra barcode string attribute from the input field
             String barcodeString = mEditTextBarcodeString.getText().toString();
+            // Set the extra barcode string for the Intent Wedge
             mIntentWedge.extraBarcodeString.set(barcodeString);
 
-            // Change extra barcode type
+            // ======================================================================
+            // STEP 9: SET EXTRA BARCODE TYPE
+            // ======================================================================
+            // Retrieve the extra barcode type attribute from the input field
             String barcodeType = mEditTextBarcodeType.getText().toString();
+            // Set the extra barcode type for the Intent Wedge
             mIntentWedge.extraBarcodeType.set(barcodeType);
 
-            // Apply Change
+            // ======================================================================
+            // STEP 10: STORING THE CHANGES TO APPLY THE SCANNER'S INTENT WEDGE
+            // ======================================================================
+            // Store the changes to persist the updated Intent Wedge configuration
+            // This saves and applies the changes to the scanner's intent wedge, making them persistent across reboots.
             mIntentWedge.store(mBarcodeManager, true);
         });
         return view;

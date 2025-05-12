@@ -28,6 +28,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * ScannerOptionsFragment is an example of how to use the Datalogic SDK to configure Scanner's settings.
+ * <p>
+ * Scan Options let user can modify scanner's behavior
+ * Links to the Datalogic SDK documentation for the relevant properties:
+ * <ul>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/ImageCaptureProfile.html">ImageCaptureProfile</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/IlluminationType.html">IlluminationType</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/ScanMode.html">ScanMode</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/BeamMode.html">BeamMode</a></li>
+ *   <li><a href="https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/IlluminationTime.html">IlluminationTime</a></li>
+ * </ul>
+ * </p>
+ */
 public class ScannerOptionsFragment extends Fragment {
     private static final String TAG = ScannerOptionsFragment.class.getSimpleName();
 
@@ -100,7 +114,26 @@ public class ScannerOptionsFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // ======================================================================
+        // STEP 1: INITIALIZING THE BARCODE MANAGER
+        // ======================================================================
+        // The BarcodeManager allows interaction with the scanner's symbology.
+        // It provides methods for enabling or disabling specific symbology.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/BarcodeManager.html
+        //
         mBarcodeManager = new BarcodeManager();
+
+        // ======================================================================
+        // STEP 2: INITIALIZING THE SCANNER OPTIONS
+        // ======================================================================
+        // The ScannerOptions allows interaction with the scanner's functionality.
+        // It provides methods for scanner's settings modification.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/ScannerOptions.html
+        //
         mScannerOptions = new ScannerOptions(mBarcodeManager);
     }
 
@@ -218,27 +251,45 @@ public class ScannerOptionsFragment extends Fragment {
 
         // Logic for Change scanner option
         mStoreButton.setOnClickListener(v->{
-            // Change display mode
+            // ======================================================================
+            // STEP 3: ENABLE/DISABLE THE DISPLAY MODE
+            // ======================================================================
+            // Retrieve the display mode attribute from scanner options
             String displayMode = mSpinnerDisplayMode.getSelectedItem().toString();
             mScannerOptions.displayModeEnable.set(kBooleanOptionsMap.get(displayMode));
 
-            // Change illumination mode
+            // ======================================================================
+            // STEP 4: ENABLE/DISABLE THE ILLUMINATION MODE
+            // ======================================================================
+            // Retrieve the illumination mode attribute from scanner options
             String illuminationMode = mSpinnerIlluminationMode.getSelectedItem().toString();
             mScannerOptions.illuminationEnable.set(kBooleanOptionsMap.get(illuminationMode));
 
-            // Change aim mode
+            // ======================================================================
+            // STEP 5: ENABLE/DISABLE THE AIM MODE
+            // ======================================================================
+            // Retrieve the aim mode attribute from scanner options
             String aimMode = mSpinnerAimMode.getSelectedItem().toString();
             mScannerOptions.aimEnable.set(kBooleanOptionsMap.get(aimMode));
 
-            // Change picklist mode
+            // ======================================================================
+            // STEP 6: ENABLE/DISABLE THE PICK LIST
+            // ======================================================================
+            // Retrieve the pick list attribute from scanner options
             String picklistMode = mSpinnerPickListMode.getSelectedItem().toString();
             mScannerOptions.picklistEnable.set(kBooleanOptionsMap.get(picklistMode));
 
-            // Change target mode
+            // ======================================================================
+            // STEP 7: ENABLE/DISABLE THE TARGET MODE
+            // ======================================================================
+            // Retrieve the target mode attribute from scanner options
             String targetMode = mSpinnerTargetMode.getSelectedItem().toString();
             mScannerOptions.targetModeEnable.set(kBooleanOptionsMap.get(targetMode));
 
-            // Change beam mode
+            // ======================================================================
+            // STEP 8: CHANGE THE BEAM MODE
+            // ======================================================================
+            // Retrieve the beam mode attribute from scanner options
             BeamMode beamMode = (BeamMode) mSpinnerBeamMode.getSelectedItem();
             mScannerOptions.targetMode.set(beamMode);
 
@@ -252,45 +303,81 @@ public class ScannerOptionsFragment extends Fragment {
                 mScannerOptions.targetReleaseTimeout.set(targetReleaseScan);
             }
 
+            // ======================================================================
+            // STEP 9: CHANGE THE DECODE TIMEOUT
+            // ======================================================================
+            // Retrieve the decode timeout attribute from scanner options
             int decodeTimeout = Integer.parseInt(mEditTextDecodeTimeout.getText().toString());
             mScannerOptions.decodeTimeout.set(decodeTimeout);
 
-            // Change Image Capture Profile
+            // ======================================================================
+            // STEP 10: CHANGE THE IMAGE CAPTURE PROFILE
+            // ======================================================================
+            // Retrieve the image capture profile attribute from scanner options
             ImageCaptureProfile imageCaptureProfile = (ImageCaptureProfile) mSpinnerImageCaptureProfile.getSelectedItem();
             mScannerOptions.imageCaptureProfile.set(imageCaptureProfile);
 
-            // Change Custom Image Capture Profile
+            // ======================================================================
+            // STEP 11: CHANGE THE CUSTOM IMAGE CAPTURE PROFILE
+            // ======================================================================
+            // Retrieve the custom image capture profile attribute from scanner options
             int customImageCaptureProfile = Integer.parseInt(mEditTextCustomImageCaptureProfile.getText().toString());
             mScannerOptions.customImageCaptureProfile.set(customImageCaptureProfile);
 
-            // Change Illumination type
+            // ======================================================================
+            // STEP 12: CHANGE THE ILLUMINATION TYPE
+            // ======================================================================
+            // Retrieve the illumination type attribute from scanner options
             IlluminationType illuminationType = (IlluminationType) mSpinnerIlluminationType.getSelectedItem();
             mScannerOptions.illuminationType.set(illuminationType);
 
-            // Change Scan mode
+            // ======================================================================
+            // STEP 13: CHANGE THE SCAN MODE
+            // ======================================================================
+            // Retrieve the scan mode attribute from scanner options
             ScanMode scanMode = (ScanMode) mSpinnerScanMode.getSelectedItem();
             mScannerOptions.scanMode.set(scanMode);
 
-            // Change double read timeout
+            // ======================================================================
+            // STEP 14: CHANGE DOUBLE READ TIMEOUT
+            // ======================================================================
+            // Retrieve the double read timeout attribute from scanner options
             int doubleReadTimeout = Integer.parseInt(mEditTextDoubleReadTimeout.getText().toString());
             mScannerOptions.doubleReadTimeout.set(doubleReadTimeout);
 
-            // Change illumination time
+            // ======================================================================
+            // STEP 15: CHANGE ILLUMINATION TIME
+            // ======================================================================
+            // Retrieve the illumination time attribute from scanner options
             IlluminationTime illuminationTime = (IlluminationTime) mSpinnerIlluminationTime.getSelectedItem();
             mScannerOptions.illuminationTime.set(illuminationTime);
 
-            // Change Enhance DOF
+            // ======================================================================
+            // STEP 16: CHANGE DEPTH OF FIELD
+            // ======================================================================
+            // Retrieve the dof attribute from scanner options
             String enhanceDof = mSpinnerEnhanceDOFEnable.getSelectedItem().toString();
             mScannerOptions.enhanceDOFEnable.set(kBooleanOptionsMap.get(enhanceDof));
 
-            // Change image decode timeout
+            // ======================================================================
+            // STEP 17: CHANGE DECODE TIMEOUT
+            // ======================================================================
+            // Retrieve the image decode timeout attribute from scanner options
             int imageDecodeTimeout = Integer.parseInt(mEditTextImageDecodeTimeout.getText().toString());
             mScannerOptions.imageDecodeTimeout.set(imageDecodeTimeout);
 
-            // Change scanner mode
+            // ======================================================================
+            // STEP 18: ENABLE/DISABLE SCANNER MODE
+            // ======================================================================
+            // Retrieve the scanner mode attribute from scanner options
             String scannerMode = mSpinnerScannerMode.getSelectedItem().toString();
             mScannerOptions.enableScanner.set(kBooleanOptionsMap.get(scannerMode));
 
+            // ======================================================================
+            // STEP 19: STORING THE CHANGES TO APPLY THE SCANNER'S SETTINGS
+            // ======================================================================
+            // Store the changes to persist the updated settings to the device's storage.
+            // This saves and applies the changes to the scanner's settings, making them persistent across reboots.
             mScannerOptions.store(mBarcodeManager, true);
         });
 

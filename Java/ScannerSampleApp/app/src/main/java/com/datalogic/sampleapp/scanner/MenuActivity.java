@@ -20,6 +20,23 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * MenuActivity is an entry point for each functionality of the Scanner.
+ * <p>
+ * Each functionality is handled by a specific fragment:
+ * <ul>
+ *   <li>{@link SymbologyFragment}</li>
+ *   <li>{@link ScannerOptionsFragment}</li>
+ *   <li>{@link StandardFormatterFragment}</li>
+ *   <li>{@link PresentationModeFragment}</li>
+ *   <li>{@link IntentWedgeFragment}</li>
+ *   <li>{@link KeyboardWedgeFragment}</li>
+ *   <li>{@link WebWedgeFragment}</li>
+ *   <li>{@link DecodingNotificationFragment}</li>
+ *   <li>{@link GoodReadFragment}</li>
+ * </ul>
+ * </p>
+ */
 public class MenuActivity extends FragmentActivity {
     private static final String TAG = MenuActivity.class.getSimpleName();
     private static final String LAST_FRAGMENT_TAG = "lastFragmentTag";

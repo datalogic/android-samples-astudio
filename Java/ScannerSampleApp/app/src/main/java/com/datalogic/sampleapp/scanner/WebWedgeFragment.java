@@ -19,16 +19,29 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * WebWedgeFragment is an example of how to use the Datalogic SDK to configure the Scanner's Web Wedge.
+ * <p>
+ * The Web Wedge allows users to enable or disable the scanner's web wedge functionality.
+ * This fragment demonstrates how to configure the Web Wedge using the Datalogic SDK.
+ * </p>
+ */
 public class WebWedgeFragment extends Fragment {
 
+    // ======================================================================
+    // STEP 1: DECLARING VARIABLES
+    // ======================================================================
+    // The WebWedge object allows configuration of the scanner's web wedge.
     WebWedge mWebWedge;
 
+    // The BarcodeManager manages the scanner's barcode-related functionalities.
     BarcodeManager mBarcodeManager;
 
+    // UI components for user interaction.
     Button mStoreButton;
-
     Spinner mSpinnerWebWedge;
 
+    // Map for boolean options (Enable/Disable).
     static Map<String, Boolean> kBooleanOptionsMap = new HashMap<>();
 
     static {
@@ -39,7 +52,27 @@ public class WebWedgeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // ======================================================================
+        // STEP 2: INITIALIZING THE BARCODE MANAGER
+        // ======================================================================
+        // The BarcodeManager allows interaction with the scanner's symbology.
+        // It provides methods for enabling or disabling specific symbology.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/BarcodeManager.html
+        //
         mBarcodeManager = new BarcodeManager();
+
+        // ======================================================================
+        // STEP 3: INITIALIZING THE WEB WEDGE
+        // ======================================================================
+        // The Web Wedge allows users to configure the scanner's web wedge.
+        // It provides methods for enabling/disabling the web wedge functionality.
+        //
+        // Refer to the official Datalogic SDK documentation here:
+        // https://datalogic.github.io/android-sdk-docs/reference/com/datalogic/decode/configuration/WebWedge.html
+        //
         mWebWedge = new WebWedge(mBarcodeManager);
     }
 
@@ -50,27 +83,34 @@ public class WebWedgeFragment extends Fragment {
 
         mStoreButton = view.findViewById(R.id.apply_change_button);
 
-        // Adapter for boolean value
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(                                                                                                                                                                                getContext()
-                , android.R.layout.simple_spinner_item
-                , new ArrayList<>(kBooleanOptionsMap.keySet()));
+        // Adapter for boolean values (Enable/Disable).
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                getContext(),
+                android.R.layout.simple_spinner_item,
+                new ArrayList<>(kBooleanOptionsMap.keySet())
+        );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        // Spinner for enable
+        // Spinner for enabling/disabling the Web Wedge.
         mSpinnerWebWedge = view.findViewById(R.id.web_wedge_enable_value);
         mSpinnerWebWedge.setAdapter(adapter);
 
-        mStoreButton.setOnClickListener(v->{
-            // Change web wedge
-            String webWedge = mSpinnerWebWedge.getSelectedItem().toString();
-            mWebWedge.enable.set(kBooleanOptionsMap.get(webWedge));
+        mStoreButton.setOnClickListener(v -> {
+            // ======================================================================
+            // STEP 4: CHANGE WEB WEDGE ENABLE
+            // ======================================================================
+            // Retrieve the web wedge enable attribute from the spinner
+            String webWedgeEnable = mSpinnerWebWedge.getSelectedItem().toString();
+            // Set the enable/disable state for the Web Wedge
+            mWebWedge.enable.set(kBooleanOptionsMap.get(webWedgeEnable));
 
+            // ======================================================================
+            // STEP 5: STORE WEB WEDGE CONFIGURATION
+            // ======================================================================
+            // Store the changes to persist the updated Web Wedge configuration
             mWebWedge.store(mBarcodeManager, true);
         });
 
-
-
         return view;
     }
-
 }
