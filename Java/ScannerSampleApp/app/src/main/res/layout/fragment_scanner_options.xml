@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <!-- TextView -->
+            <TextView
+                android:id="@+id/text_view_display_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Display:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/display_mode_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_illumination_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Illumination:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/illumination_mode_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_aim_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aim:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/aim_mode_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_pick_list_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Picklist:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/pick_list_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_target_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Target:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/target_mode_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_beam_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beam:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/beam_mode_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_target_timeout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Target Timeout(s):"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/target_timeout_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_target_release_timeout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Target Release Timeout(s):"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <EditText
+                android:id="@+id/target_release_timeout_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:text="2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_decode_timeout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Decode Timeout(s):"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <EditText
+                android:id="@+id/decode_timeout_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:text="5000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_image_capture_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Image Capture Profile:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/target_image_capture_profile_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_custom_image_capture_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Custom Image Capture Profile:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <EditText
+                android:id="@+id/custom_image_capture_profile_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:text="100" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_illumination_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Illumination Type:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/illumination_type_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_scan_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan Mode:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/scan_mode_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_double_read_timeout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Double Read Timeout:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <EditText
+                android:id="@+id/double_read_timeout_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:text="1000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_illumination_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Illumination Time:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/illumination_time_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_enhance_dof_enable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enhance DOF:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/enhance_dof_enable_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_view_image_decode_timeout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Image Decode Timeout:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <EditText
+                android:id="@+id/image_decode_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:text="1000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/text_enable_scanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scanner:"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/enable_scanner_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/apply_change_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Store" />
+
+    </LinearLayout>
+</ScrollView>

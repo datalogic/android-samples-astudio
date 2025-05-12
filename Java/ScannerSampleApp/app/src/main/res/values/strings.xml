@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sample Scanner</string>
+<!--    <string-array name="symbologyOptions">-->
+<!--        <item>Code 128</item>-->
+<!--        <item>Code 39</item>-->
+<!--        <item>QR Code</item>-->
+<!--        <item>Data Matrix</item>-->
+<!--        <item>EAN-13</item>-->
+<!--        <item>UPC-A</item>-->
+<!--    </string-array>-->
+
+<!--    <string-array name="symbologyValue">-->
+<!--        <item>Enable</item>-->
+<!--        <item>Disable</item>-->
+<!--    </string-array>-->
+</resources>
