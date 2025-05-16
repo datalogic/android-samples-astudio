@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">PackageInstallerSample</string>
+    <string name="enable">Enable</string>
+    <string name="disable">Disable</string>
+    <string name="grant_permissions">Grant Permissions</string>
+    <string name="revoke_permissions">Revoke Permissions</string>
+    <string name="add_battery_optimization_exemption">Add Battery Exemption</string>
+    <string name="remove_battery_optimization_exemption">Remove Battery Exemption</string>
+    <string name="hide_application">Hide Application</string>
+    <string name="unhidden_application">Unhidden Application</string>
+    <string name="enable_notification_channel">Enable Notification Channel</string>
+    <string name="disable_notification_channel">Disable Notification Channel</string>
+    <string name="enable_notification_package">Enable Notification Package</string>
+    <string name="disable_notification_package">Disable Notification Package</string>
+    <string name="install_force_pgk">Install Force Upgrade</string>
+    <string name="install_not_force_pgk">Install Not Force Upgrade</string>
+
+
+
+</resources>
